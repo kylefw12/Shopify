@@ -25,6 +25,9 @@
           {%- endif -%}
         </div>
       {%- endif -%}
+      {%- if product.tags contains 'bundle-eligible' or product.tags contains '3 for 2' -%}
+        <div class="product-badges__badge product-badges__badge--rectangle luminaura-card-bundle-badge">3 for 2</div>
+      {%- endif -%}
     </div>
     {%  if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add', product: product, section_id: section.id %}

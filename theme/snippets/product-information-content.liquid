@@ -42,10 +42,11 @@
     assign render_order = 'product-details,media'
   endif
 
-  # Check if product has media
+  # Always reserve an editorial media frame. Products without photography receive a stable placeholder.
   assign product_has_media = true
+  assign product_has_real_media = true
   if product_media_size == 0
-    assign product_has_media = false
+    assign product_has_real_media = false
   endif
 
   # Build product grid class
@@ -92,16 +93,19 @@
   >
     {% assign render_order_array = render_order | split: ',' %}
     {% capture media %}
-      <div
-        class="product-information__media"
-        data-testid="product-information-media"
-      >
-        {{ media_gallery }}
+      <div class="product-information__media" data-testid="product-information-media">
+        {% if product_has_real_media %}
+          {{ media_gallery }}
+        {% else %}
+          <div class="luminaura-product-placeholder" role="img" aria-label="{{ product.title | escape }} image placeholder">
+            <span>{{ shop.name }}</span>
+          </div>
+        {% endif %}
       </div>
     {% endcapture %}
 
     {% for block in render_order_array %}
-      {% if block == 'media' and product_has_media %}
+      {% if block == 'media' %}
         {{ media }}
       {% elsif block == 'product-details' %}
         {{ product_details }}
