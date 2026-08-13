@@ -1,0 +1,160 @@
+<section class="luminaura-bundle-builder color-{{ section.settings.color_scheme }}">
+  <div class="luminaura-bundle-builder__inner">
+    <div class="luminaura-bundle-builder__intro">
+      <span class="luminaura-bundle-builder__eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.text }}</p>
+      <a class="button" href="{{ section.settings.button_link | default: '/collections/all' }}">{{ section.settings.button_label }}</a>
+    </div>
+
+    <div class="luminaura-bundle-builder__panel" data-luminaura-bundle-builder>
+      <div class="luminaura-bundle-builder__steps" aria-label="Bundle progress">
+        <span data-luminaura-step>1</span>
+        <span data-luminaura-step>2</span>
+        <span data-luminaura-step>Free</span>
+      </div>
+      <strong data-luminaura-bundle-status>Choose 3 pieces. Pay for 2.</strong>
+      <p data-luminaura-bundle-helper>Use the bundle buttons on product pages to build your set.</p>
+      <a class="button button-secondary" href="{{ section.settings.collection_link | default: '/collections/all' }}">Start With Eligible Pieces</a>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .luminaura-bundle-builder {
+    padding: clamp(48px, 7vw, 88px) var(--padding-xl);
+    background:
+      linear-gradient(135deg, rgb(var(--color-foreground-rgb) / 0.05), transparent 42%),
+      var(--color-background);
+  }
+
+  .luminaura-bundle-builder__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+    gap: clamp(28px, 5vw, 72px);
+    max-width: var(--page-width);
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .luminaura-bundle-builder__intro {
+    max-width: 720px;
+  }
+
+  .luminaura-bundle-builder__eyebrow,
+  .luminaura-bundle-progress__eyebrow,
+  .luminaura-product-offer__badge {
+    display: inline-flex;
+    width: fit-content;
+    margin-block-end: 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: rgb(var(--color-foreground-rgb) / 0.72);
+  }
+
+  .luminaura-bundle-builder h2 {
+    margin: 0 0 16px;
+    font-size: clamp(2rem, 4vw, 4.6rem);
+    line-height: 1;
+  }
+
+  .luminaura-bundle-builder p {
+    max-width: 58ch;
+    margin: 0 0 24px;
+    color: rgb(var(--color-foreground-rgb) / 0.72);
+  }
+
+  .luminaura-bundle-builder__panel,
+  .luminaura-product-offer,
+  .luminaura-bundle-progress {
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.16);
+    border-radius: 8px;
+    background: rgb(var(--color-background-rgb) / 0.86);
+  }
+
+  .luminaura-bundle-builder__panel {
+    padding: clamp(24px, 4vw, 40px);
+  }
+
+  .luminaura-bundle-builder__steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-block-end: 20px;
+  }
+
+  .luminaura-bundle-builder__steps span {
+    display: grid;
+    min-height: 56px;
+    place-items: center;
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.18);
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .luminaura-bundle-builder__steps span.is-active {
+    background: var(--color-foreground);
+    color: var(--color-background);
+  }
+
+  @media screen and (max-width: 749px) {
+    .luminaura-bundle-builder__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Luminaura bundle builder",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Limited relaunch offer"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Build Your Jewellery Set"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Choose any 3 eligible pieces and only pay for 2. Mix necklaces, earrings, bracelets and rings into a complete Luminaura set."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Build My Set"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "url",
+      "id": "collection_link",
+      "label": "Eligible collection link"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luminaura bundle builder"
+    }
+  ]
+}
+{% endschema %}
