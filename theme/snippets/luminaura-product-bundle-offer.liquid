@@ -1,0 +1,22 @@
+{%- liquid
+  assign product = closest.product | default: product
+  assign variant = product.selected_or_first_available_variant
+-%}
+
+{%- if product != blank and product.gift_card? == false -%}
+  <div
+    class="luminaura-product-offer"
+    data-luminaura-product-offer
+    data-product-title="{{ product.title | escape }}"
+    data-variant-id="{{ variant.id }}"
+  >
+    <div>
+      <span class="luminaura-product-offer__badge">3 for 2</span>
+      <strong>Buy 2, Get 1 Free</strong>
+      <p>Add this piece to your 3-piece bundle, then choose two more eligible pieces.</p>
+    </div>
+    <button type="button" class="button button-secondary" data-luminaura-add-bundle-item>
+      Add to My Bundle
+    </button>
+  </div>
+{%- endif -%}
