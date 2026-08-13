@@ -10,20 +10,20 @@
   assign hero_alt = hero_image.alt | default: section.settings.heading
 -%}
 
-<section class="ln-product-hero" {{ section.shopify_attributes }}>
-  <div class="ln-product-hero__inner">
-    <div class="ln-product-hero__copy">
-      <p class="ln-product-hero__eyebrow">{{ section.settings.eyebrow }}</p>
+<section class="luminaura-compact-hero" {{ section.shopify_attributes }}>
+  <div class="luminaura-compact-hero__inner">
+    <div class="luminaura-compact-hero__copy">
+      <p class="luminaura-compact-hero__eyebrow">{{ section.settings.eyebrow }}</p>
       <h1>{{ section.settings.heading }}</h1>
-      <div class="ln-product-hero__text">{{ section.settings.text }}</div>
-      <div class="ln-product-hero__actions">
+      <div class="luminaura-compact-hero__text">{{ section.settings.text }}</div>
+      <div class="luminaura-compact-hero__actions">
         <a class="button" href="{{ section.settings.primary_link | default: routes.all_products_collection_url }}">{{ section.settings.primary_label }}</a>
         <a class="button button-secondary" href="{{ section.settings.secondary_link | default: routes.all_products_collection_url }}">{{ section.settings.secondary_label }}</a>
       </div>
-      <p class="ln-product-hero__bundle"><strong>Choose any 3 eligible pieces. Pay for 2.</strong><span>Discount applies automatically at checkout when configured in Shopify.</span></p>
+      <p class="luminaura-compact-hero__bundle">Choose any 3 eligible pieces. Pay for 2.</p>
     </div>
 
-    <figure class="ln-product-hero__media">
+    <figure class="luminaura-compact-hero__media">
       {% if hero_image != blank %}
         <picture>
           {% if section.settings.mobile_image != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.mobile_image | image_url: width: 1100 }}">{% endif %}
@@ -37,30 +37,31 @@
 </section>
 
 {% stylesheet %}
-  .ln-product-hero {
+  .luminaura-compact-hero {
     background: #fbf9f5;
     color: #24201d;
   }
 
-  .ln-product-hero__inner {
+  .luminaura-compact-hero__inner {
     display: grid;
-    grid-template-columns: minmax(300px, .68fr) minmax(0, 1.12fr);
+    grid-template-columns: minmax(330px, .82fr) minmax(0, 1.18fr);
     width: min(100%, 1560px);
-    min-height: clamp(530px, calc(100svh - var(--header-group-height)), 720px);
+    height: clamp(420px, 36vw, 500px);
+    max-height: 500px;
     margin: 0 auto;
   }
 
-  .ln-product-hero__copy {
+  .luminaura-compact-hero__copy {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: clamp(42px, 7vw, 112px);
+    padding: clamp(28px, 4vw, 58px);
     background: #fbf9f5;
   }
 
-  .ln-product-hero__eyebrow {
-    margin: 0 0 14px;
+  .luminaura-compact-hero__eyebrow {
+    margin: 0 0 9px;
     color: #8a6544;
     font-size: .68rem;
     font-weight: 600;
@@ -68,63 +69,61 @@
     text-transform: uppercase;
   }
 
-  .ln-product-hero h1 {
-    max-width: 11.2em;
+  .luminaura-compact-hero h1 {
+    max-width: 10.8em;
     margin: 0;
     color: #24201d;
     font-family: var(--font-heading--family);
-    font-size: clamp(2.7rem, 4.8vw, 5.6rem);
+    font-size: clamp(2.35rem, 3.7vw, 4.2rem);
     font-weight: 500;
     letter-spacing: -.045em;
     line-height: 1;
     text-wrap: balance;
   }
 
-  .ln-product-hero__text {
-    max-width: 39rem;
-    margin-top: 20px;
+  .luminaura-compact-hero__text {
+    max-width: 32rem;
+    margin-top: 13px;
     color: #625a53;
     font-size: clamp(.95rem, 1.15vw, 1.08rem);
     line-height: 1.55;
   }
 
-  .ln-product-hero__text p { margin: 0; }
-  .ln-product-hero__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .luminaura-compact-hero__text p { margin: 0; }
+  .luminaura-compact-hero__actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 19px; }
 
-  .ln-product-hero__bundle {
-    display: grid;
-    gap: 3px;
-    margin: 24px 0 0;
-    color: #776a5e;
+  .luminaura-compact-hero__bundle {
+    margin: 14px 0 0;
+    color: #625a53;
     font-size: .73rem;
     line-height: 1.45;
   }
 
-  .ln-product-hero__bundle strong { color: #24201d; font-weight: 600; }
-
-  .ln-product-hero__media {
+  .luminaura-compact-hero__media {
     min-height: 0;
     margin: 0;
     overflow: hidden;
     background: #eee7de;
   }
 
-  .ln-product-hero__media picture,
-  .ln-product-hero__media img {
+  .luminaura-compact-hero__media picture,
+  .luminaura-compact-hero__media img {
     display: block;
     width: 100%;
     height: 100%;
   }
 
-  .ln-product-hero__media img { object-fit: cover; object-position: center; }
+  .luminaura-compact-hero__media img { object-fit: cover; object-position: center; }
 
   @media screen and (max-width: 749px) {
-    .ln-product-hero__inner { grid-template-columns: 1fr; min-height: 0; }
-    .ln-product-hero__media { order: -1; aspect-ratio: 4 / 5; min-height: 0; }
-    .ln-product-hero__copy { padding: 30px 22px 38px; }
-    .ln-product-hero h1 { max-width: 12em; font-size: clamp(2.55rem, 11.7vw, 4rem); }
-    .ln-product-hero__actions { width: 100%; }
-    .ln-product-hero__actions .button { flex: 1 1 190px; }
+    .luminaura-compact-hero__inner { grid-template-columns: 1fr; height: auto; max-height: none; }
+    .luminaura-compact-hero__media { order: -1; aspect-ratio: 3 / 2; min-height: 0; }
+    .luminaura-compact-hero__copy { padding: 22px 20px 24px; }
+    .luminaura-compact-hero h1 { max-width: 12em; font-size: clamp(2.15rem, 9.3vw, 3.15rem); }
+    .luminaura-compact-hero__text { margin-top: 10px; font-size: .94rem; line-height: 1.48; }
+    .luminaura-compact-hero__actions { width: 100%; margin-top: 16px; }
+    .luminaura-compact-hero__actions .button { flex: 1 1 160px; }
+    .luminaura-compact-hero__bundle { margin-top: 11px; }
   }
 {% endstylesheet %}
 
