@@ -1,1 +1,0 @@
-{"sections":{"hero":{"type":"hero"},"values":{"type":"values"},"featured":{"type":"featured-products"},"categories":{"type":"category-grid"},"bundle":{"type":"bundle-promo"},"media":{"type":"media"},"newsletter":{"type":"newsletter"}},"order":["hero","values","featured","categories","bundle","media","newsletter"]}
