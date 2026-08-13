@@ -78,12 +78,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .luminaura-hero__visual { position:relative; min-height:inherit; overflow:hidden; background:#e8dfd4; }
 .luminaura-hero__visual picture, .luminaura-hero__media { display:block; width:100%; height:100%; }
 .luminaura-hero__media { object-fit:cover; object-position:center; }
-.luminaura-hero__placeholder { position:relative; width:100%; height:100%; min-height:560px; overflow:hidden; background:radial-gradient(circle at 20% 20%,#f7f1e9 0 8%,transparent 8.4%), linear-gradient(135deg,#e7dacc,#cbb39b); }
-.luminaura-hero__placeholder-ring { position:absolute; display:block; border:clamp(10px,1.6vw,24px) solid #b18a60; border-radius:50%; box-shadow:inset 0 0 0 2px rgba(255,255,255,.28), 18px 24px 36px rgba(80,55,35,.15); }
-.luminaura-hero__placeholder-ring--one { width:clamp(180px,25vw,380px); aspect-ratio:1; top:15%; right:22%; transform:rotate(-15deg); }
-.luminaura-hero__placeholder-ring--two { width:clamp(125px,18vw,280px); aspect-ratio:1; bottom:16%; left:20%; border-color:#8e6a48; transform:rotate(23deg); }
-.luminaura-hero__placeholder-chain { position:absolute; width:115%; height:52%; bottom:-28%; left:-12%; border:clamp(8px,1vw,15px) dotted #b18a60; border-radius:50%; transform:rotate(-12deg); }
-.luminaura-hero__placeholder-label { position:absolute; right:8%; bottom:8%; color:#745537; font-family:var(--luminaura-serif); font-size:clamp(1.2rem,2vw,2rem); letter-spacing:.08em; }
+.luminaura-hero__placeholder { width:100%; height:100%; min-height:560px; background:#e8dfd4; }
+.luminaura-hero__placeholder img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
 .luminaura-collection-grid__header, .luminaura-featured__header { display:flex; justify-content:space-between; align-items:end; gap:2rem; margin-bottom:2.5rem; }
 .luminaura-collection-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
 .luminaura-collection-card { position:relative; min-height: min(32vw, 460px); overflow:hidden; background:#ded4c8; color:#fff; }
