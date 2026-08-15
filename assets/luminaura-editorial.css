@@ -262,4 +262,73 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   border-color: rgba(255, 253, 249, .18);
 }
 
-@media screen and (max-width: 749px) { .luminaura-collection-grid, .luminaura-featured__grid { grid-template-columns:repeat(2,1fr); } .luminaura-collection-card { min-height:56vw; } .luminaura-editorial { grid-template-columns:1fr; } .luminaura-values__grid { grid-template-columns:repeat(2,1fr); } .luminaura-testimonials__grid { grid-template-columns:1fr; } .luminaura-product-offer { grid-template-columns:1fr; } }
+/* Legacy fallback: if Shopify keeps rendering an old homepage hero from saved theme data, force it into the Luminaura system. */
+main[data-template="index"] .hero {
+  max-height: 440px;
+  min-height: 0 !important;
+  overflow: hidden;
+  background: var(--luminaura-paper) !important;
+  border-bottom: 1px solid var(--luminaura-line);
+}
+
+main[data-template="index"] .hero *,
+main[data-template="index"] .hero__container,
+main[data-template="index"] .hero__media-wrapper {
+  min-height: 0 !important;
+}
+
+main[data-template="index"] .hero__container {
+  max-height: 440px;
+  padding-block: 0 !important;
+}
+
+main[data-template="index"] .hero__content-wrapper {
+  width: min(100%, var(--page-width));
+  padding: clamp(1.5rem, 3vw, 2.75rem) max(1.25rem, var(--page-margin)) !important;
+}
+
+main[data-template="index"] .hero h1,
+main[data-template="index"] .hero h2 {
+  max-width: 10ch;
+  font-size: clamp(2.1rem, 3.2vw, 3.4rem) !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+}
+
+main[data-template="index"] .hero img,
+main[data-template="index"] .hero picture,
+main[data-template="index"] .hero video {
+  object-fit: cover;
+}
+
+@media screen and (max-width: 749px) {
+  .luminaura-collection-grid,
+  .luminaura-featured__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .luminaura-collection-card {
+    min-height: 56vw;
+  }
+
+  .luminaura-editorial {
+    grid-template-columns: 1fr;
+  }
+
+  .luminaura-values__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .luminaura-testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .luminaura-product-offer {
+    grid-template-columns: 1fr;
+  }
+
+  main[data-template="index"] .hero,
+  main[data-template="index"] .hero__container {
+    max-height: none;
+  }
+}
