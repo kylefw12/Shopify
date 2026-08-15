@@ -1,0 +1,44 @@
+<footer class="luminaura-site-footer">
+  <div class="luminaura-site-footer__main">
+    <div class="luminaura-site-footer__brand">
+      <span>{{ section.settings.brand_name | default: shop.name }}</span>
+      <p>{{ section.settings.text }}</p>
+    </div>
+
+    <nav class="luminaura-site-footer__nav" aria-label="Footer navigation">
+      {% for link in section.settings.menu.links %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% else %}
+        <a href="{{ routes.all_products_collection_url }}">Shop jewellery</a>
+        <a href="{{ routes.cart_url }}">Bag</a>
+      {% endfor %}
+    </nav>
+
+    <div class="luminaura-site-footer__social">
+      {% if section.settings.instagram_url != blank %}
+        <a href="{{ section.settings.instagram_url }}">Instagram</a>
+      {% endif %}
+      {% if section.settings.tiktok_url != blank %}
+        <a href="{{ section.settings.tiktok_url }}">TikTok</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="luminaura-site-footer__bottom">
+    <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}</span>
+    <span>Waterproof jewellery for everyday wear.</span>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Luminaura footer",
+  "settings": [
+    {"type":"text","id":"brand_name","label":"Brand name","default":"Luminaura"},
+    {"type":"textarea","id":"text","label":"Footer text","default":"Waterproof pieces, quiet favourites, and special offers - sent occasionally."},
+    {"type":"link_list","id":"menu","label":"Footer menu","default":"footer"},
+    {"type":"url","id":"instagram_url","label":"Instagram URL"},
+    {"type":"url","id":"tiktok_url","label":"TikTok URL"}
+  ]
+}
+{% endschema %}

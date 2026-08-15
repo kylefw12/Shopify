@@ -1,0 +1,66 @@
+<div class="luminaura-announcement">
+  <a href="{{ section.settings.announcement_link | default: routes.all_products_collection_url }}">
+    {{ section.settings.announcement_text }}
+  </a>
+</div>
+
+<header class="luminaura-site-header" data-luminaura-header>
+  <div class="luminaura-site-header__inner">
+    <nav class="luminaura-site-header__nav luminaura-site-header__nav--left" aria-label="Primary navigation">
+      {% for link in section.settings.menu.links limit: 4 %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% else %}
+        <a href="{{ routes.all_products_collection_url }}">Shop</a>
+        <a href="{{ routes.collections_url }}">Collections</a>
+      {% endfor %}
+    </nav>
+
+    <a class="luminaura-site-header__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+      {% if section.settings.logo != blank %}
+        {{ section.settings.logo | image_url: width: 320 | image_tag: widths: '120,180,240,320', sizes: '160px', loading: 'eager', alt: shop.name }}
+      {% else %}
+        {{ section.settings.brand_name | default: shop.name }}
+      {% endif %}
+    </a>
+
+    <div class="luminaura-site-header__actions">
+      {% if section.settings.show_localization %}
+        {% form 'localization', class: 'luminaura-localization' %}
+          <select name="country_code" aria-label="Country or region" onchange="this.form.submit()">
+            {% for country in localization.available_countries %}
+              <option value="{{ country.iso_code }}" {% if country.iso_code == localization.country.iso_code %}selected{% endif %}>
+                {{ country.currency.iso_code }}
+              </option>
+            {% endfor %}
+          </select>
+          {% if localization.available_languages.size > 1 %}
+            <select name="locale_code" aria-label="Language" onchange="this.form.submit()">
+              {% for language in localization.available_languages %}
+                <option value="{{ language.iso_code }}" {% if language.iso_code == localization.language.iso_code %}selected{% endif %}>
+                  {{ language.iso_code | upcase }}
+                </option>
+              {% endfor %}
+            </select>
+          {% endif %}
+        {% endform %}
+      {% endif %}
+
+      <a href="{{ routes.search_url }}" aria-label="Search">Search</a>
+      <a href="{{ routes.cart_url }}" aria-label="Cart">Bag{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Luminaura header",
+  "settings": [
+    {"type":"text","id":"announcement_text","label":"Announcement text","default":"Free shipping from 60 EUR - 3 for 2 on eligible pieces"},
+    {"type":"url","id":"announcement_link","label":"Announcement link"},
+    {"type":"text","id":"brand_name","label":"Brand name","default":"Luminaura"},
+    {"type":"image_picker","id":"logo","label":"Logo"},
+    {"type":"link_list","id":"menu","label":"Menu","default":"main-menu"},
+    {"type":"checkbox","id":"show_localization","label":"Show country and language selectors","default":true}
+  ]
+}
+{% endschema %}
