@@ -1,12 +1,4 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */{
+{
   "sections": {
     "cart-section": {
       "type": "main-cart",
@@ -15,9 +7,9 @@
           "type": "_cart-title",
           "static": true,
           "settings": {
-            "title": "Cart",
+            "title": "Your jewellery set",
             "show_count": true,
-            "type_preset": "h4",
+            "type_preset": "h3",
             "alignment": "left",
             "padding-block-start": 0,
             "padding-block-end": 0,
@@ -59,8 +51,18 @@
       "settings": {
         "section_width": "page-width",
         "color_scheme": "",
-        "padding-block-start": 24,
-        "padding-block-end": 0
+        "padding-block-start": 36,
+        "padding-block-end": 32
+      }
+    },
+    "luminaura_cart_callout": {
+      "type": "luminaura-cart-callout",
+      "settings": {
+        "eyebrow": "Still choosing?",
+        "heading": "Complete your everyday set.",
+        "text": "Add eligible pieces to unlock the 3 for 2 bundle before checkout.",
+        "button_label": "Continue shopping",
+        "button_link": "shopify://collections/all"
       }
     },
     "product_list_NNFgcy": {
@@ -104,7 +106,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>You may also like</h3>",
+                "text": "<h3>Pieces to add next</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -164,11 +166,11 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "product_card_gallery_PEPpfq": {
+            "product_card_gallery": {
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "portrait",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -180,7 +182,7 @@
               },
               "blocks": {}
             },
-            "product_title_WNMpHe": {
+            "product_title": {
               "type": "product-title",
               "name": "t:names.product_title",
               "settings": {
@@ -205,7 +207,7 @@
               },
               "blocks": {}
             },
-            "price_yXfkPX": {
+            "price": {
               "type": "price",
               "name": "t:names.product_price",
               "settings": {
@@ -230,9 +232,9 @@
             }
           },
           "block_order": [
-            "product_card_gallery_PEPpfq",
-            "product_title_WNMpHe",
-            "price_yXfkPX"
+            "product_card_gallery",
+            "product_title",
+            "price"
           ]
         }
       },
@@ -245,21 +247,22 @@
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
+        "columns_gap": 12,
+        "rows_gap": 28,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "page-width",
         "horizontal_alignment": "flex-start",
         "gap": 28,
         "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 56,
+        "padding-block-end": 64
       }
     }
   },
   "order": [
     "cart-section",
+    "luminaura_cart_callout",
     "product_list_NNFgcy"
   ]
 }

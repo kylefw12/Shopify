@@ -103,4 +103,163 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .luminaura-newsletter form { display:flex; width:min(100%,540px); margin:2rem auto 0; border-bottom:1px solid var(--luminaura-ink); }
 .luminaura-newsletter input { width:100%; border:0; background:transparent; padding:.9rem .25rem; }
 .luminaura-newsletter button { border:0; background:transparent; padding:.9rem 0 .9rem 1.5rem; letter-spacing:0; text-transform:uppercase; font-size:.68rem; }
+
+/* Custom storefront routes */
+.shopify-section-group-header-group { position: relative; z-index: 10; }
+#header-group { background: var(--luminaura-paper); }
+.header { min-height: 64px; }
+.header__row { border-color: var(--luminaura-line); }
+.header__column, .header__icons, .header-actions, .header-localization { gap: .65rem; }
+.header-logo { font-family: var(--luminaura-serif); font-size: 1rem; text-transform: uppercase; }
+.menu-list__link, .header__icon, .localization-form__select { color: var(--luminaura-ink); }
+.header-drawer, .header__drawer { background: var(--luminaura-paper); }
+
+.template-product .product-information,
+.product-information {
+  background: linear-gradient(180deg, #fbf9f5 0%, #f4efe8 100%);
+}
+
+.product-information .product-media-container,
+.product-information media-gallery,
+.product-information .product-media-gallery__grid {
+  background: #eee9e1;
+}
+
+.product-information .product-details {
+  border-color: var(--luminaura-line) !important;
+  background: rgba(251, 249, 245, .92);
+  box-shadow: 0 18px 60px rgba(36, 32, 29, .08);
+}
+
+.product-information .product-details h1 {
+  font-family: var(--luminaura-serif);
+  font-size: clamp(2rem, 3.2vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.product-information .text-block[style*="background"] {
+  border: 1px solid var(--luminaura-line);
+}
+
+.variant-option,
+.variant-picker__option,
+.quantity-selector,
+.quantity-selector input,
+.quantity-selector button {
+  border-radius: 0 !important;
+}
+
+.variant-picker fieldset,
+.variant-option {
+  border-color: var(--luminaura-line);
+}
+
+.shopify-payment-button__button {
+  border-radius: 0 !important;
+  min-height: 48px;
+}
+
+.product-recommendations,
+.section-resource-list {
+  background: var(--luminaura-paper);
+}
+
+.collection-wrapper,
+.main-collection,
+.facets-wrapper,
+.facets {
+  background: var(--luminaura-paper);
+}
+
+.facets,
+.facets-block-wrapper,
+.facets__form,
+.facets__panel {
+  border-color: var(--luminaura-line) !important;
+}
+
+.facets__summary,
+.facets__label,
+.sortby,
+.sorting {
+  font-size: .78rem;
+  text-transform: uppercase;
+}
+
+.product-grid,
+.resource-list {
+  --grid-mobile-horizontal-spacing: .8rem;
+  --grid-desktop-horizontal-spacing: 1.1rem;
+}
+
+.product-card,
+.resource-list__item {
+  color: var(--luminaura-ink);
+}
+
+.product-card__content {
+  padding-top: .35rem;
+}
+
+.product-card__title,
+.product-title,
+.price {
+  font-family: var(--luminaura-sans);
+}
+
+.cart-page,
+.cart__container,
+.cart-page__items,
+.cart-page__summary,
+.cart-summary {
+  background: var(--luminaura-paper);
+}
+
+.cart-page__summary,
+.cart-summary,
+.cart__summary-inner {
+  border-color: var(--luminaura-line) !important;
+  border-radius: 0 !important;
+}
+
+.cart-page__summary {
+  box-shadow: 0 18px 60px rgba(36, 32, 29, .08);
+}
+
+.cart-items-component,
+.cart-items-component table,
+.cart-item {
+  border-color: var(--luminaura-line) !important;
+}
+
+.cart-page h1,
+.cart-title h1 {
+  font-family: var(--luminaura-serif);
+  font-weight: 500;
+}
+
+.footer,
+.shopify-section-group-footer-group {
+  background: #24201d;
+  color: #fffdf9;
+}
+
+.shopify-section-group-footer-group a,
+.shopify-section-group-footer-group input,
+.shopify-section-group-footer-group button {
+  color: #fffdf9;
+}
+
+.shopify-section-group-footer-group .section-background,
+.shopify-section-group-footer-group .color-scheme-2,
+.shopify-section-group-footer-group .color-scheme-3 {
+  background: transparent;
+}
+
+.footer-utilities,
+.footer-content {
+  border-color: rgba(255, 253, 249, .18);
+}
+
 @media screen and (max-width: 749px) { .luminaura-collection-grid, .luminaura-featured__grid { grid-template-columns:repeat(2,1fr); } .luminaura-collection-card { min-height:56vw; } .luminaura-editorial { grid-template-columns:1fr; } .luminaura-values__grid { grid-template-columns:repeat(2,1fr); } .luminaura-testimonials__grid { grid-template-columns:1fr; } .luminaura-product-offer { grid-template-columns:1fr; } }

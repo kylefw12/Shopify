@@ -1,0 +1,112 @@
+<section class="luminaura-collection-hero" {{ section.shopify_attributes }}>
+  <div class="luminaura-collection-hero__inner">
+    <div>
+      <p class="luminaura-eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1 class="luminaura-heading">
+        {% if collection.title != blank %}
+          {{ collection.title }}
+        {% else %}
+          {{ section.settings.fallback_heading }}
+        {% endif %}
+      </h1>
+    </div>
+
+    <div class="luminaura-collection-hero__copy">
+      {% if collection.description != blank %}
+        {{ collection.description }}
+      {% else %}
+        <p>{{ section.settings.fallback_text }}</p>
+      {% endif %}
+      <p class="luminaura-collection-hero__bundle">{{ section.settings.bundle_text }}</p>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .luminaura-collection-hero {
+    background: var(--luminaura-paper);
+    border-bottom: 1px solid var(--luminaura-line);
+  }
+
+  .luminaura-collection-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, .95fr) minmax(300px, .65fr);
+    gap: clamp(1.5rem, 6vw, 7rem);
+    width: min(100%, var(--page-width));
+    margin: 0 auto;
+    padding: clamp(2.4rem, 6vw, 5.5rem) max(1.25rem, var(--page-margin));
+  }
+
+  .luminaura-collection-hero .luminaura-heading {
+    max-width: 11ch;
+    font-size: clamp(2.4rem, 5vw, 5.25rem);
+  }
+
+  .luminaura-collection-hero__copy {
+    align-self: end;
+    color: color-mix(in srgb, var(--luminaura-ink) 72%, transparent);
+    line-height: 1.6;
+  }
+
+  .luminaura-collection-hero__copy p {
+    margin: 0;
+  }
+
+  .luminaura-collection-hero__bundle {
+    margin-top: 1rem !important;
+    color: var(--luminaura-gold);
+    font-size: .82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 749px) {
+    .luminaura-collection-hero__inner {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+      padding-block: 2rem;
+    }
+
+    .luminaura-collection-hero .luminaura-heading {
+      max-width: 12ch;
+      font-size: clamp(2.2rem, 11vw, 3.4rem);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Luminaura collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Shop Luminaura"
+    },
+    {
+      "type": "text",
+      "id": "fallback_heading",
+      "label": "Fallback heading",
+      "default": "Everyday jewellery"
+    },
+    {
+      "type": "textarea",
+      "id": "fallback_text",
+      "label": "Fallback text",
+      "default": "Waterproof pieces designed for daily wear, thoughtful gifting, and effortless layering."
+    },
+    {
+      "type": "text",
+      "id": "bundle_text",
+      "label": "Bundle text",
+      "default": "Choose any 3 eligible pieces. Pay for 2."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luminaura collection"
+    }
+  ]
+}
+{% endschema %}
