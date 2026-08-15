@@ -44,10 +44,10 @@
 
   .luminaura-compact-hero__inner {
     display: grid;
-    grid-template-columns: minmax(330px, .82fr) minmax(0, 1.18fr);
+    grid-template-columns: minmax(300px, .72fr) minmax(0, 1.28fr);
     width: min(100%, 1560px);
-    height: clamp(420px, 36vw, 500px);
-    max-height: 500px;
+    height: clamp(360px, 31vw, 440px);
+    max-height: 440px;
     margin: 0 auto;
   }
 
@@ -56,7 +56,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: clamp(28px, 4vw, 58px);
+    padding: clamp(24px, 3vw, 42px);
     background: #fbf9f5;
   }
 
@@ -65,7 +65,7 @@
     color: #8a6544;
     font-size: .68rem;
     font-weight: 600;
-    letter-spacing: .15em;
+    letter-spacing: 0;
     text-transform: uppercase;
   }
 
@@ -74,23 +74,23 @@
     margin: 0;
     color: #24201d;
     font-family: var(--font-heading--family);
-    font-size: clamp(2.35rem, 3.7vw, 4.2rem);
+    font-size: clamp(2.05rem, 3vw, 3.35rem);
     font-weight: 500;
-    letter-spacing: -.045em;
+    letter-spacing: 0;
     line-height: 1;
     text-wrap: balance;
   }
 
   .luminaura-compact-hero__text {
     max-width: 32rem;
-    margin-top: 13px;
+    margin-top: 12px;
     color: #625a53;
     font-size: clamp(.95rem, 1.15vw, 1.08rem);
     line-height: 1.55;
   }
 
   .luminaura-compact-hero__text p { margin: 0; }
-  .luminaura-compact-hero__actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 19px; }
+  .luminaura-compact-hero__actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 17px; }
 
   .luminaura-compact-hero__bundle {
     margin: 14px 0 0;
@@ -117,9 +117,9 @@
 
   @media screen and (max-width: 749px) {
     .luminaura-compact-hero__inner { grid-template-columns: 1fr; height: auto; max-height: none; }
-    .luminaura-compact-hero__media { order: -1; aspect-ratio: 3 / 2; min-height: 0; }
+    .luminaura-compact-hero__media { order: -1; aspect-ratio: 4 / 3; min-height: 0; }
     .luminaura-compact-hero__copy { padding: 22px 20px 24px; }
-    .luminaura-compact-hero h1 { max-width: 12em; font-size: clamp(2.15rem, 9.3vw, 3.15rem); }
+    .luminaura-compact-hero h1 { max-width: 12em; font-size: clamp(2rem, 8vw, 2.7rem); }
     .luminaura-compact-hero__text { margin-top: 10px; font-size: .94rem; line-height: 1.48; }
     .luminaura-compact-hero__actions { width: 100%; margin-top: 16px; }
     .luminaura-compact-hero__actions .button { flex: 1 1 160px; }

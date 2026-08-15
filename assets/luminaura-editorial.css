@@ -13,16 +13,16 @@ body { background: var(--luminaura-paper); color: var(--luminaura-ink); }
 body::selection { color: #fff; background: var(--luminaura-gold); }
 a, button, input, select, summary { -webkit-tap-highlight-color: transparent; }
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible { outline: 2px solid var(--luminaura-gold); outline-offset: 3px; }
-.button, .button--primary { min-height:46px; border:1px solid var(--luminaura-ink); border-radius:0; background:var(--luminaura-ink); color:#fffdf9; letter-spacing:.12em; text-transform:uppercase; font-size:.72rem; transition:color .2s ease, background-color .2s ease, border-color .2s ease, transform .2s ease; }
-.button--secondary { min-height:46px; border:1px solid var(--luminaura-ink); border-radius:0; background:transparent; color:var(--luminaura-ink); letter-spacing:.12em; text-transform:uppercase; font-size:.72rem; transition:color .2s ease, background-color .2s ease, border-color .2s ease, transform .2s ease; }
+.button, .button--primary { min-height:46px; border:1px solid var(--luminaura-ink); border-radius:0; background:var(--luminaura-ink); color:#fffdf9; letter-spacing:0; text-transform:uppercase; font-size:.72rem; transition:color .2s ease, background-color .2s ease, border-color .2s ease, transform .2s ease; }
+.button--secondary { min-height:46px; border:1px solid var(--luminaura-ink); border-radius:0; background:transparent; color:var(--luminaura-ink); letter-spacing:0; text-transform:uppercase; font-size:.72rem; transition:color .2s ease, background-color .2s ease, border-color .2s ease, transform .2s ease; }
 .button:hover, .button--primary:hover { background:#6f5137; border-color:#6f5137; color:#fffdf9; transform:translateY(-1px); }
 .button--secondary:hover { background:#efe5d9; border-color:#6f5137; color:var(--luminaura-ink); transform:translateY(-1px); }
 
 /* Navigation and chrome */
 #header-group { border-bottom: 1px solid var(--luminaura-line); }
-.header-section { letter-spacing: .08em; }
+.header-section { letter-spacing: 0; }
 .header-section a { text-transform: uppercase; font-size: .72rem; }
-.announcement-bar { min-height: 31px; letter-spacing: .15em; text-transform: uppercase; font-size: .65rem; }
+.announcement-bar { min-height: 31px; letter-spacing: 0; text-transform: uppercase; font-size: .65rem; }
 .announcement-bar__slide { font-size: inherit; }
 .header-logo, .header-logo__image { max-height: 28px; }
 .footer-content { border-top: 1px solid var(--luminaura-line); }
@@ -33,8 +33,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .product-grid__item img { transition: transform .55s cubic-bezier(.2,.65,.2,1); }
 @media (hover:hover) { .product-grid__item:hover img { transform: scale(1.025); } }
 .product-grid__item .product-card { border: 0; }
-.product-badges__badge { border-radius: 0; letter-spacing: .1em; text-transform: uppercase; font-size: .62rem; }
-.product-card__title, .product-title { letter-spacing: .015em; }
+.product-badges__badge { border-radius: 0; letter-spacing: 0; text-transform: uppercase; font-size: .62rem; }
+.product-card__title, .product-title { letter-spacing: 0; }
 .facets, .facets-block-wrapper { border-block-color: var(--luminaura-line); }
 .collection-wrapper { padding-bottom: clamp(3rem, 7vw, 7rem); }
 .cart-page__summary > *, .cart__container, .cart-summary { border-color: var(--luminaura-line); }
@@ -44,10 +44,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .product-information { padding-block: clamp(1.75rem, 4vw, 4rem); }
 .product-information__media { background: #eee9e1; }
 .product-information__media img { object-fit: cover; }
-.product-details h1, .product-information h1 { letter-spacing: -.035em; }
-.luminaura-product-placeholder { aspect-ratio: 1 / 1.25; display: grid; place-items: center; background: linear-gradient(145deg,#eee7dc,#d8c8b6); color: #6e5c4b; font-family: var(--luminaura-serif); font-size: clamp(1.5rem,4vw,3.5rem); letter-spacing: .12em; }
+.product-details h1, .product-information h1 { letter-spacing: 0; }
+.luminaura-product-placeholder { aspect-ratio: 1 / 1.25; display: grid; place-items: center; background: linear-gradient(145deg,#eee7dc,#d8c8b6); color: #6e5c4b; font-family: var(--luminaura-serif); font-size: clamp(1.5rem,4vw,3.5rem); letter-spacing: 0; }
 .luminaura-product-offer { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; margin: 1.5rem 0 0; padding: 1.15rem; border: 1px solid var(--luminaura-line); border-radius: 0; background: #f5f0e9; }
-.luminaura-product-offer__badge, .luminaura-bundle-progress__eyebrow { color: var(--luminaura-gold); letter-spacing: .14em; }
+.luminaura-product-offer__badge, .luminaura-bundle-progress__eyebrow { color: var(--luminaura-gold); letter-spacing: 0; }
 .luminaura-product-offer strong { font-family: var(--luminaura-serif); font-size: 1.25rem; font-weight: 500; }
 .luminaura-product-offer p { margin: .2rem 0 0; font-size: .82rem; opacity: .78; }
 .luminaura-product-offer .button { white-space: nowrap; }
@@ -65,8 +65,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 /* Editorial sections */
 .luminaura-section { padding: clamp(3.5rem, 8vw, 8rem) max(1.25rem, var(--page-margin)); }
 .luminaura-section__inner { width: min(100%, var(--page-width)); margin-inline: auto; }
-.luminaura-eyebrow { display: block; margin-bottom: .85rem; color: var(--luminaura-gold); font-size: .66rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
-.luminaura-heading { margin: 0; font-family: var(--luminaura-serif); font-weight: 500; letter-spacing: -.04em; line-height: .98; }
+.luminaura-eyebrow { display: block; margin-bottom: .85rem; color: var(--luminaura-gold); font-size: .66rem; font-weight: 600; letter-spacing: 0; text-transform: uppercase; }
+.luminaura-heading { margin: 0; font-family: var(--luminaura-serif); font-weight: 500; letter-spacing: 0; line-height: .98; }
 .luminaura-copy { max-width: 58ch; color: color-mix(in srgb, var(--luminaura-ink) 72%, transparent); }
 .luminaura-collection-grid__header, .luminaura-featured__header { display:flex; justify-content:space-between; align-items:end; gap:2rem; margin-bottom:2.5rem; }
 .luminaura-collection-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
@@ -98,9 +98,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .luminaura-testimonials__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:2.5rem; text-align:left; }
 .luminaura-testimonial { padding:1.5rem; border:1px solid var(--luminaura-line); background:#fbf9f5; }
 .luminaura-testimonial blockquote { margin:0; font-family:var(--luminaura-serif); font-size:1.35rem; line-height:1.25; }
-.luminaura-testimonial cite { display:block; margin-top:1.2rem; color:#82715f; font-size:.7rem; font-style:normal; letter-spacing:.13em; text-transform:uppercase; }
+.luminaura-testimonial cite { display:block; margin-top:1.2rem; color:#82715f; font-size:.7rem; font-style:normal; letter-spacing:0; text-transform:uppercase; }
 .luminaura-newsletter { text-align:center; background:#ded4c8; }
 .luminaura-newsletter form { display:flex; width:min(100%,540px); margin:2rem auto 0; border-bottom:1px solid var(--luminaura-ink); }
 .luminaura-newsletter input { width:100%; border:0; background:transparent; padding:.9rem .25rem; }
-.luminaura-newsletter button { border:0; background:transparent; padding:.9rem 0 .9rem 1.5rem; letter-spacing:.12em; text-transform:uppercase; font-size:.68rem; }
+.luminaura-newsletter button { border:0; background:transparent; padding:.9rem 0 .9rem 1.5rem; letter-spacing:0; text-transform:uppercase; font-size:.68rem; }
 @media screen and (max-width: 749px) { .luminaura-collection-grid, .luminaura-featured__grid { grid-template-columns:repeat(2,1fr); } .luminaura-collection-card { min-height:56vw; } .luminaura-editorial { grid-template-columns:1fr; } .luminaura-values__grid { grid-template-columns:repeat(2,1fr); } .luminaura-testimonials__grid { grid-template-columns:1fr; } .luminaura-product-offer { grid-template-columns:1fr; } }
