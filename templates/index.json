@@ -1,14 +1,197 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "luminaura_product_hero": {"type":"luminaura-product-hero","settings":{"eyebrow":"WATERPROOF. CONSIDERED. YOURS.","heading":"Jewellery for every day","text":"<p>Modern waterproof jewellery designed for daily wear, easy gifting, and effortless layering.</p>","primary_label":"Shop jewellery","primary_link":"shopify://collections/all","secondary_label":"Build your bundle","secondary_link":"shopify://collections/all"}},
-    "luminaura_categories": {"type":"luminaura-collection-grid","blocks":{"necklaces":{"type":"collection","settings":{"title":"Necklaces"}},"earrings":{"type":"collection","settings":{"title":"Earrings"}},"bracelets":{"type":"collection","settings":{"title":"Bracelets"}},"rings":{"type":"collection","settings":{"title":"Rings"}}},"block_order":["necklaces","earrings","bracelets","rings"]},
-    "luminaura_featured": {"type":"luminaura-featured-products","settings":{"heading":"Pieces to wear on repeat.","product_limit":4}},
-    "luminaura_bundle": {"type":"luminaura-bundle-builder","settings":{"eyebrow":"A little more, together","heading":"Choose any three. Pay for two.","text":"Build a set of eligible pieces you will reach for every day. Shopify’s automatic discount provides the free item at checkout.","button_label":"Build your bundle","button_link":"shopify://collections/all","collection_link":"shopify://collections/all","color_scheme":"scheme-2"}},
-    "luminaura_values": {"type":"luminaura-values","blocks":{"waterproof":{"type":"value","settings":{"title":"Waterproof","text":"Designed to keep up with real life."}},"tarnish":{"type":"value","settings":{"title":"Tarnish-resistant","text":"A polished finish made for repeat wear."}},"giftable":{"type":"value","settings":{"title":"Gift-ready","text":"Thoughtful pieces for every someone."}},"everyday":{"type":"value","settings":{"title":"Easy everyday wear","text":"Layer, live in, and reach for them often."}}},"block_order":["waterproof","tarnish","giftable","everyday"]},
-    "luminaura_story": {"type":"luminaura-editorial-story","settings":{"eyebrow":"Made for real life","heading":"Jewellery that keeps up.","text":"<p>From a fresh swim to a last-minute dinner plan, our pieces are made to be lived in — not saved for later.</p>","button_label":"Discover the story"}},
-    "luminaura_media": {"type":"luminaura-media","settings":{"enabled":false,"eyebrow":"In motion","heading":"The everyday, in motion."}},
-    "luminaura_reviews": {"type":"luminaura-testimonials","blocks":{"review_one":{"type":"testimonial","settings":{"quote":"The pieces feel even more beautiful in person — I have worn mine every day since it arrived.","name":"Customer review"}},"review_two":{"type":"testimonial","settings":{"quote":"It is refined without being precious. I never need to take it off.","name":"Customer review"}},"review_three":{"type":"testimonial","settings":{"quote":"The perfect gift — beautifully presented and genuinely special.","name":"Customer review"}}},"block_order":["review_one","review_two","review_three"]},
-    "luminaura_newsletter": {"type":"luminaura-newsletter","settings":{"eyebrow":"A note from us","heading":"A little more luminous.","text":"<p>New drops, quiet favourites, and special offers — sent occasionally.</p>"}}
+    "luminaura_product_hero": {
+      "type": "luminaura-product-hero",
+      "settings": {
+        "fallback_product": "",
+        "eyebrow": "WATERPROOF. CONSIDERED. YOURS.",
+        "heading": "Jewellery for every day",
+        "text": "<p>Modern waterproof jewellery designed for daily wear, easy gifting, and effortless layering.</p>",
+        "primary_label": "Shop jewellery",
+        "primary_link": "shopify://collections/all",
+        "secondary_label": "Build your bundle",
+        "secondary_link": "shopify://collections/all"
+      }
+    },
+    "luminaura_categories": {
+      "type": "luminaura-collection-grid",
+      "blocks": {
+        "necklaces": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Necklaces"
+          }
+        },
+        "earrings": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Earrings"
+          }
+        },
+        "bracelets": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Bracelets"
+          }
+        },
+        "rings": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Rings"
+          }
+        }
+      },
+      "block_order": [
+        "necklaces",
+        "earrings",
+        "bracelets",
+        "rings"
+      ],
+      "settings": {}
+    },
+    "luminaura_featured": {
+      "type": "luminaura-featured-products",
+      "settings": {
+        "heading": "Pieces to wear on repeat.",
+        "collection": "top-ventas",
+        "product_limit": 4
+      }
+    },
+    "luminaura_bundle": {
+      "type": "luminaura-bundle-builder",
+      "settings": {
+        "collection": "",
+        "eyebrow": "A little more, together",
+        "heading": "Choose any three. Pay for two.",
+        "text": "Build a set of eligible pieces you will reach for every day. Shopify’s automatic discount provides the free item at checkout.",
+        "button_label": "Build your bundle",
+        "button_link": "shopify://collections/all",
+        "collection_link": "shopify://collections/all",
+        "color_scheme": "scheme-2"
+      }
+    },
+    "luminaura_media": {
+      "type": "luminaura-media",
+      "settings": {
+        "enabled": false,
+        "eyebrow": "In motion",
+        "heading": "The everyday, in motion.",
+        "alt": "Luminaura jewellery in motion"
+      }
+    },
+    "luminaura_values": {
+      "type": "luminaura-values",
+      "blocks": {
+        "waterproof": {
+          "type": "value",
+          "settings": {
+            "title": "Waterproof",
+            "text": "Designed to keep up with real life."
+          }
+        },
+        "tarnish": {
+          "type": "value",
+          "settings": {
+            "title": "Tarnish-resistant",
+            "text": "A polished finish made for repeat wear."
+          }
+        },
+        "giftable": {
+          "type": "value",
+          "settings": {
+            "title": "Gift-ready",
+            "text": "Thoughtful pieces for every someone."
+          }
+        },
+        "everyday": {
+          "type": "value",
+          "settings": {
+            "title": "Easy everyday wear",
+            "text": "Layer, live in, and reach for them often."
+          }
+        }
+      },
+      "block_order": [
+        "waterproof",
+        "tarnish",
+        "giftable",
+        "everyday"
+      ],
+      "settings": {}
+    },
+    "luminaura_story": {
+      "type": "luminaura-editorial-story",
+      "settings": {
+        "eyebrow": "Made for real life",
+        "heading": "Jewellery that keeps up.",
+        "text": "<p>From a fresh swim to a last-minute dinner plan, our pieces are made to be lived in — not saved for later.</p>",
+        "button_label": "Discover the story",
+        "button_link": ""
+      }
+    },
+    "luminaura_reviews": {
+      "type": "luminaura-testimonials",
+      "blocks": {
+        "review_one": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The pieces feel even more beautiful in person — I have worn mine every day since it arrived.",
+            "name": "Customer review"
+          }
+        },
+        "review_two": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "It is refined without being precious. I never need to take it off.",
+            "name": "Customer review"
+          }
+        },
+        "review_three": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The perfect gift — beautifully presented and genuinely special.",
+            "name": "Customer review"
+          }
+        }
+      },
+      "block_order": [
+        "review_one",
+        "review_two",
+        "review_three"
+      ],
+      "settings": {}
+    },
+    "luminaura_newsletter": {
+      "type": "luminaura-newsletter",
+      "settings": {
+        "eyebrow": "A note from us",
+        "heading": "A little more luminous.",
+        "text": "<p>New drops, quiet favourites, and special offers — sent occasionally.</p>"
+      }
+    }
   },
-  "order":["luminaura_product_hero","luminaura_categories","luminaura_featured","luminaura_bundle","luminaura_media","luminaura_values","luminaura_story","luminaura_reviews","luminaura_newsletter"]
+  "order": [
+    "luminaura_product_hero",
+    "luminaura_categories",
+    "luminaura_featured",
+    "luminaura_bundle",
+    "luminaura_media",
+    "luminaura_values",
+    "luminaura_story",
+    "luminaura_reviews",
+    "luminaura_newsletter"
+  ]
 }
