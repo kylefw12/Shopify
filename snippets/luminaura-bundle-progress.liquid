@@ -1,0 +1,43 @@
+{%- liquid
+  assign bundle_count = 0
+  assign bundle_total = 3
+
+  for item in cart.items
+    if item.properties._luminaura_bundle == '3-for-2'
+      assign bundle_count = bundle_count | plus: item.quantity
+    endif
+  endfor
+
+  assign remaining_count = bundle_total | minus: bundle_count
+  if remaining_count < 0
+    assign remaining_count = 0
+  endif
+
+  assign progress_percent = bundle_count | times: 100 | divided_by: bundle_total
+  if progress_percent > 100
+    assign progress_percent = 100
+  endif
+-%}
+
+<div class="luminaura-bundle-progress" data-luminaura-cart-progress>
+  <div class="luminaura-bundle-progress__header">
+    <span class="luminaura-bundle-progress__eyebrow">Build Your Bundle</span>
+    <strong>
+      {%- if remaining_count == 0 -%}
+        Your free piece is unlocked
+      {%- elsif remaining_count == 1 -%}
+        Add 1 more eligible piece
+      {%- else -%}
+        Add {{ remaining_count }} more eligible pieces
+      {%- endif -%}
+    </strong>
+  </div>
+
+  <div class="luminaura-bundle-progress__track" aria-hidden="true">
+    <span style="width: {{ progress_percent }}%;"></span>
+  </div>
+
+  <p>
+    Choose any 3 eligible jewellery pieces and pay for 2. The lowest-priced eligible item should be discounted automatically at checkout when the matching Shopify discount is active.
+  </p>
+</div>

@@ -1,0 +1,90 @@
+{%- liquid
+  assign avatar_image = section.settings.avatar_image
+  assign featured_product = section.settings.featured_product
+-%}
+
+<section class="luminaura-section luminaura-style-avatar">
+  <div class="luminaura-style-avatar__inner">
+    <div class="luminaura-style-avatar__media">
+      {% if section.settings.video_url != blank %}
+        <video autoplay muted loop playsinline poster="{{ 'luminaura-style-avatar.png' | asset_url }}">
+          <source src="{{ section.settings.video_url }}" type="video/mp4">
+        </video>
+      {% elsif avatar_image != blank %}
+        {{ avatar_image | image_url: width: 1400 | image_tag: widths: '600,900,1200,1400', sizes: '(min-width: 990px) 46vw, 100vw', loading: 'lazy', alt: section.settings.image_alt }}
+      {% else %}
+        <img src="{{ 'luminaura-style-avatar.png' | asset_url }}" alt="{{ section.settings.image_alt | escape }}" width="1024" height="1536" loading="lazy">
+      {% endif %}
+    </div>
+
+    <div class="luminaura-style-avatar__content">
+      <span class="luminaura-eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="luminaura-heading">{{ section.settings.heading }}</h2>
+      <p class="luminaura-copy">{{ section.settings.text }}</p>
+
+      {% if featured_product != blank %}
+        <a class="luminaura-style-avatar__product" href="{{ featured_product.url }}">
+          {% if featured_product.featured_media != blank %}
+            {{ featured_product.featured_media.preview_image | image_url: width: 220 | image_tag: widths: '120,180,220', sizes: '92px', loading: 'lazy', alt: featured_product.title }}
+          {% endif %}
+          <span>
+            <small>Styled with</small>
+            <strong>{{ featured_product.title }}</strong>
+            <em>{{ featured_product.price | money }}</em>
+          </span>
+        </a>
+      {% endif %}
+
+      <div class="luminaura-style-avatar__outfits">
+        {% for block in section.blocks %}
+          <article class="luminaura-style-avatar__outfit" {{ block.shopify_attributes }}>
+            <span>{{ block.settings.label }}</span>
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
+            {% if block.settings.link != blank %}
+              <a href="{{ block.settings.link }}">{{ block.settings.link_label }}</a>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Luminaura style avatar",
+  "settings": [
+    {"type":"image_picker","id":"avatar_image","label":"Avatar image"},
+    {"type":"text","id":"video_url","label":"Future video or GIF URL","info":"Optional MP4 URL. Leave blank to use the avatar image."},
+    {"type":"text","id":"image_alt","label":"Image alt text","default":"Model wearing Luminaura jewellery with a neutral everyday outfit"},
+    {"type":"product","id":"featured_product","label":"Jewellery to feature"},
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"Style it with"},
+    {"type":"text","id":"heading","label":"Heading","default":"Outfits that match the jewellery."},
+    {"type":"textarea","id":"text","label":"Text","default":"Use this section to show how a necklace, hoop, ring or bracelet fits into a complete everyday look."}
+  ],
+  "blocks": [
+    {
+      "type": "outfit",
+      "name": "Outfit idea",
+      "settings": [
+        {"type":"text","id":"label","label":"Label","default":"Everyday"},
+        {"type":"text","id":"title","label":"Title","default":"White tank, soft blazer, relaxed denim"},
+        {"type":"textarea","id":"text","label":"Description","default":"A clean base that lets gold jewellery feel polished without looking overdone."},
+        {"type":"url","id":"link","label":"Optional link"},
+        {"type":"text","id":"link_label","label":"Link label","default":"Shop this style"}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luminaura style avatar",
+      "blocks": [
+        {"type":"outfit","settings":{"label":"Everyday","title":"White tank, soft blazer, relaxed denim","text":"A clean base that lets gold jewellery feel polished without looking overdone."}},
+        {"type":"outfit","settings":{"label":"Evening","title":"Black slip dress, low bun, small hoops","text":"Simple shapes make waterproof jewellery feel refined enough for dinner plans."}},
+        {"type":"outfit","settings":{"label":"Holiday","title":"Linen shirt, cream trousers, layered necklace","text":"Warm neutrals and easy textures pair naturally with gold-tone pieces."}}
+      ]
+    }
+  ]
+}
+{% endschema %}

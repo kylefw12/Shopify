@@ -1,0 +1,4 @@
+<section class="luminaura-section luminaura-testimonials"><div class="luminaura-section__inner"><span class="luminaura-eyebrow">Kind words</span><h2 class="luminaura-heading">Worn, loved, passed on.</h2><div class="luminaura-testimonials__grid">{% for block in section.blocks %}<article class="luminaura-testimonial" {{ block.shopify_attributes }}><blockquote>“{{ block.settings.quote }}”</blockquote><cite>{{ block.settings.name }}</cite></article>{% endfor %}</div></div></section>
+{% schema %}
+{"name":"Luminaura testimonials","max_blocks":3,"blocks":[{"type":"testimonial","name":"Testimonial","settings":[{"type":"textarea","id":"quote","label":"Quote","default":"The pieces feel even more beautiful in person — I have worn mine every day since it arrived."},{"type":"text","id":"name","label":"Name","default":"Customer name"}]}],"presets":[{"name":"Luminaura testimonials","blocks":[{"type":"testimonial"},{"type":"testimonial"},{"type":"testimonial"}]}]}
+{% endschema %}

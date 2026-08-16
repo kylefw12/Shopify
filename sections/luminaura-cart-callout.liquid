@@ -1,0 +1,76 @@
+<section class="luminaura-cart-callout" {{ section.shopify_attributes }}>
+  <div class="luminaura-cart-callout__inner">
+    <p class="luminaura-eyebrow">{{ section.settings.eyebrow }}</p>
+    <h2 class="luminaura-heading">{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.text }}</p>
+    <a class="button button--secondary" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
+      {{ section.settings.button_label }}
+    </a>
+  </div>
+</section>
+
+{% stylesheet %}
+  .luminaura-cart-callout {
+    background: #f0ebe3;
+    border-top: 1px solid var(--luminaura-line);
+  }
+
+  .luminaura-cart-callout__inner {
+    width: min(100%, var(--page-width));
+    margin: 0 auto;
+    padding: clamp(2rem, 5vw, 4rem) max(1.25rem, var(--page-margin));
+  }
+
+  .luminaura-cart-callout .luminaura-heading {
+    max-width: 13ch;
+    font-size: clamp(2rem, 4vw, 4rem);
+  }
+
+  .luminaura-cart-callout p:not(.luminaura-eyebrow) {
+    max-width: 52ch;
+    margin: 1rem 0 1.4rem;
+    color: color-mix(in srgb, var(--luminaura-ink) 72%, transparent);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Luminaura cart callout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Still choosing?"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Complete your everyday set."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Add eligible pieces to unlock the 3 for 2 bundle before checkout."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Continue shopping"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luminaura cart callout"
+    }
+  ]
+}
+{% endschema %}

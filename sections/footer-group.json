@@ -1,0 +1,19 @@
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "luminaura_footer": {
+      "type": "luminaura-footer",
+      "settings": {
+        "brand_name": "Luminaura",
+        "text": "Waterproof pieces, quiet favourites, and special offers - sent occasionally.",
+        "menu": "footer",
+        "instagram_url": "https://www.instagram.com/luminaura_jewellery/",
+        "tiktok_url": "https://www.tiktok.com/@luminaura_jewellery"
+      }
+    }
+  },
+  "order": [
+    "luminaura_footer"
+  ]
+}

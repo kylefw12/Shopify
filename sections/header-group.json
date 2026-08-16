@@ -1,0 +1,19 @@
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "luminaura_header": {
+      "type": "luminaura-header",
+      "settings": {
+        "announcement_text": "Free shipping from 60 EUR - 3 for 2 on eligible pieces",
+        "announcement_link": "shopify://collections/all",
+        "brand_name": "Luminaura",
+        "menu": "main-menu",
+        "show_localization": true
+      }
+    }
+  },
+  "order": [
+    "luminaura_header"
+  ]
+}
