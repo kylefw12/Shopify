@@ -16,7 +16,22 @@
       <div class="la-header__mobile-panel">
         <nav aria-label="Mobile navigation">
           {% for link in section.settings.menu.links %}
-            <a href="{{ link.url }}">{{ link.title }}</a>
+            {% if link.links != blank %}
+              <details class="la-header__mobile-menu-group">
+                <summary>{{ link.title }}</summary>
+                <div class="la-header__mobile-submenu">
+                  <a class="la-header__mobile-view-all" href="{{ link.url }}">View all {{ link.title }}</a>
+                  {% for child_link in link.links %}
+                    <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                    {% for grandchild_link in child_link.links %}
+                      <a class="la-header__mobile-submenu-link" href="{{ grandchild_link.url }}">{{ grandchild_link.title }}</a>
+                    {% endfor %}
+                  {% endfor %}
+                </div>
+              </details>
+            {% else %}
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            {% endif %}
           {% else %}
             <a href="{{ routes.all_products_collection_url }}">Shop</a>
             <a href="{{ routes.collections_url }}">Collections</a>
@@ -35,7 +50,37 @@
 
     <nav class="la-header__nav" aria-label="Primary navigation">
       {% for link in section.settings.menu.links limit: 5 %}
-        <a href="{{ link.url }}">{{ link.title }}</a>
+        {% if link.links != blank %}
+          <details class="la-header__menu-item">
+            <summary>
+              <span>{{ link.title }}</span>
+              <span class="la-header__menu-caret" aria-hidden="true"></span>
+            </summary>
+            <div class="la-header__mega-menu">
+              <div class="la-header__mega-menu-inner">
+                <a class="la-header__mega-menu-title" href="{{ link.url }}">Shop all {{ link.title }}</a>
+                <div class="la-header__mega-menu-grid">
+                  {% for child_link in link.links %}
+                    <div class="la-header__mega-menu-column">
+                      {% if child_link.links != blank %}
+                        <a class="la-header__mega-menu-heading" href="{{ child_link.url }}">{{ child_link.title }}</a>
+                        <ul role="list">
+                          {% for grandchild_link in child_link.links %}
+                            <li><a href="{{ grandchild_link.url }}">{{ grandchild_link.title }}</a></li>
+                          {% endfor %}
+                        </ul>
+                      {% else %}
+                        <a class="la-header__mega-menu-direct-link" href="{{ child_link.url }}">{{ child_link.title }}</a>
+                      {% endif %}
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </details>
+        {% else %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endif %}
       {% else %}
         <a href="{{ routes.all_products_collection_url }}">Shop</a>
         <a href="{{ routes.collections_url }}">Collections</a>
@@ -102,6 +147,8 @@
   </div>
 </header>
 
+<script src="{{ 'luminaura-header.js' | asset_url }}" type="module"></script>
+
 {% stylesheet %}
 
 #header-group {
@@ -141,6 +188,7 @@
 }
 
 .la-header {
+  position: relative;
   border-bottom: 1px solid #ded8cf;
   background: rgba(251, 249, 245, 0.98);
 }
@@ -176,6 +224,106 @@
   align-items: center;
 
   gap: clamp(14px, 1.7vw, 25px);
+}
+
+.la-header__menu-item {
+  position: static;
+}
+
+.la-header__menu-item > summary {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.la-header__menu-item > summary::-webkit-details-marker,
+.la-header__mobile-menu-group > summary::-webkit-details-marker {
+  display: none;
+}
+
+.la-header__menu-caret {
+  width: 6px;
+  height: 6px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform .2s ease;
+}
+
+.la-header__menu-item[open] .la-header__menu-caret {
+  transform: rotate(225deg) translate(-2px, -1px);
+}
+
+.la-header__mega-menu {
+  position: absolute;
+  z-index: 55;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #ded8cf;
+  background: #fbf9f5;
+  box-shadow: 0 24px 34px rgba(36, 32, 29, .08);
+}
+
+.la-header__mega-menu-inner {
+  width: min(100%, 1560px);
+  margin: 0 auto;
+  padding: 34px max(20px, var(--page-margin)) 40px;
+}
+
+.la-header__mega-menu-title,
+.la-header__mega-menu-heading,
+.la-header__mega-menu-direct-link {
+  display: inline-block;
+}
+
+.la-header__mega-menu-title {
+  margin-bottom: 26px;
+  color: #8a6544 !important;
+  font-size: .65rem !important;
+  font-weight: 600;
+  letter-spacing: .12em !important;
+  text-transform: uppercase;
+}
+
+.la-header__mega-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px 48px;
+  max-width: 1080px;
+}
+
+.la-header__mega-menu-column {
+  min-width: 0;
+}
+
+.la-header__mega-menu-column ul {
+  display: grid;
+  gap: 12px;
+  margin: 14px 0 0;
+  padding: 0;
+}
+
+.la-header__mega-menu-heading,
+.la-header__mega-menu-direct-link {
+  font-size: .72rem !important;
+  font-weight: 600;
+  letter-spacing: .07em !important;
+  text-transform: uppercase;
+}
+
+.la-header__mega-menu-column li a {
+  color: #625a53 !important;
+  font-size: .76rem !important;
+  letter-spacing: .01em !important;
+  text-transform: none;
+}
+
+.la-header__mega-menu-column a:hover,
+.la-header__mega-menu-title:hover {
+  color: #8a6544 !important;
 }
 
 .la-header__nav a,
@@ -324,6 +472,59 @@
     font-size: clamp(2rem, 10vw, 3.8rem);
 
     line-height: 1;
+  }
+
+  .la-header__mobile-menu-group {
+    border-bottom: 1px solid #ded8cf;
+  }
+
+  .la-header__mobile-menu-group > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    cursor: pointer;
+    font-family: var(--font-heading--family);
+    font-size: clamp(2rem, 10vw, 3.8rem);
+    line-height: 1;
+    list-style: none;
+  }
+
+  .la-header__mobile-menu-group > summary::after {
+    content: '+';
+    font-family: var(--font-body--family);
+    font-size: 1.3rem;
+  }
+
+  .la-header__mobile-menu-group[open] > summary::after {
+    content: '−';
+  }
+
+  .la-header__mobile-submenu {
+    display: grid;
+    gap: 0;
+    padding: 4px 0 18px;
+  }
+
+  .la-header__mobile-panel .la-header__mobile-submenu a {
+    padding: 7px 0;
+    font-family: var(--font-body--family);
+    font-size: .84rem;
+    line-height: 1.3;
+  }
+
+  .la-header__mobile-panel .la-header__mobile-view-all {
+    margin-bottom: 7px;
+    color: #8a6544;
+    font-size: .68rem !important;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .la-header__mobile-panel .la-header__mobile-submenu-link {
+    padding-left: 14px;
+    color: #625a53;
   }
 
   .la-header__mobile-meta {
