@@ -58,6 +58,12 @@ html[data-luminaura-theme='dark'] body {
   color: var(--luminaura-ink);
 }
 
+html[data-luminaura-theme='dark'] #MainContent,
+html[data-luminaura-theme='dark'] .content-for-layout,
+html[data-luminaura-theme='dark'] .shopify-section .section-background {
+  background: var(--luminaura-paper) !important;
+}
+
 html[data-luminaura-theme='dark'] .button,
 html[data-luminaura-theme='dark'] .button--primary {
   border-color: var(--luminaura-ink);
@@ -101,6 +107,23 @@ html[data-luminaura-theme='dark'] .la-header__mega-menu-column a:hover,
 html[data-luminaura-theme='dark'] .la-header__mega-menu-title:hover { color: var(--luminaura-gold) !important; }
 html[data-luminaura-theme='dark'] .luminaura-editorial { background: #2a241e; }
 html[data-luminaura-theme='dark'] .luminaura-editorial__media { background: #3b3027; }
+html[data-luminaura-theme='dark'] .luminaura-collection-hero { background: var(--luminaura-paper); }
+html[data-luminaura-theme='dark'] .luminaura-collection-hero .luminaura-eyebrow { color: var(--luminaura-gold); }
+
+html[data-luminaura-theme='dark'] .product-card,
+html[data-luminaura-theme='dark'] .product-card__title,
+html[data-luminaura-theme='dark'] .product-title,
+html[data-luminaura-theme='dark'] .luminaura-card-price,
+html[data-luminaura-theme='dark'] .price,
+html[data-luminaura-theme='dark'] .facets,
+html[data-luminaura-theme='dark'] .facets * {
+  color: var(--luminaura-ink);
+}
+
+html[data-luminaura-theme='dark'] .luminaura-card-price {
+  color: #fffaf3;
+  font-weight: 600;
+}
 
 /* Luminaura-owned store chrome */
 #header-group {
