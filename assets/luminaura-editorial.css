@@ -651,6 +651,7 @@ main[data-template='collection'] .product-card__content {
   column-gap: .75rem;
   row-gap: var(--product-card-gap);
   align-items: start;
+  align-content: start;
 }
 
 main[data-template='collection'] .product-card__content > .card-gallery {
@@ -669,13 +670,23 @@ main[data-template='collection'] .luminaura-card-price {
   grid-row: 2;
   justify-self: end;
   width: auto;
-  margin: 0;
+  margin: 8px 0 0;
   white-space: nowrap;
 }
 
 main[data-template='collection'] .product-card__content > product-swatches {
   grid-column: 1 / -1;
   grid-row: 3;
+  min-width: 0;
+  overflow: visible;
+}
+
+main[data-template='collection'] product-swatches swatches-variant-picker-component {
+  flex-wrap: wrap;
+}
+
+main[data-template='collection'] product-swatches overflow-list::part(list) {
+  flex-wrap: wrap;
 }
 
 .cart-page,
