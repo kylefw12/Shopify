@@ -18,7 +18,8 @@
         "announcement_link": "shopify://collections/all",
         "brand_name": "Luminaura",
         "menu": "draft-menu",
-        "show_localization": true
+        "show_localization": true,
+        "show_bundle_link": false
       }
     }
   },

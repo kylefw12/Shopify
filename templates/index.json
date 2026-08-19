@@ -45,8 +45,7 @@
       },
       "block_order": [
         "new_in",
-        "gold_edit",
-        "bundle"
+        "gold_edit"
       ],
       "settings": {
         "autoplay": true,
@@ -278,7 +277,6 @@
     "luminaura_campaign",
     "luminaura_categories",
     "luminaura_style_avatar",
-    "luminaura_bundle",
     "luminaura_media",
     "luminaura_values",
     "luminaura_story",
