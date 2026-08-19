@@ -129,5 +129,14 @@
     {% if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add-modal' %}
     {% endif %}
+
+    <style>
+      html[data-luminaura-theme='dark'] main[data-template='collection'] .product-card .product-grid-view-zoom-out--details,
+      html[data-luminaura-theme='dark'] main[data-template='collection'] .product-card .product-grid-view-zoom-out--details *,
+      html[data-luminaura-theme='dark'] main[data-template='collection'] .product-card a[ref='productTitleLink'],
+      html[data-luminaura-theme='dark'] main[data-template='collection'] .product-card a[ref='productTitleLink'] * {
+        color: #ffffff !important;
+      }
+    </style>
   </body>
 </html>
