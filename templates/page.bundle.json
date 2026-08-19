@@ -9,18 +9,6 @@
  */
 {
   "sections": {
-    "bundle_builder": {
-      "type": "luminaura-bundle-builder",
-      "settings": {
-        "eyebrow": "Build your everyday set",
-        "heading": "Choose any three. Pay for two.",
-        "text": "Choose three jewellery pieces to build a set you will wear on repeat. The automatic Shopify discount applies at checkout.",
-        "button_label": "Shop all jewellery",
-        "button_link": "shopify://collections/all",
-        "collection_link": "shopify://collections/all",
-        "color_scheme": "scheme-1"
-      }
-    },
     "page_content": {
       "type": "main-page",
       "blocks": {
@@ -39,5 +27,5 @@
       }
     }
   },
-  "order": ["bundle_builder", "page_content"]
+  "order": ["page_content"]
 }

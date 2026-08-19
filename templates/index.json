@@ -31,16 +31,6 @@
             "primary_label": "SHOP JEWELLERY",
             "primary_link": "shopify://collections/all"
           }
-        },
-        "bundle": {
-          "type": "slide",
-          "settings": {
-            "eyebrow": "3 FOR 2",
-            "heading": "BUILD YOUR EVERYDAY STACK",
-            "text": "<p>Choose any three eligible pieces and pay for two.</p>",
-            "primary_label": "BUILD YOUR BUNDLE",
-            "primary_link": "/pages/build-your-bundle-1?view=bundle"
-          }
         }
       },
       "block_order": [
@@ -156,19 +146,6 @@
         "eyebrow": "Style it with",
         "heading": "Outfits that match the jewellery.",
         "text": "Use this section to show how a necklace, hoop, ring or bracelet fits into a complete everyday look."
-      }
-    },
-    "luminaura_bundle": {
-      "type": "luminaura-bundle-builder",
-      "settings": {
-        "collection": "",
-        "eyebrow": "A little more, together",
-        "heading": "Choose any three. Pay for two.",
-        "text": "Choose any 3 pieces from the store and pay for 2. Maximum 1 free item per order.",
-        "button_label": "Build your bundle",
-        "button_link": "shopify://collections/all",
-        "collection_link": "shopify://collections/all",
-        "color_scheme": "scheme-2"
       }
     },
     "luminaura_media": {
