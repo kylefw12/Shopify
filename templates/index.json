@@ -57,11 +57,13 @@
     "luminaura_campaign": {
       "type": "luminaura-campaign",
       "settings": {
-        "eyebrow": "THE EDIT",
+        "desktop_image": "shopify://shop_images/Codex_Image_20_Aug_2026_01_10_52.png",
+        "mobile_image": "shopify://shop_images/Codex_Image_20_Aug_2026_01_10_52_49130896-4b24-4213-9a4a-f43e04218900.png",
+        "eyebrow": "",
         "heading": "NECKLACES",
         "subheading": "Layered, easy, everyday.",
         "link_label": "SHOP NOW",
-        "link": "shopify://collections/all"
+        "link": "shopify://collections/collares"
       }
     },
     "luminaura_categories": {
