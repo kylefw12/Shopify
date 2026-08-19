@@ -33,6 +33,14 @@
     {%- render 'meta-tags' -%}
     {%- render 'stylesheets' -%}
     {{ 'luminaura-editorial.css' | asset_url | stylesheet_tag }}
+    <script>
+      try {
+        if (localStorage.getItem('luminaura-theme') === 'dark') {
+          document.documentElement.dataset.luminauraTheme = 'dark';
+        }
+      } catch (error) {}
+    </script>
+    <script src="{{ 'luminaura-theme-toggle.js' | asset_url }}" defer></script>
     {%- render 'fonts' -%}
     {%- render 'scripts' -%}
     <script src="{{ 'luminaura-bundle.js' | asset_url }}" type="module"></script>

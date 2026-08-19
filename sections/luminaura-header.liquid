@@ -49,6 +49,12 @@
         <div class="la-header__mobile-meta">
           <a href="{{ routes.search_url }}">Search</a>
 
+          <button class="la-theme-toggle" type="button" data-luminaura-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
+            <span class="la-theme-toggle__sun" aria-hidden="true">☀</span>
+            <span class="la-theme-toggle__moon" aria-hidden="true">☾</span>
+            <span data-theme-toggle-label>Dark mode</span>
+          </button>
+
           {% if shop.customer_accounts_enabled %}
             <a href="{{ routes.account_url }}">Account</a>
           {% endif %}
@@ -144,6 +150,12 @@
           </select>
         {% endform %}
       {% endif %}
+
+      <button class="la-theme-toggle" type="button" data-luminaura-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
+        <span class="la-theme-toggle__sun" aria-hidden="true">☀</span>
+        <span class="la-theme-toggle__moon" aria-hidden="true">☾</span>
+        <span data-theme-toggle-label>Dark mode</span>
+      </button>
 
       <a class="la-header__search" href="{{ routes.search_url }}">
         Search
@@ -350,6 +362,7 @@
 
 .la-header__nav a,
 .la-header__actions a,
+.la-theme-toggle,
 .la-header__localization select {
   border: 0;
 
@@ -398,6 +411,19 @@
   padding: 4px 22px 4px 0;
   cursor: pointer;
 }
+
+.la-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.la-theme-toggle__sun { display: none; }
+
+html[data-luminaura-theme='dark'] .la-theme-toggle__sun { display: inline; }
+html[data-luminaura-theme='dark'] .la-theme-toggle__moon { display: none; }
 
 .la-header__mobile-menu {
   display: none;
@@ -565,6 +591,11 @@
   .la-header__mobile-meta a {
     font-size: 0.68rem;
 
+    text-transform: uppercase;
+  }
+
+  .la-header__mobile-meta .la-theme-toggle {
+    font-size: 0.68rem;
     text-transform: uppercase;
   }
 }

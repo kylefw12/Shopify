@@ -18,6 +18,90 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .button:hover, .button--primary:hover { background:#6f5137; border-color:#6f5137; color:#fffdf9; transform:translateY(-1px); }
 .button--secondary:hover { background:#efe5d9; border-color:#6f5137; color:var(--luminaura-ink); transform:translateY(-1px); }
 
+/* Customer-selected dark mode. Components retain their layout; these tokens recolour the shared storefront surface. */
+html[data-luminaura-theme='dark'] {
+  color-scheme: dark;
+  --luminaura-ink: #f7f1e8;
+  --luminaura-paper: #171411;
+  --luminaura-sand: #2a241e;
+  --luminaura-gold: #d1ad7b;
+  --luminaura-line: #4b4036;
+}
+
+html[data-luminaura-theme='dark'] body {
+  --color-background: #171411;
+  --color-background-rgb: 23, 20, 17;
+  --color-foreground: #f7f1e8;
+  --color-foreground-rgb: 247, 241, 232;
+  --color-foreground-heading: #fffaf3;
+  --color-foreground-heading-rgb: 255, 250, 243;
+  --color-primary: #d1ad7b;
+  --color-primary-rgb: 209, 173, 123;
+  --color-primary-hover: #ead0aa;
+  --color-primary-hover-rgb: 234, 208, 170;
+  --color-border: #4b4036;
+  --color-border-rgb: 75, 64, 54;
+  --color-input-background: #211c18;
+  --color-input-text: #f7f1e8;
+  --color-input-text-rgb: 247, 241, 232;
+  --color-input-border: #5a4d42;
+  --color-primary-button-text: #171411;
+  --color-primary-button-background: #f7f1e8;
+  --color-primary-button-border: #f7f1e8;
+  --color-primary-button-hover-text: #171411;
+  --color-primary-button-hover-background: #d1ad7b;
+  --color-primary-button-hover-border: #d1ad7b;
+  --color-secondary-button-text: #f7f1e8;
+  --color-secondary-button-background: transparent;
+  --color-secondary-button-border: #f7f1e8;
+  background: var(--luminaura-paper);
+  color: var(--luminaura-ink);
+}
+
+html[data-luminaura-theme='dark'] .button,
+html[data-luminaura-theme='dark'] .button--primary {
+  border-color: var(--luminaura-ink);
+  background: var(--luminaura-ink);
+  color: #171411;
+}
+
+html[data-luminaura-theme='dark'] .button--secondary {
+  border-color: var(--luminaura-ink);
+  color: var(--luminaura-ink);
+}
+
+html[data-luminaura-theme='dark'] .button:hover,
+html[data-luminaura-theme='dark'] .button--primary:hover,
+html[data-luminaura-theme='dark'] .button--secondary:hover {
+  border-color: var(--luminaura-gold);
+  background: var(--luminaura-gold);
+  color: #171411;
+}
+
+html[data-luminaura-theme='dark'] #header-group,
+html[data-luminaura-theme='dark'] .la-header,
+html[data-luminaura-theme='dark'] .la-header__mega-menu,
+html[data-luminaura-theme='dark'] .la-header__mobile-panel {
+  border-color: var(--luminaura-line);
+  background: #1d1915;
+}
+
+html[data-luminaura-theme='dark'] .la-header a,
+html[data-luminaura-theme='dark'] .la-header__nav a,
+html[data-luminaura-theme='dark'] .la-header__actions a,
+html[data-luminaura-theme='dark'] .la-header__localization select,
+html[data-luminaura-theme='dark'] .la-theme-toggle,
+html[data-luminaura-theme='dark'] .la-header__mobile-menu > summary span {
+  color: var(--luminaura-ink);
+}
+
+html[data-luminaura-theme='dark'] .la-header__mobile-menu > summary span { background: var(--luminaura-ink); }
+html[data-luminaura-theme='dark'] .la-header__mega-menu-column li a { color: #d4cabf !important; }
+html[data-luminaura-theme='dark'] .la-header__mega-menu-column a:hover,
+html[data-luminaura-theme='dark'] .la-header__mega-menu-title:hover { color: var(--luminaura-gold) !important; }
+html[data-luminaura-theme='dark'] .luminaura-editorial { background: #2a241e; }
+html[data-luminaura-theme='dark'] .luminaura-editorial__media { background: #3b3027; }
+
 /* Luminaura-owned store chrome */
 #header-group {
   position: sticky;
