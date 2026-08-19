@@ -184,6 +184,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .luminaura-product-offer strong { font-family: var(--luminaura-serif); font-size: 1.25rem; font-weight: 500; }
 .luminaura-product-offer p { margin: .2rem 0 0; font-size: .82rem; opacity: .78; }
 .luminaura-product-offer .button { white-space: nowrap; }
+.product-information .luminaura-product-offer { margin: 0 0 1rem; }
+.luminaura-bundle-progress__link { display:inline-block; width:fit-content; color:inherit; font-size:.7rem; font-weight:600; letter-spacing:.1em; text-decoration-thickness:1px; text-underline-offset:4px; text-transform:uppercase; }
 .sticky-add-to-cart__bar { border-radius: 0 !important; border: 1px solid var(--luminaura-line); }
 
 /* Cart and bundle */

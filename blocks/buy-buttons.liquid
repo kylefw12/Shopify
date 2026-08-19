@@ -216,6 +216,8 @@
             </span>
           {%- endunless -%}
 
+          {% render 'luminaura-product-bundle-offer', product: product %}
+
           {% content_for 'block',
             type: 'add-to-cart',
             id: 'add-to-cart',
@@ -230,7 +232,6 @@
             form_obj: form
           %}
 
-          {% render 'luminaura-product-bundle-offer', product: product %}
         </div>
       {%- endform -%}
     </product-form-component>

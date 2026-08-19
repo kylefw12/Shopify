@@ -162,32 +162,6 @@
                 "price"
               ]
             },
-            "text_offer": {
-              "type": "text",
-              "name": "Bundle note",
-              "settings": {
-                "text": "<p><strong>3 for 2:</strong> choose any three eligible pieces and pay for two at checkout.</p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": true,
-                "background_color": "#f5f0e9",
-                "corner_radius": 0,
-                "padding-block-start": 14,
-                "padding-block-end": 14,
-                "padding-inline-start": 14,
-                "padding-inline-end": 14
-              },
-              "blocks": {}
-            },
             "variant_picker": {
               "type": "variant-picker",
               "settings": {
@@ -265,7 +239,6 @@
           },
           "block_order": [
             "group_header",
-            "text_offer",
             "variant_picker",
             "buy_buttons",
             "text_description"

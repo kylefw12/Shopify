@@ -18,6 +18,15 @@ function toggleItem(offer) {
   if (match >= 0) items.splice(match, 1); else if (items.length < maxBundleItems) items.push(item); else { offer.querySelector('[data-luminaura-add-bundle-item]')?.focus(); return; }
   setItems(items); updateUI();
 }
+function updateProductOfferVariant(event) {
+  const variantId = event.detail?.resource?.id;
+  const productId = event.detail?.data?.productId;
+  if (!variantId || !productId) return;
+  document.querySelectorAll('[data-luminaura-product-offer]').forEach((offer) => {
+    if (String(offer.dataset.productId) === String(productId)) offer.dataset.variantId = String(variantId);
+  });
+  updateUI();
+}
 async function addBundleToCart(button) {
   const items = getItems(); if (items.length !== maxBundleItems) return;
   const bundleId = `bundle-${Date.now()}`;
@@ -29,4 +38,5 @@ async function addBundleToCart(button) {
   } catch { button.textContent = 'Try again'; } finally { button.removeAttribute('aria-busy'); }
 }
 document.addEventListener('click', (event) => { const itemButton = event.target.closest('[data-luminaura-add-bundle-item]'); if (itemButton) toggleItem(itemButton.closest('[data-luminaura-product-offer]')); const submit = event.target.closest('[data-luminaura-bundle-submit]'); if (submit) addBundleToCart(submit); });
+document.addEventListener('variant:update', updateProductOfferVariant);
 document.addEventListener('DOMContentLoaded', updateUI); document.addEventListener('shopify:section:load', updateUI);

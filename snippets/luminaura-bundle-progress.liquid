@@ -40,4 +40,8 @@
   <p>
     Choose any 3 eligible jewellery pieces and pay for 2. The lowest-priced eligible item should be discounted automatically at checkout when the matching Shopify discount is active.
   </p>
+
+  {% if remaining_count > 0 %}
+    <a class="luminaura-bundle-progress__link" href="{{ routes.all_products_collection_url }}">Browse eligible pieces</a>
+  {% endif %}
 </div>
