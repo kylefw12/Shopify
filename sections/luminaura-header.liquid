@@ -16,11 +16,17 @@
       <div class="la-header__mobile-panel">
         <nav aria-label="Mobile navigation">
           {% for link in section.settings.menu.links %}
+            {% liquid
+              assign link_url = link.url
+              if link_url contains '/pages/build-your-bundle'
+                assign link_url = '/pages/build-your-bundle-1?view=bundle'
+              endif
+            %}
             {% if link.links != blank %}
               <details class="la-header__mobile-menu-group">
                 <summary>{{ link.title }}</summary>
                 <div class="la-header__mobile-submenu">
-                  <a class="la-header__mobile-view-all" href="{{ link.url }}">View all {{ link.title }}</a>
+                  <a class="la-header__mobile-view-all" href="{{ link_url }}">View all {{ link.title }}</a>
                   {% for child_link in link.links %}
                     <a href="{{ child_link.url }}">{{ child_link.title }}</a>
                     {% for grandchild_link in child_link.links %}
@@ -30,7 +36,7 @@
                 </div>
               </details>
             {% else %}
-              <a href="{{ link.url }}">{{ link.title }}</a>
+              <a href="{{ link_url }}">{{ link.title }}</a>
             {% endif %}
           {% else %}
             <a href="{{ routes.all_products_collection_url }}">Shop</a>
@@ -50,6 +56,12 @@
 
     <nav class="la-header__nav" aria-label="Primary navigation">
       {% for link in section.settings.menu.links limit: 5 %}
+        {% liquid
+          assign link_url = link.url
+          if link_url contains '/pages/build-your-bundle'
+            assign link_url = '/pages/build-your-bundle-1?view=bundle'
+          endif
+        %}
         {% if link.links != blank %}
           <details class="la-header__menu-item">
             <summary>
@@ -58,7 +70,7 @@
             </summary>
             <div class="la-header__mega-menu">
               <div class="la-header__mega-menu-inner">
-                <a class="la-header__mega-menu-title" href="{{ link.url }}">Shop all {{ link.title }}</a>
+                <a class="la-header__mega-menu-title" href="{{ link_url }}">Shop all {{ link.title }}</a>
                 <div class="la-header__mega-menu-grid">
                   {% for child_link in link.links %}
                     <div class="la-header__mega-menu-column">
@@ -79,7 +91,7 @@
             </div>
           </details>
         {% else %}
-          <a href="{{ link.url }}">{{ link.title }}</a>
+          <a href="{{ link_url }}">{{ link.title }}</a>
         {% endif %}
       {% else %}
         <a href="{{ routes.all_products_collection_url }}">Shop</a>
