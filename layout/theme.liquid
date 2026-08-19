@@ -54,9 +54,9 @@
          * Header calculation functions for maintaining CSS variables
          * Mimic calculateHeaderGroupHeight() in utilities.js
          */
-        const header = document.querySelector('header-component');
         const headerGroup = document.querySelector('#header-group');
-        const hasHeaderSection = headerGroup?.querySelector('.header-section');
+        const header = headerGroup?.querySelector('header-component, .la-header');
+        const hasNativeHeaderSection = headerGroup?.querySelector('.header-section');
 
         if (!header || !headerGroup) return;
 
@@ -72,7 +72,7 @@
         }
 
         // Check for transparent header special case
-        if (header.hasAttribute('transparent') && header.parentElement?.nextElementSibling) {
+        if (header.matches('header-component') && header.hasAttribute('transparent') && header.parentElement?.nextElementSibling) {
           headerGroupHeight += headerHeight;
         }
 
@@ -85,12 +85,12 @@
          * Mimic updateTransparentHeaderOffset() in utilities.js
          */
 
-        if (!hasHeaderSection || !header?.hasAttribute('transparent')) {
+        if (!hasNativeHeaderSection || !header.matches('header-component') || !header.hasAttribute('transparent')) {
           document.body.style.setProperty('--transparent-header-offset-boolean', '0');
           return;
         }
 
-        const hasImmediateSection = hasHeaderSection.nextElementSibling?.classList.contains('shopify-section');
+        const hasImmediateSection = hasNativeHeaderSection.nextElementSibling?.classList.contains('shopify-section');
 
         const shouldApplyOffset = !hasImmediateSection ? '1' : '0';
         document.body.style.setProperty('--transparent-header-offset-boolean', shouldApplyOffset);
