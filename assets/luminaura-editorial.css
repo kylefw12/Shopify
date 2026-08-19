@@ -313,6 +313,26 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   border-color: var(--luminaura-line);
 }
 
+.product-information .variant-option--swatches {
+  gap: .7rem;
+}
+
+.product-information .variant-option--swatches .variant-option__swatch-value {
+  color: #6f6258;
+}
+
+.product-information .variant-option--swatches .variant-option__button-label--has-swatch {
+  --focus-outline-radius: 0;
+}
+
+.product-information .variant-option--swatches .swatch {
+  --swatch-width: 18px;
+  --swatch-height: 18px;
+
+  border: 1px solid rgba(36, 32, 29, .22);
+  border-radius: 0;
+}
+
 .shopify-payment-button__button {
   border-radius: 0 !important;
   min-height: 48px;

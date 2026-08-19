@@ -1,0 +1,49 @@
+{%- doc -%}
+  Renders a product-finish swatch. Shopify-configured swatches take priority;
+  common jewellery finish names receive a visual fallback when no swatch is set.
+
+  @param {object} swatch - Shopify swatch object.
+  @param {string} option_value - Variant option value, such as Gold or Silver.
+  @param {object} [variant_image] - Variant image used when enabled in theme settings.
+  @param {string} [mode] - Swatch sizing mode.
+{%- enddoc -%}
+
+{% liquid
+  assign swatch_value = null
+  assign extra_classes = ' luminaura-finish-swatch'
+  assign finish_name = option_value | downcase | strip
+
+  if settings.show_variant_image and variant_image
+    assign swatch_image_width = settings.variant_swatch_width | times: 2
+    assign swatch_image_url = variant_image | image_url: width: swatch_image_width
+    assign swatch_value = 'url(' | append: swatch_image_url | append: ')'
+    assign extra_classes = extra_classes | append: ' swatch--variant-image'
+  elsif swatch.image
+    assign swatch_image_url = swatch.image | image_url: width: 80
+    assign swatch_value = 'url(' | append: swatch_image_url | append: ')'
+  elsif swatch.color
+    assign swatch_value = 'rgb(' | append: swatch.color.rgb | append: ')'
+  elsif finish_name contains 'rose' or finish_name contains 'rosa'
+    assign swatch_value = 'linear-gradient(135deg, #e0a79c, #ad665c)'
+  elsif finish_name contains 'silver' or finish_name contains 'plata' or finish_name contains 'steel' or finish_name contains 'acero'
+    assign swatch_value = 'linear-gradient(135deg, #e0dfda, #a9aaa7)'
+  elsif finish_name contains 'gold' or finish_name contains 'oro' or finish_name contains 'dorado'
+    assign swatch_value = 'linear-gradient(135deg, #e4c976, #aa7d31)'
+  elsif finish_name contains 'black' or finish_name contains 'negro'
+    assign swatch_value = '#24201d'
+  elsif finish_name contains 'white' or finish_name contains 'blanco'
+    assign swatch_value = '#fbf9f5'
+  else
+    assign swatch_value = '#d7d0c7'
+  endif
+
+  if mode == 'unscaled'
+    assign extra_classes = extra_classes | append: ' swatch--unscaled'
+  endif
+%}
+
+<span
+  class="swatch{{ extra_classes }}"
+  style="--swatch-background: {{ swatch_value }};"
+  aria-hidden="true"
+></span>
