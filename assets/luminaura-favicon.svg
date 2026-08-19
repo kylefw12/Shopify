@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Luminaura</title>
+  <rect width="64" height="64" fill="#fbf9f5"/>
+  <circle cx="32" cy="32" r="23" fill="none" stroke="#b48745" stroke-width="3"/>
+  <path d="M26 19v25h15" fill="none" stroke="#24201d" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+  <circle cx="41" cy="19" r="3" fill="#b48745"/>
+</svg>
