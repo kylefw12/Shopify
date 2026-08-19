@@ -1,51 +1,49 @@
-<section class="luminaura-section luminaura-featured">
+{%- liquid
+  assign featured_collection = section.settings.collection
+  if featured_collection == blank
+    assign featured_collection = collections.all
+  endif
+-%}
+
+<section class="luminaura-section luminaura-featured" {{ section.shopify_attributes }}>
   <div class="luminaura-section__inner">
     <header class="luminaura-featured__header">
       <div>
         <span class="luminaura-eyebrow">The Luminaura edit</span>
         <h2 class="luminaura-heading">{{ section.settings.heading }}</h2>
       </div>
-      {% if section.settings.collection != blank %}
-        <a href="{{ section.settings.collection.url }}">View all</a>
-      {% endif %}
+      <a href="{{ featured_collection.url | default: routes.all_products_collection_url }}">View all</a>
     </header>
 
     <div class="luminaura-featured__grid">
       {% assign shown_products = 0 %}
-      {% if section.settings.collection != blank %}
-        {% for product in section.settings.collection.products limit: section.settings.product_limit %}
+      {% for product in featured_collection.products limit: section.settings.product_limit %}
           {% assign shown_products = shown_products | plus: 1 %}
           <article class="luminaura-featured-card">
             <a href="{{ product.url }}">
               <div class="luminaura-featured-card__media">
                 {% if product.featured_media != blank %}
-                  {{ product.featured_media.preview_image | image_url: width: 900 | image_tag: widths: '400,600,900', sizes: '(min-width: 750px) 25vw, 50vw', loading: 'lazy', alt: product.title }}
+                  {{ product.featured_media.preview_image | image_url: width: 900 | image_tag: widths: '400,600,900', sizes: '(min-width: 750px) 25vw, 72vw', loading: 'lazy', alt: product.featured_media.alt | default: product.title }}
+                  {% if product.media.size > 1 %}
+                    {{ product.media[1].preview_image | image_url: width: 900 | image_tag: widths: '400,600,900', sizes: '(min-width: 750px) 25vw, 72vw', loading: 'lazy', alt: product.title, class: 'luminaura-featured-card__hover-image' }}
+                  {% endif %}
                 {% else %}
                   <div class="luminaura-product-placeholder"><span>{{ shop.name }}</span></div>
                 {% endif %}
+                {% if product.compare_at_price > product.price %}<span class="luminaura-featured-card__badge">Sale</span>{% endif %}
               </div>
               <div class="luminaura-featured-card__meta">
                 <span>{{ product.title }}</span>
-                <span>{{ product.price | money }}</span>
+                <span>{% if product.compare_at_price > product.price %}<s>{{ product.compare_at_price | money }}</s> {% endif %}{{ product.price | money }}</span>
               </div>
             </a>
           </article>
         {% endfor %}
-      {% endif %}
-
-      {% assign missing_cards = section.settings.product_limit | minus: shown_products %}
-      {% if missing_cards > 0 %}
-        {% for index in (1..missing_cards) %}
-          <article class="luminaura-featured-card luminaura-featured-card--placeholder">
-            <div class="luminaura-featured-card__media">
-              <div class="luminaura-product-placeholder"><span>Luminaura</span></div>
-            </div>
-            <div class="luminaura-featured-card__meta">
-              <span>Product placeholder</span>
-              <span>Coming soon</span>
-            </div>
-          </article>
-        {% endfor %}
+      {% if shown_products == 0 and request.design_mode %}
+        <article class="luminaura-featured-card luminaura-featured-card--placeholder">
+          <div class="luminaura-featured-card__media"><div class="luminaura-product-placeholder"><span>Select a collection</span></div></div>
+          <div class="luminaura-featured-card__meta"><span>Choose products in the Theme Editor</span></div>
+        </article>
       {% endif %}
     </div>
   </div>
