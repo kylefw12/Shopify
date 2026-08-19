@@ -70,28 +70,28 @@
         "necklaces": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "shopify://collections/collares",
             "title": "Necklaces"
           }
         },
         "earrings": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "shopify://collections/pendientes",
             "title": "Earrings"
           }
         },
         "bracelets": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "shopify://collections/pulseras",
             "title": "Bracelets"
           }
         },
         "rings": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "shopify://collections/anillos",
             "title": "Rings"
           }
         }
