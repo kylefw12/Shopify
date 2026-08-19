@@ -803,7 +803,7 @@ main[data-template="index"] .hero video {
   }
 }
 
-/* Arena-inspired horizontal product rail */
+/* Luminaura editorial horizontal product rail */
 main[data-template="index"] .luminaura-featured {
   padding: clamp(48px, 7vw, 96px) 0;
   background: #fbf9f5;

@@ -1,11 +1,11 @@
 <luminaura-hero-carousel
-  class="la-arena-hero-carousel"
+  class="luminaura-hero-carousel"
   data-autoplay="{{ section.settings.autoplay }}"
   data-autoplay-delay="{{ section.settings.autoplay_delay | times: 1000 }}"
   {{ section.shopify_attributes }}
 >
-  <section class="la-arena-hero" aria-roledescription="carousel" aria-label="Luminaura campaigns">
-    <div class="la-arena-hero__slides">
+  <section class="luminaura-hero" aria-roledescription="carousel" aria-label="Luminaura campaigns">
+    <div class="luminaura-hero__slides">
       {% for block in section.blocks %}
         {% liquid
           assign linked_collection = block.settings.collection
@@ -25,7 +25,7 @@
         %}
 
         <article
-          class="la-arena-hero__slide{% if forloop.first %} is-active{% endif %}"
+          class="luminaura-hero__slide{% if forloop.first %} is-active{% endif %}"
           data-hero-slide
           aria-roledescription="slide"
           aria-label="{{ forloop.index }} of {{ forloop.length }}"
@@ -33,7 +33,7 @@
           {% unless forloop.first %}inert{% endunless %}
           {{ block.shopify_attributes }}
         >
-          <div class="la-arena-hero__media">
+          <div class="luminaura-hero__media">
             {% if desktop_image != blank %}
               <picture>
                 {% if mobile_image != blank %}
@@ -56,11 +56,11 @@
             {% endif %}
           </div>
 
-          <div class="la-arena-hero__shade" aria-hidden="true"></div>
+          <div class="luminaura-hero__shade" aria-hidden="true"></div>
 
-          <div class="la-arena-hero__content">
+          <div class="luminaura-hero__content">
             {% if block.settings.eyebrow != blank %}
-              <span class="la-arena-hero__eyebrow">{{ block.settings.eyebrow }}</span>
+              <span class="luminaura-hero__eyebrow">{{ block.settings.eyebrow }}</span>
             {% endif %}
             {% if forloop.first %}
               <h1>{{ block.settings.heading }}</h1>
@@ -68,10 +68,10 @@
               <h2>{{ block.settings.heading }}</h2>
             {% endif %}
             {% if block.settings.text != blank %}
-              <div class="la-arena-hero__text">{{ block.settings.text }}</div>
+              <div class="luminaura-hero__text">{{ block.settings.text }}</div>
             {% endif %}
             {% if block.settings.primary_label != blank %}
-              <a class="la-arena-hero__link" href="{{ slide_link }}">{{ block.settings.primary_label }}</a>
+              <a class="luminaura-hero__link" href="{{ slide_link }}">{{ block.settings.primary_label }}</a>
             {% endif %}
           </div>
         </article>
@@ -79,14 +79,14 @@
     </div>
 
     {% if section.blocks.size > 1 %}
-      <div class="la-arena-hero__controls">
-        <button class="la-arena-hero__arrow" type="button" data-hero-previous aria-label="Previous campaign"><span aria-hidden="true">←</span></button>
-        <div class="la-arena-hero__dots" role="tablist" aria-label="Choose campaign">
+      <div class="luminaura-hero__controls">
+        <button class="luminaura-hero__arrow" type="button" data-hero-previous aria-label="Previous campaign"><span aria-hidden="true">←</span></button>
+        <div class="luminaura-hero__dots" role="tablist" aria-label="Choose campaign">
           {% for block in section.blocks %}
-            <button class="la-arena-hero__dot{% if forloop.first %} is-active{% endif %}" type="button" data-hero-dot="{{ forloop.index0 }}" aria-label="Show campaign {{ forloop.index }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"></button>
+            <button class="luminaura-hero__dot{% if forloop.first %} is-active{% endif %}" type="button" data-hero-dot="{{ forloop.index0 }}" aria-label="Show campaign {{ forloop.index }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"></button>
           {% endfor %}
         </div>
-        <button class="la-arena-hero__arrow" type="button" data-hero-next aria-label="Next campaign"><span aria-hidden="true">→</span></button>
+        <button class="luminaura-hero__arrow" type="button" data-hero-next aria-label="Next campaign"><span aria-hidden="true">→</span></button>
       </div>
     {% endif %}
   </section>
@@ -95,29 +95,29 @@
 <script src="{{ 'luminaura-hero-carousel.js' | asset_url }}" defer></script>
 
 {% stylesheet %}
-  .la-arena-hero-carousel, .la-arena-hero { display:block; }
-  .la-arena-hero { position:relative; min-height:clamp(620px,82svh,920px); overflow:hidden; background:#d7d0c7; color:#fff; }
-  .la-arena-hero__slides, .la-arena-hero__slide, .la-arena-hero__media, .la-arena-hero__media picture, .la-arena-hero__media img { position:absolute; inset:0; width:100%; height:100%; }
-  .la-arena-hero__slide { display:block; visibility:hidden; opacity:0; pointer-events:none; transition:opacity .7s ease, visibility 0s linear .7s; }
-  .la-arena-hero__slide.is-active { visibility:visible; opacity:1; pointer-events:auto; transition-delay:0s; }
-  .la-arena-hero__media, .la-arena-hero__media picture, .la-arena-hero__media img { display:block; }
-  .la-arena-hero__media img { object-fit:cover; object-position:center; }
-  .la-arena-hero__shade { position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.03) 28%,rgba(0,0,0,.52) 100%); }
-  .la-arena-hero__content { position:relative; z-index:2; display:flex; min-height:inherit; flex-direction:column; align-items:flex-start; justify-content:flex-end; width:min(100%,1560px); margin:0 auto; padding:clamp(34px,5vw,72px) max(22px,var(--page-margin)); }
-  .la-arena-hero__eyebrow { margin-bottom:8px; font-size:.7rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
-  .la-arena-hero :is(h1, h2) { max-width:12ch; margin:0; color:inherit; font-family:var(--font-heading--family); font-size:clamp(3rem,7.5vw,8rem); font-weight:500; letter-spacing:-.035em; line-height:.88; text-wrap:balance; }
-  .la-arena-hero__text { max-width:40rem; margin-top:18px; font-size:clamp(.95rem,1.2vw,1.08rem); line-height:1.5; }
-  .la-arena-hero__text p { margin:0; }
-  .la-arena-hero__link { display:inline-block; margin-top:22px; padding-bottom:4px; border-bottom:1px solid currentColor; color:inherit; font-size:.72rem; font-weight:600; letter-spacing:.05em; text-decoration:none; text-transform:uppercase; }
-  .la-arena-hero__controls { position:absolute; z-index:3; right:max(22px,var(--page-margin)); bottom:clamp(34px,5vw,72px); display:flex; align-items:center; gap:.8rem; }
-  .la-arena-hero__arrow, .la-arena-hero__dot { margin:0; border:0; color:#fff; cursor:pointer; }
-  .la-arena-hero__arrow { display:grid; width:30px; height:30px; place-items:center; border:1px solid rgba(255,255,255,.6); border-radius:50%; background:transparent; font-size:1rem; }
-  .la-arena-hero__arrow:hover, .la-arena-hero__arrow:focus-visible { background:#fff; color:#24201d; }
-  .la-arena-hero__dots { display:flex; gap:.45rem; }
-  .la-arena-hero__dot { width:6px; height:6px; padding:0; border-radius:50%; background:rgba(255,255,255,.55); }
-  .la-arena-hero__dot.is-active { background:#fff; }
-  @media (prefers-reduced-motion:no-preference) { .la-arena-hero__arrow, .la-arena-hero__dot { transition:background-color .2s ease,color .2s ease,transform .2s ease; } .la-arena-hero__dot:hover, .la-arena-hero__dot:focus-visible { transform:scale(1.35); } }
-  @media screen and (max-width:749px) { .la-arena-hero { min-height:76svh; } .la-arena-hero__content { padding:28px 20px 76px; } .la-arena-hero :is(h1, h2) { max-width:10ch; font-size:clamp(3.1rem,14vw,5.8rem); } .la-arena-hero__text { max-width:31rem; margin-top:14px; font-size:.92rem; } .la-arena-hero__controls { right:20px; bottom:24px; gap:.65rem; } }
+  .luminaura-hero-carousel, .luminaura-hero { display:block; }
+  .luminaura-hero { position:relative; min-height:clamp(620px,82svh,920px); overflow:hidden; background:#d7d0c7; color:#fff; }
+  .luminaura-hero__slides, .luminaura-hero__slide, .luminaura-hero__media, .luminaura-hero__media picture, .luminaura-hero__media img { position:absolute; inset:0; width:100%; height:100%; }
+  .luminaura-hero__slide { display:block; visibility:hidden; opacity:0; pointer-events:none; transition:opacity .7s ease, visibility 0s linear .7s; }
+  .luminaura-hero__slide.is-active { visibility:visible; opacity:1; pointer-events:auto; transition-delay:0s; }
+  .luminaura-hero__media, .luminaura-hero__media picture, .luminaura-hero__media img { display:block; }
+  .luminaura-hero__media img { object-fit:cover; object-position:center; }
+  .luminaura-hero__shade { position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.03) 28%,rgba(0,0,0,.52) 100%); }
+  .luminaura-hero__content { position:relative; z-index:2; display:flex; min-height:inherit; flex-direction:column; align-items:flex-start; justify-content:flex-end; width:min(100%,1560px); margin:0 auto; padding:clamp(34px,5vw,72px) max(22px,var(--page-margin)); }
+  .luminaura-hero__eyebrow { margin-bottom:8px; font-size:.7rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
+  .luminaura-hero :is(h1, h2) { max-width:12ch; margin:0; color:inherit; font-family:var(--font-heading--family); font-size:clamp(3rem,7.5vw,8rem); font-weight:500; letter-spacing:-.035em; line-height:.88; text-wrap:balance; }
+  .luminaura-hero__text { max-width:40rem; margin-top:18px; font-size:clamp(.95rem,1.2vw,1.08rem); line-height:1.5; }
+  .luminaura-hero__text p { margin:0; }
+  .luminaura-hero__link { display:inline-block; margin-top:22px; padding-bottom:4px; border-bottom:1px solid currentColor; color:inherit; font-size:.72rem; font-weight:600; letter-spacing:.05em; text-decoration:none; text-transform:uppercase; }
+  .luminaura-hero__controls { position:absolute; z-index:3; right:max(22px,var(--page-margin)); bottom:clamp(34px,5vw,72px); display:flex; align-items:center; gap:.8rem; }
+  .luminaura-hero__arrow, .luminaura-hero__dot { margin:0; border:0; color:#fff; cursor:pointer; }
+  .luminaura-hero__arrow { display:grid; width:30px; height:30px; place-items:center; border:1px solid rgba(255,255,255,.6); border-radius:50%; background:transparent; font-size:1rem; }
+  .luminaura-hero__arrow:hover, .luminaura-hero__arrow:focus-visible { background:#fff; color:#24201d; }
+  .luminaura-hero__dots { display:flex; gap:.45rem; }
+  .luminaura-hero__dot { width:6px; height:6px; padding:0; border-radius:50%; background:rgba(255,255,255,.55); }
+  .luminaura-hero__dot.is-active { background:#fff; }
+  @media (prefers-reduced-motion:no-preference) { .luminaura-hero__arrow, .luminaura-hero__dot { transition:background-color .2s ease,color .2s ease,transform .2s ease; } .luminaura-hero__dot:hover, .luminaura-hero__dot:focus-visible { transform:scale(1.35); } }
+  @media screen and (max-width:749px) { .luminaura-hero { min-height:76svh; } .luminaura-hero__content { padding:28px 20px 76px; } .luminaura-hero :is(h1, h2) { max-width:10ch; font-size:clamp(3.1rem,14vw,5.8rem); } .luminaura-hero__text { max-width:31rem; margin-top:14px; font-size:.92rem; } .luminaura-hero__controls { right:20px; bottom:24px; gap:.65rem; } }
 {% endstylesheet %}
 
 {% schema %}
