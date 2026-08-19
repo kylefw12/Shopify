@@ -564,6 +564,33 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   color: #fffdf9;
 }
 
+/* Keep the applied-filter action visible inside desktop filter popovers. */
+.facets--horizontal .facets__panel-content .clear-filter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  margin: 10px 12px 12px;
+  padding: 0 13px;
+  border: 1px solid var(--luminaura-ink);
+  border-radius: 0;
+  background: transparent;
+  color: var(--luminaura-ink);
+  font-family: var(--luminaura-sans);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  line-height: 1;
+  text-transform: uppercase;
+  box-shadow: none;
+}
+
+.facets--horizontal .facets__panel-content .clear-filter:hover,
+.facets--horizontal .facets__panel-content .clear-filter:focus-visible {
+  background: var(--luminaura-ink);
+  color: #fffdf9;
+}
+
 .facets__summary,
 .facets__label,
 .sortby,
