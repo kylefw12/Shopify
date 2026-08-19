@@ -24,28 +24,39 @@
 
 {% stylesheet %}
   .luminaura-collection-hero {
-    background: var(--luminaura-paper);
+    background: #fbf9f5;
     border-bottom: 1px solid var(--luminaura-line);
   }
 
   .luminaura-collection-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, .95fr) minmax(300px, .65fr);
-    gap: clamp(1.5rem, 6vw, 7rem);
-    width: min(100%, var(--page-width));
+    grid-template-columns: minmax(0, 1fr) minmax(260px, .7fr);
+    gap: clamp(1.25rem, 4vw, 4rem);
+    align-items: end;
+    width: min(100%, 1180px);
     margin: 0 auto;
-    padding: clamp(2.4rem, 6vw, 5.5rem) max(1.25rem, var(--page-margin));
+    padding: clamp(1.35rem, 3vw, 2.75rem) max(1.25rem, var(--page-margin));
+  }
+
+  .luminaura-collection-hero .luminaura-eyebrow {
+    margin: 0 0 .45rem;
+    color: #8a6544;
+    font-size: .64rem;
+    letter-spacing: .08em;
   }
 
   .luminaura-collection-hero .luminaura-heading {
-    max-width: 11ch;
-    font-size: clamp(2.4rem, 5vw, 5.25rem);
+    max-width: 16ch;
+    margin: 0;
+    font-size: clamp(2rem, 3.5vw, 3.6rem);
+    line-height: .98;
   }
 
   .luminaura-collection-hero__copy {
-    align-self: end;
+    max-width: 46ch;
     color: color-mix(in srgb, var(--luminaura-ink) 72%, transparent);
-    line-height: 1.6;
+    font-size: .9rem;
+    line-height: 1.5;
   }
 
   .luminaura-collection-hero__copy p {
@@ -53,23 +64,28 @@
   }
 
   .luminaura-collection-hero__bundle {
-    margin-top: 1rem !important;
+    margin-top: .7rem !important;
     color: var(--luminaura-gold);
-    font-size: .82rem;
+    font-size: .7rem;
     font-weight: 600;
-    text-transform: uppercase;
+    letter-spacing: .03em;
+    text-transform: none;
   }
 
   @media screen and (max-width: 749px) {
     .luminaura-collection-hero__inner {
       grid-template-columns: 1fr;
-      gap: 1.2rem;
-      padding-block: 2rem;
+      gap: .7rem;
+      padding-block: 1.25rem 1.35rem;
     }
 
     .luminaura-collection-hero .luminaura-heading {
-      max-width: 12ch;
-      font-size: clamp(2.2rem, 11vw, 3.4rem);
+      max-width: none;
+      font-size: clamp(1.9rem, 9vw, 2.8rem);
+    }
+
+    .luminaura-collection-hero__copy {
+      font-size: .84rem;
     }
   }
 {% endstylesheet %}
