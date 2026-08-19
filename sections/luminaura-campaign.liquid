@@ -1,0 +1,123 @@
+{%- liquid
+  assign campaign_image = section.settings.desktop_image
+  assign mobile_image = section.settings.mobile_image
+  assign campaign_alt = campaign_image.alt | default: section.settings.heading
+-%}
+
+<section class="la-home-campaign">
+  <a
+    class="la-home-campaign__link"
+    href="{{ section.settings.link | default: routes.all_products_collection_url }}"
+  >
+
+    <div class="la-home-campaign__media">
+      {% if campaign_image != blank %}
+        <picture>
+
+          {% if mobile_image != blank %}
+            <source
+              media="(max-width: 749px)"
+              srcset="{{ mobile_image | image_url: width: 1200 }}"
+            >
+          {% endif %}
+
+          {{ campaign_image
+            | image_url: width: 2600
+            | image_tag:
+              widths: '900,1200,1600,2000,2600',
+              sizes: '100vw',
+              loading: 'lazy',
+              alt: campaign_alt
+          }}
+
+        </picture>
+      {% else %}
+        <div class="la-home-campaign__placeholder">
+          {{ section.settings.heading }}
+        </div>
+      {% endif %}
+    </div>
+
+    <div
+      class="la-home-campaign__shade"
+      aria-hidden="true"
+    ></div>
+
+    <div class="la-home-campaign__copy">
+
+      {% if section.settings.eyebrow != blank %}
+        <span>
+          {{ section.settings.eyebrow }}
+        </span>
+      {% endif %}
+
+      <h2>
+        {{ section.settings.heading }}
+      </h2>
+
+      {% if section.settings.subheading != blank %}
+        <p>
+          {{ section.settings.subheading }}
+        </p>
+      {% endif %}
+
+      <em>
+        {{ section.settings.link_label }}
+      </em>
+
+    </div>
+
+  </a>
+</section>
+
+{% schema %}
+{
+  "name": "Luminaura campaign",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop campaign image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile campaign image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "THE EDIT"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "COLLARES"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Supporting text",
+      "default": "Layered, easy, everyday."
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Link label",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luminaura campaign"
+    }
+  ]
+}
+{% endschema %}

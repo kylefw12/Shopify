@@ -225,12 +225,23 @@
         "heading": "A little more luminous.",
         "text": "<p>New drops, quiet favourites, and special offers — sent occasionally.</p>"
       }
+    },
+    "luminaura_campaign": {
+      "type": "luminaura-campaign",
+      "settings": {
+        "eyebrow": "THE EDIT",
+        "heading": "COLLARES",
+        "subheading": "Layered, easy, everyday.",
+        "link_label": "SHOP NOW",
+        "link": "shopify://collections/all"
+      }
     }
   },
   "order": [
     "luminaura_product_hero",
-    "luminaura_categories",
     "luminaura_featured",
+    "luminaura_campaign",
+    "luminaura_categories",
     "luminaura_style_avatar",
     "luminaura_bundle",
     "luminaura_media",

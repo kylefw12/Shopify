@@ -602,3 +602,173 @@ main[data-template="index"] .luminaura-featured-card__meta {
   }
 
 }
+
+/* Full-width collection campaign */
+.la-home-campaign {
+  position: relative;
+
+  min-height: clamp(560px, 70vw, 900px);
+
+  overflow: hidden;
+
+  background: #cfc6bb;
+}
+
+.la-home-campaign__link,
+.la-home-campaign__media,
+.la-home-campaign__media picture,
+.la-home-campaign__media img {
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+}
+
+.la-home-campaign__link {
+  color: #ffffff;
+
+  text-decoration: none;
+}
+
+.la-home-campaign__media img {
+  object-fit: cover;
+
+  transition:
+    transform
+    1s
+    cubic-bezier(.2,.65,.2,1);
+}
+
+.la-home-campaign__placeholder {
+  display: grid;
+
+  width: 100%;
+  height: 100%;
+
+  place-items: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      #d8d0c5,
+      #aa9c8b
+    );
+
+  color: rgba(255,255,255,.3);
+
+  font-family: var(--font-heading--family);
+
+  font-size: clamp(4rem, 14vw, 13rem);
+
+  letter-spacing: -.05em;
+
+  text-align: center;
+}
+
+.la-home-campaign__shade {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 35%,
+      rgba(0,0,0,.52)
+    );
+}
+
+.la-home-campaign__copy {
+  position: absolute;
+
+  z-index: 2;
+
+  left: max(22px, var(--page-margin));
+  bottom: clamp(34px, 5vw, 68px);
+
+  max-width: 700px;
+}
+
+.la-home-campaign__copy > span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: .68rem;
+  font-weight: 600;
+
+  letter-spacing: .05em;
+
+  text-transform: uppercase;
+}
+
+.la-home-campaign__copy h2 {
+  margin: 0;
+
+  color: inherit;
+
+  font-family: var(--font-heading--family);
+
+  font-size: clamp(3.4rem, 8.5vw, 9rem);
+  font-weight: 500;
+
+  letter-spacing: -.045em;
+
+  line-height: .86;
+}
+
+.la-home-campaign__copy p {
+  max-width: 34rem;
+
+  margin: 14px 0 0;
+
+  font-size: .94rem;
+}
+
+.la-home-campaign__copy em {
+  display: inline-block;
+
+  margin-top: 18px;
+  padding-bottom: 4px;
+
+  border-bottom: 1px solid currentColor;
+
+  font-size: .7rem;
+  font-style: normal;
+  font-weight: 600;
+
+  letter-spacing: .04em;
+
+  text-transform: uppercase;
+}
+
+@media (hover: hover) {
+
+  .la-home-campaign__link:hover
+  .la-home-campaign__media img {
+    transform: scale(1.018);
+  }
+
+}
+
+@media screen and (max-width: 749px) {
+
+  .la-home-campaign {
+    min-height: 72svh;
+  }
+
+  .la-home-campaign__copy {
+    right: 20px;
+    bottom: 30px;
+    left: 20px;
+  }
+
+  .la-home-campaign__copy h2 {
+    font-size: clamp(3rem, 15vw, 6rem);
+  }
+
+}
