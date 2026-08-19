@@ -4,7 +4,7 @@
   assign campaign_alt = campaign_image.alt | default: section.settings.heading
 -%}
 
-<section class="la-home-campaign">
+<section class="la-home-campaign" {{ section.shopify_attributes }}>
   <a
     class="la-home-campaign__link"
     href="{{ section.settings.link | default: routes.all_products_collection_url }}"
