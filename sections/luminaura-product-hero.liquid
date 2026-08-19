@@ -1,146 +1,258 @@
 {%- liquid
-  assign use_placeholder_image = section.settings.use_placeholder_image
-  if use_placeholder_image == nil
-    assign use_placeholder_image = true
-  endif
-  unless use_placeholder_image
-    assign hero_image = section.settings.desktop_image
-  endunless
+  assign hero_image = section.settings.desktop_image
+  assign mobile_image = section.settings.mobile_image
   assign hero_alt = hero_image.alt | default: section.settings.heading
 -%}
 
-<section class="luminaura-compact-hero" {{ section.shopify_attributes }}>
-  <div class="luminaura-compact-hero__inner">
-    <div class="luminaura-compact-hero__copy">
-      <p class="luminaura-compact-hero__eyebrow">{{ section.settings.eyebrow }}</p>
-      <h1>{{ section.settings.heading }}</h1>
-      <div class="luminaura-compact-hero__text">{{ section.settings.text }}</div>
-      <div class="luminaura-compact-hero__actions">
-        <a class="button" href="{{ section.settings.primary_link | default: routes.all_products_collection_url }}">{{ section.settings.primary_label }}</a>
-        <a class="button button-secondary" href="{{ section.settings.secondary_link | default: routes.all_products_collection_url }}">{{ section.settings.secondary_label }}</a>
-      </div>
-      <p class="luminaura-compact-hero__bundle">Choose any 3 eligible pieces. Pay for 2.</p>
-    </div>
+<section class="la-arena-hero">
+  <div class="la-arena-hero__media">
+    {% if hero_image != blank %}
+      <picture>
+        {% if mobile_image != blank %}
+          <source
+            media="(max-width: 749px)"
+            srcset="{{ mobile_image | image_url: width: 1200 }}"
+          >
+        {% endif %}
 
-    <figure class="luminaura-compact-hero__media">
-      {% if hero_image != blank and use_placeholder_image == false %}
-        <picture>
-          {% if section.settings.mobile_image != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.mobile_image | image_url: width: 1100 }}">{% endif %}
-          {{ hero_image | image_url: width: 2200 | image_tag: widths: '750,1100,1500,1800,2200', sizes: '(min-width: 750px) 60vw, 100vw', loading: 'eager', fetchpriority: 'high', alt: hero_alt }}
-        </picture>
-      {% else %}
-        <img src="{{ 'luminaura-hero-placeholder.png' | asset_url }}" alt="Gold-tone everyday jewellery arranged on warm stone" width="1122" height="1400" loading="eager" fetchpriority="high">
-      {% endif %}
-    </figure>
+        {{ hero_image
+          | image_url: width: 2600
+          | image_tag:
+            widths: '900,1200,1600,2000,2600',
+            sizes: '100vw',
+            loading: 'eager',
+            fetchpriority: 'high',
+            alt: hero_alt
+        }}
+      </picture>
+    {% else %}
+      <img
+        src="{{ 'luminaura-hero-placeholder.png' | asset_url }}"
+        alt="Luminaura jewellery campaign"
+        width="1600"
+        height="1100"
+        loading="eager"
+        fetchpriority="high"
+      >
+    {% endif %}
+  </div>
+
+  <div class="la-arena-hero__shade" aria-hidden="true"></div>
+
+  <div class="la-arena-hero__content">
+    {% if section.settings.eyebrow != blank %}
+      <span class="la-arena-hero__eyebrow">
+        {{ section.settings.eyebrow }}
+      </span>
+    {% endif %}
+
+    <h1>{{ section.settings.heading }}</h1>
+
+    {% if section.settings.text != blank %}
+      <div class="la-arena-hero__text">
+        {{ section.settings.text }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.primary_label != blank %}
+      <a
+        class="la-arena-hero__link"
+        href="{{ section.settings.primary_link | default: routes.all_products_collection_url }}"
+      >
+        {{ section.settings.primary_label }}
+      </a>
+    {% endif %}
   </div>
 </section>
 
 {% stylesheet %}
-  .luminaura-compact-hero {
-    background: #fbf9f5;
-    color: #24201d;
+
+.la-arena-hero {
+  position: relative;
+  min-height: clamp(620px, 82svh, 920px);
+  overflow: hidden;
+  background: #d7d0c7;
+  color: #ffffff;
+}
+
+.la-arena-hero__media,
+.la-arena-hero__media picture,
+.la-arena-hero__media img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.la-arena-hero__media img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.la-arena-hero__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.03) 28%,
+      rgba(0, 0, 0, 0.52) 100%
+    );
+}
+
+.la-arena-hero__content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  min-height: inherit;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+
+  width: min(100%, 1560px);
+  margin: 0 auto;
+
+  padding:
+    clamp(34px, 5vw, 72px)
+    max(22px, var(--page-margin));
+}
+
+.la-arena-hero__eyebrow {
+  margin-bottom: 8px;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.la-arena-hero h1 {
+  max-width: 12ch;
+  margin: 0;
+
+  color: inherit;
+
+  font-family: var(--font-heading--family);
+  font-size: clamp(3rem, 7.5vw, 8rem);
+  font-weight: 500;
+
+  letter-spacing: -0.035em;
+  line-height: 0.88;
+
+  text-wrap: balance;
+}
+
+.la-arena-hero__text {
+  max-width: 40rem;
+  margin-top: 18px;
+
+  font-size: clamp(0.95rem, 1.2vw, 1.08rem);
+  line-height: 1.5;
+}
+
+.la-arena-hero__text p {
+  margin: 0;
+}
+
+.la-arena-hero__link {
+  display: inline-block;
+
+  margin-top: 22px;
+  padding-bottom: 4px;
+
+  border-bottom: 1px solid currentColor;
+
+  color: inherit;
+
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: opacity 0.2s ease;
+}
+
+.la-arena-hero__link:hover {
+  opacity: 0.68;
+}
+
+@media screen and (max-width: 749px) {
+
+  .la-arena-hero {
+    min-height: 76svh;
   }
 
-  .luminaura-compact-hero__inner {
-    display: grid;
-    grid-template-columns: minmax(300px, .72fr) minmax(0, 1.28fr);
-    width: min(100%, 1560px);
-    height: clamp(360px, 31vw, 440px);
-    max-height: 440px;
-    margin: 0 auto;
+  .la-arena-hero__content {
+    padding: 28px 20px 34px;
   }
 
-  .luminaura-compact-hero__copy {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: clamp(24px, 3vw, 42px);
-    background: #fbf9f5;
+  .la-arena-hero h1 {
+    max-width: 10ch;
+    font-size: clamp(3.1rem, 14vw, 5.8rem);
   }
 
-  .luminaura-compact-hero__eyebrow {
-    margin: 0 0 9px;
-    color: #8a6544;
-    font-size: .68rem;
-    font-weight: 600;
-    letter-spacing: 0;
-    text-transform: uppercase;
+  .la-arena-hero__text {
+    max-width: 31rem;
+    margin-top: 14px;
+    font-size: 0.92rem;
   }
 
-  .luminaura-compact-hero h1 {
-    max-width: 10.8em;
-    margin: 0;
-    color: #24201d;
-    font-family: var(--font-heading--family);
-    font-size: clamp(2.05rem, 3vw, 3.35rem);
-    font-weight: 500;
-    letter-spacing: 0;
-    line-height: 1;
-    text-wrap: balance;
-  }
+}
 
-  .luminaura-compact-hero__text {
-    max-width: 32rem;
-    margin-top: 12px;
-    color: #625a53;
-    font-size: clamp(.95rem, 1.15vw, 1.08rem);
-    line-height: 1.55;
-  }
-
-  .luminaura-compact-hero__text p { margin: 0; }
-  .luminaura-compact-hero__actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 17px; }
-
-  .luminaura-compact-hero__bundle {
-    margin: 14px 0 0;
-    color: #625a53;
-    font-size: .73rem;
-    line-height: 1.45;
-  }
-
-  .luminaura-compact-hero__media {
-    min-height: 0;
-    margin: 0;
-    overflow: hidden;
-    background: #f3eee6;
-  }
-
-  .luminaura-compact-hero__media picture,
-  .luminaura-compact-hero__media img {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  .luminaura-compact-hero__media img { object-fit: contain; object-position: center; }
-
-  @media screen and (max-width: 749px) {
-    .luminaura-compact-hero__inner { grid-template-columns: 1fr; height: auto; max-height: none; }
-    .luminaura-compact-hero__media { order: -1; aspect-ratio: 4 / 3; min-height: 0; }
-    .luminaura-compact-hero__copy { padding: 22px 20px 24px; }
-    .luminaura-compact-hero h1 { max-width: 12em; font-size: clamp(2rem, 8vw, 2.7rem); }
-    .luminaura-compact-hero__text { margin-top: 10px; font-size: .94rem; line-height: 1.48; }
-    .luminaura-compact-hero__actions { width: 100%; margin-top: 16px; }
-    .luminaura-compact-hero__actions .button { flex: 1 1 160px; }
-    .luminaura-compact-hero__bundle { margin-top: 11px; }
-  }
 {% endstylesheet %}
 
 {% schema %}
 {
-  "name": "Luminaura product hero",
+  "name": "Luminaura campaign hero",
   "settings": [
-    {"type":"checkbox","id":"use_placeholder_image","label":"Use placeholder image","default":true},
-    {"type":"image_picker","id":"desktop_image","label":"Desktop jewellery image"},
-    {"type":"image_picker","id":"mobile_image","label":"Mobile jewellery image"},
-    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"WATERPROOF. CONSIDERED. YOURS."},
-    {"type":"text","id":"heading","label":"Heading","default":"Jewellery for every day"},
-    {"type":"richtext","id":"text","label":"Supporting copy","default":"<p>Modern waterproof jewellery designed for daily wear, easy gifting, and effortless layering.</p>"},
-    {"type":"text","id":"primary_label","label":"Primary button label","default":"Shop jewellery"},
-    {"type":"url","id":"primary_link","label":"Primary button link"},
-    {"type":"text","id":"secondary_label","label":"Secondary button label","default":"Build your bundle"},
-    {"type":"url","id":"secondary_link","label":"Secondary button link"}
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop campaign image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile campaign image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "NEW DROP"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "THE EVERYDAY EDIT"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Supporting copy",
+      "default": "<p>Waterproof jewellery made to live in.</p>"
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Link label",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Link"
+    }
   ],
-  "presets": [{"name":"Luminaura product hero"}]
+  "presets": [
+    {
+      "name": "Luminaura campaign hero"
+    }
+  ]
 }
 {% endschema %}
