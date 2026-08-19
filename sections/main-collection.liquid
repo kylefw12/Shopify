@@ -199,6 +199,16 @@
       "visible_if": "{{ section.settings.layout_type == 'grid' }}"
     },
     {
+      "type": "range",
+      "id": "desktop_columns",
+      "label": "Maximum desktop cards per row",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4,
+      "visible_if": "{{ section.settings.layout_type == 'grid' }}"
+    },
+    {
       "type": "select",
       "id": "mobile_product_card_size",
       "label": "t:settings.mobile_card_size",

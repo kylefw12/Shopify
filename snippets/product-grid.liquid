@@ -19,7 +19,11 @@
     {% case section.settings.layout_type %}
       {% when 'grid' %}
         .product-grid--{{ section.id }}:is(.product-grid--grid) {
+          {% if section.settings.desktop_columns != blank %}
+            --product-grid-columns-desktop: repeat({{ section.settings.desktop_columns }}, minmax(0, 1fr));
+          {% else %}
           --product-grid-columns-desktop: repeat(auto-fill, minmax({{ product_card_size }}, 1fr));
+          {% endif %}
         }
 
 
@@ -130,7 +134,7 @@
         {% comment %}
           This script is used to set the grid view on the product grid stored in sessionStorage. Keeping it here helps us prevent seeing the default state.
         {% endcomment %}
-        {% unless request.design_mode %}
+        {% unless request.design_mode or section.settings.desktop_columns != blank %}
           <script>
             (() => {
               const grid = document.querySelector('.product-grid');
