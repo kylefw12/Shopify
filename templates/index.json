@@ -11,12 +11,46 @@
   "sections": {
     "luminaura_product_hero": {
       "type": "luminaura-product-hero",
+      "blocks": {
+        "new_in": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "NEW IN",
+            "heading": "MADE TO LIVE IN",
+            "text": "<p>Jewellery designed for every day.</p>",
+            "primary_label": "SHOP NEW IN",
+            "primary_link": "shopify://collections/novedades"
+          }
+        },
+        "gold_edit": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "THE GOLD EDIT",
+            "heading": "EASY PIECES, EVERY DAY.",
+            "text": "<p>Necklaces, earrings and layers made to wear on repeat.</p>",
+            "primary_label": "SHOP JEWELLERY",
+            "primary_link": "shopify://collections/all"
+          }
+        },
+        "bundle": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "3 FOR 2",
+            "heading": "BUILD YOUR EVERYDAY STACK",
+            "text": "<p>Choose any three eligible pieces and pay for two.</p>",
+            "primary_label": "BUILD YOUR BUNDLE",
+            "primary_link": "shopify://pages/bundle"
+          }
+        }
+      },
+      "block_order": [
+        "new_in",
+        "gold_edit",
+        "bundle"
+      ],
       "settings": {
-        "eyebrow": "NEW DROP",
-        "heading": "THE EVERYDAY FIT",
-        "text": "<p>Waterproof jewellery made to live in.</p>",
-        "primary_label": "SHOP NOW",
-        "primary_link": "shopify://collections/novedades"
+        "autoplay": true,
+        "autoplay_delay": 6
       }
     },
     "luminaura_featured": {
