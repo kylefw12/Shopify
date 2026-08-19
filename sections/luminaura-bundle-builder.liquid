@@ -1,4 +1,11 @@
-<section class="luminaura-bundle-builder color-{{ section.settings.color_scheme }}">
+{%- liquid
+  assign bundle_collection = section.settings.collection
+  if bundle_collection == blank
+    assign bundle_collection = collections.all
+  endif
+-%}
+
+<section class="luminaura-bundle-builder color-{{ section.settings.color_scheme }}" {{ section.shopify_attributes }}>
   <div class="luminaura-bundle-builder__inner">
     <div class="luminaura-bundle-builder__intro">
       <span class="luminaura-bundle-builder__eyebrow">{{ section.settings.eyebrow }}</span>
@@ -13,34 +20,27 @@
         <span data-luminaura-step>2</span>
         <span data-luminaura-step>Free</span>
       </div>
-      <strong data-luminaura-bundle-status>0 of 3 selected</strong>
-      <p data-luminaura-bundle-helper>Choose any 3 pieces. Maximum 1 free item per order.</p>
+      <strong data-luminaura-bundle-status aria-live="polite">0 of 3 selected</strong>
+      <p data-luminaura-bundle-helper aria-live="polite">Choose any 3 pieces. Maximum 1 free item per order.</p>
       <a class="button button-secondary" href="{{ section.settings.collection_link | default: '/collections/all' }}">Browse all jewellery</a>
       <button class="button" type="button" data-luminaura-bundle-submit disabled>Add my bundle to bag</button>
     </div>
   </div>
-  {% assign shown_bundle_products = 0 %}
-  {% assign bundle_collection = section.settings.collection | default: collections['all'] %}
   <div class="luminaura-bundle-builder__products">
-    {% if bundle_collection != blank %}
-      {% for product in bundle_collection.products limit: 12 %}
-          {% assign shown_bundle_products = shown_bundle_products | plus: 1 %}
+    {% for product in bundle_collection.products limit: 12 %}
           {% assign variant = product.selected_or_first_available_variant %}
           <article class="luminaura-bundle-builder__product" data-luminaura-product-offer data-product-title="{{ product.title | escape }}" data-variant-id="{{ variant.id }}">
             <a href="{{ product.url }}" class="luminaura-bundle-builder__product-media">{% if product.featured_media != blank %}{{ product.featured_media.preview_image | image_url: width: 600 | image_tag: widths: '300,450,600', sizes: '(min-width: 750px) 25vw, 50vw', loading: 'lazy', alt: product.title }}{% else %}<span>{{ shop.name }}</span>{% endif %}</a>
             <div><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price | money }}</span></div>
             <button type="button" class="button button-secondary" data-luminaura-add-bundle-item aria-pressed="false">Add to my bundle</button>
           </article>
-      {% endfor %}
-    {% endif %}
-    {% if shown_bundle_products == 0 %}
-      {% for index in (1..4) %}
-        <article class="luminaura-bundle-builder__product luminaura-bundle-builder__product--placeholder">
-          <div class="luminaura-bundle-builder__product-media"><span>Luminaura</span></div>
-          <div><span>Bundle placeholder</span><span>3 for 2</span></div>
-          <button type="button" class="button button-secondary" disabled>Coming soon</button>
-        </article>
-      {% endfor %}
+    {% endfor %}
+    {% if bundle_collection.products_count == 0 and request.design_mode %}
+      <article class="luminaura-bundle-builder__product luminaura-bundle-builder__product--placeholder">
+        <div class="luminaura-bundle-builder__product-media"><span>Select eligible products</span></div>
+        <div><span>Choose a collection in the Theme Editor</span></div>
+        <button type="button" class="button button-secondary" disabled>Preview only</button>
+      </article>
     {% endif %}
   </div>
 </section>
