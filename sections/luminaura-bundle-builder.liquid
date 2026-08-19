@@ -14,16 +14,16 @@
         <span data-luminaura-step>Free</span>
       </div>
       <strong data-luminaura-bundle-status>0 of 3 selected</strong>
-      <p data-luminaura-bundle-helper>Choose 3 eligible pieces from their product pages.</p>
-      <a class="button button-secondary" href="{{ section.settings.collection_link | default: '/collections/all' }}">Browse eligible pieces</a>
+      <p data-luminaura-bundle-helper>Choose any 3 pieces. Maximum 1 free item per order.</p>
+      <a class="button button-secondary" href="{{ section.settings.collection_link | default: '/collections/all' }}">Browse all jewellery</a>
       <button class="button" type="button" data-luminaura-bundle-submit disabled>Add my bundle to bag</button>
     </div>
   </div>
   {% assign shown_bundle_products = 0 %}
+  {% assign bundle_collection = section.settings.collection | default: collections['all'] %}
   <div class="luminaura-bundle-builder__products">
-    {% if section.settings.collection != blank %}
-      {% for product in section.settings.collection.products limit: 12 %}
-        {% if product.tags contains 'bundle-eligible' or product.tags contains '3 for 2' %}
+    {% if bundle_collection != blank %}
+      {% for product in bundle_collection.products limit: 12 %}
           {% assign shown_bundle_products = shown_bundle_products | plus: 1 %}
           {% assign variant = product.selected_or_first_available_variant %}
           <article class="luminaura-bundle-builder__product" data-luminaura-product-offer data-product-title="{{ product.title | escape }}" data-variant-id="{{ variant.id }}">
@@ -31,7 +31,6 @@
             <div><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price | money }}</span></div>
             <button type="button" class="button button-secondary" data-luminaura-add-bundle-item aria-pressed="false">Add to my bundle</button>
           </article>
-        {% endif %}
       {% endfor %}
     {% endif %}
     {% if shown_bundle_products == 0 %}
@@ -184,7 +183,7 @@
       "type": "textarea",
       "id": "text",
       "label": "Text",
-      "default": "Choose any 3 eligible pieces and only pay for 2. Mix necklaces, earrings, bracelets and rings into a complete Luminaura set."
+      "default": "Choose any 3 pieces from Luminaura and only pay for 2. Maximum 1 free item per order."
     },
     {
       "type": "text",
