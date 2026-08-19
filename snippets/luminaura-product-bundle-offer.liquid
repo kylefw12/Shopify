@@ -3,12 +3,7 @@
   assign variant = product.selected_or_first_available_variant
 -%}
 
-{%- assign bundle_eligible = false -%}
-{%- if product.tags contains 'bundle-eligible' or product.tags contains '3 for 2' -%}
-  {%- assign bundle_eligible = true -%}
-{%- endif -%}
-
-{%- if product != blank and product.gift_card? == false and bundle_eligible -%}
+{%- if product != blank and product.gift_card? == false -%}
   <div
     class="luminaura-product-offer"
     data-luminaura-product-offer
@@ -19,7 +14,7 @@
     <div>
       <span class="luminaura-product-offer__badge">3 for 2</span>
       <strong>Buy 2, Get 1 Free</strong>
-      <p>Choose three eligible pieces and pay for two. The automatic Shopify discount applies at checkout.</p>
+      <p>Choose any three jewellery pieces and pay for two. The automatic Shopify discount applies at checkout.</p>
     </div>
     <button type="button" class="button button-secondary" data-luminaura-add-bundle-item aria-pressed="false">
       Add to My Bundle
