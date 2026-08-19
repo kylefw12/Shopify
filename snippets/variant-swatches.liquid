@@ -128,11 +128,7 @@
           </li>
         {% endcapture %}
 
-        {% if request.page_type == 'collection' %}
-          {% render 'overflow-list', children: children, ref: 'overflowList', attributes: 'disabled="true"' %}
-        {% else %}
-          {% render 'overflow-list', children: children, ref: 'overflowList' %}
-        {% endif %}
+        {% render 'overflow-list', children: children, ref: 'overflowList' %}
       </fieldset>
     {%- endfor -%}
     <script type="application/json">

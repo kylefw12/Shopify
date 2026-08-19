@@ -677,16 +677,6 @@ main[data-template='collection'] .luminaura-card-price {
 main[data-template='collection'] .product-card__content > product-swatches {
   grid-column: 1 / -1;
   grid-row: 3;
-  min-width: 0;
-  overflow: visible;
-}
-
-main[data-template='collection'] product-swatches swatches-variant-picker-component {
-  flex-wrap: wrap;
-}
-
-main[data-template='collection'] product-swatches overflow-list::part(list) {
-  flex-wrap: wrap;
 }
 
 .cart-page,
