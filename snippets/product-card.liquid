@@ -115,6 +115,14 @@
       <span class="luminaura-card-badge">3 for 2</span>
     {%- endunless -%}
     {{ children }}
+    {%- if request.page_type == 'collection' and onboarding == false -%}
+      <p class="luminaura-card-price">
+        <span>{{ variant_to_link.price | money }}</span>
+        {%- if variant_to_link.compare_at_price > variant_to_link.price -%}
+          <s>{{ variant_to_link.compare_at_price | money }}</s>
+        {%- endif -%}
+      </p>
+    {%- endif -%}
   </div>
 </product-card>
 {%- if settings.transition_to_main_product -%}

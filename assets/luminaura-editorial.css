@@ -626,24 +626,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-family: var(--luminaura-sans);
 }
 
-.product-card product-price {
-  display: block;
-  flex: 0 0 auto;
+.luminaura-card-price {
+  display: flex;
+  align-items: baseline;
+  gap: .35rem;
+  width: 100%;
   min-height: 1.25rem;
-  margin-top: .1rem;
+  margin: .1rem 0 0;
   color: var(--luminaura-ink);
   font-size: .9rem;
   font-weight: 500;
   line-height: 1.35;
 }
 
-.product-card product-price [ref='priceContainer'] {
-  display: block;
-  color: var(--luminaura-ink);
-}
-
-.product-card product-price .compare-at-price {
-  margin-inline-start: .35rem;
+.luminaura-card-price s {
   color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
   font-size: .82em;
 }
