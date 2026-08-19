@@ -22,6 +22,7 @@
       </div>
       <strong data-luminaura-bundle-status aria-live="polite">0 of 3 selected</strong>
       <p data-luminaura-bundle-helper aria-live="polite">Choose any 3 pieces. Maximum 1 free item per order.</p>
+      <p class="luminaura-bundle-builder__feedback" data-luminaura-bundle-feedback aria-live="polite" hidden></p>
       <a class="button button-secondary" href="{{ section.settings.collection_link | default: '/collections/all' }}">Browse all jewellery</a>
       <button class="button" type="button" data-luminaura-bundle-submit disabled>Add my bundle to bag</button>
     </div>
@@ -29,10 +30,10 @@
   <div class="luminaura-bundle-builder__products">
     {% for product in bundle_collection.products limit: 12 %}
           {% assign variant = product.selected_or_first_available_variant %}
-          <article class="luminaura-bundle-builder__product" data-luminaura-product-offer data-product-title="{{ product.title | escape }}" data-variant-id="{{ variant.id }}">
+          <article class="luminaura-bundle-builder__product{% unless variant.available %} is-sold-out{% endunless %}" data-luminaura-product-offer data-product-title="{{ product.title | escape }}" data-variant-id="{{ variant.id }}">
             <a href="{{ product.url }}" class="luminaura-bundle-builder__product-media">{% if product.featured_media != blank %}{{ product.featured_media.preview_image | image_url: width: 600 | image_tag: widths: '300,450,600', sizes: '(min-width: 750px) 25vw, 50vw', loading: 'lazy', alt: product.title }}{% else %}<span>{{ shop.name }}</span>{% endif %}</a>
             <div><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price | money }}</span></div>
-            <button type="button" class="button button-secondary" data-luminaura-add-bundle-item aria-pressed="false">Add to my bundle</button>
+            <button type="button" class="button button-secondary" data-luminaura-add-bundle-item aria-pressed="false"{% unless variant.available %} disabled{% endunless %}>{% if variant.available %}Add to my bundle{% else %}Sold out{% endif %}</button>
           </article>
     {% endfor %}
     {% if bundle_collection.products_count == 0 and request.design_mode %}
@@ -48,9 +49,7 @@
 {% stylesheet %}
   .luminaura-bundle-builder {
     padding: clamp(48px, 7vw, 88px) var(--padding-xl);
-    background:
-      linear-gradient(135deg, rgb(var(--color-foreground-rgb) / 0.05), transparent 42%),
-      var(--color-background);
+    background: #f8f5f0;
   }
 
   .luminaura-bundle-builder__inner {
@@ -76,7 +75,7 @@
     font-weight: 600;
     letter-spacing: 0;
     text-transform: uppercase;
-    color: rgb(var(--color-foreground-rgb) / 0.72);
+    color: #665a4c;
   }
 
   .luminaura-bundle-builder h2 {
@@ -88,24 +87,51 @@
   .luminaura-bundle-builder p {
     max-width: 58ch;
     margin: 0 0 24px;
-    color: rgb(var(--color-foreground-rgb) / 0.72);
+    color: #5b5249;
   }
 
   .luminaura-bundle-builder__panel,
   .luminaura-product-offer,
   .luminaura-bundle-progress {
-    border: 1px solid rgb(var(--color-foreground-rgb) / 0.16);
-    border-radius: 8px;
-    background: rgb(var(--color-background-rgb) / 0.86);
+    border: 1px solid #ded5ca;
+    border-radius: 2px;
+    background: #fffdfa;
   }
 
   .luminaura-bundle-builder__panel {
     padding: clamp(24px, 4vw, 40px);
+    box-shadow: 0 14px 32px rgb(61 46 32 / 0.07);
   }
 
   .luminaura-bundle-builder__panel .button + .button {
     margin-top: 10px;
   }
+
+  .luminaura-bundle-builder__panel .button {
+    min-height: 48px;
+  }
+
+  .luminaura-bundle-builder__panel [data-luminaura-bundle-status] {
+    display: block;
+    margin-block-end: 8px;
+    color: #241f1a;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .luminaura-bundle-builder__panel [data-luminaura-bundle-helper] {
+    margin-block-end: 16px;
+    color: #5b5249;
+  }
+
+  .luminaura-bundle-builder__feedback {
+    margin: -4px 0 16px;
+    color: #2b6251;
+    font-size: .88rem;
+    line-height: 1.45;
+  }
+
+  .luminaura-bundle-builder__feedback.is-error { color: #9a3f32; }
 
   .luminaura-bundle-builder__products {
     display: grid;
@@ -120,14 +146,16 @@
     aspect-ratio: 4 / 5;
     place-items: center;
     overflow: hidden;
-    background: rgb(var(--color-foreground-rgb) / 0.08);
-    color: rgb(var(--color-foreground-rgb) / 0.72);
+    background: #eee7dd;
+    color: #665a4c;
     font-family: var(--font-heading--family);
   }
 
-  .luminaura-bundle-builder__product-media img { width: 100%; height: 100%; object-fit: cover; }
+  .luminaura-bundle-builder__product-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 240ms ease; }
+  .luminaura-bundle-builder__product:hover .luminaura-bundle-builder__product-media img { transform: scale(1.025); }
   .luminaura-bundle-builder__product > div:not(.luminaura-bundle-builder__product-media) { display: flex; justify-content: space-between; gap: 8px; padding: 10px 0; font-size: .84rem; }
   .luminaura-bundle-builder__product .button { width: 100%; }
+  .luminaura-bundle-builder__product.is-sold-out { opacity: .58; }
 
   .luminaura-bundle-builder__steps {
     display: grid;
@@ -140,14 +168,17 @@
     display: grid;
     min-height: 56px;
     place-items: center;
-    border: 1px solid rgb(var(--color-foreground-rgb) / 0.18);
-    border-radius: 8px;
+    border: 1px solid #d8cec2;
+    border-radius: 2px;
+    background: #fbf9f6;
+    color: #5b5249;
     font-weight: 600;
   }
 
   .luminaura-bundle-builder__steps span.is-active {
-    background: var(--color-foreground);
-    color: var(--color-background);
+    border-color: #7a6549;
+    background: #7a6549;
+    color: #fffdfa;
   }
 
   @media screen and (max-width: 749px) {
