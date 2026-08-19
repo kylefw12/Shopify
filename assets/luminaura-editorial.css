@@ -644,6 +644,40 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-size: .82em;
 }
 
+/* Keep collection-card titles and prices aligned regardless of swatch count. */
+main[data-template='collection'] .product-card__content {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: .75rem;
+  row-gap: var(--product-card-gap);
+  align-items: start;
+}
+
+main[data-template='collection'] .product-card__content > .card-gallery {
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+
+main[data-template='collection'] .product-card__content > .text-block {
+  grid-column: 1;
+  grid-row: 2;
+  min-width: 0;
+}
+
+main[data-template='collection'] .luminaura-card-price {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: end;
+  width: auto;
+  margin: 0;
+  white-space: nowrap;
+}
+
+main[data-template='collection'] .product-card__content > product-swatches {
+  grid-column: 1 / -1;
+  grid-row: 3;
+}
+
 .cart-page,
 .cart__container,
 .cart-page__items,
