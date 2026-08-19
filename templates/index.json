@@ -12,14 +12,11 @@
     "luminaura_product_hero": {
       "type": "luminaura-product-hero",
       "settings": {
-        "use_placeholder_image": true,
-        "eyebrow": "WATERPROOF. CONSIDERED. YOURS.",
-        "heading": "Jewellery for every day",
-        "text": "<p>Modern waterproof jewellery designed for daily wear, easy gifting, and effortless layering.</p>",
-        "primary_label": "Shop jewellery",
-        "primary_link": "shopify://collections/all",
-        "secondary_label": "Build your bundle",
-        "secondary_link": "shopify://collections/all"
+        "eyebrow": "NEW DROP",
+        "heading": "THE EVERYDAY EDIT",
+        "text": "<p>Waterproof jewellery made to live in.</p>",
+        "primary_label": "SHOP NOW",
+        "primary_link": "shopify://collections/all"
       }
     },
     "luminaura_categories": {
