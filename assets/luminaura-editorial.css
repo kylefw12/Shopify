@@ -165,10 +165,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .product-grid__item .card-gallery, .product-grid__item .product-card__gallery { background: #eee9e1; }
 .product-grid__item img { transition: transform .55s cubic-bezier(.2,.65,.2,1); }
 @media (hover:hover) { .product-grid__item:hover img { transform: scale(1.025); } }
+.product-grid__item, .resource-list__item { border: 0 !important; box-shadow: none; }
 .product-grid__item .product-card { border: 0; }
 .product-badges__badge { border-radius: 0; letter-spacing: 0; text-transform: uppercase; font-size: .62rem; }
 .product-card__title, .product-title { letter-spacing: 0; }
-.facets, .facets-block-wrapper { border-block-color: var(--luminaura-line); }
+.facets--horizontal, .facets-block-wrapper:not(.facets-block-wrapper--drawer), .facets-toggle { border-block: 0 !important; }
 .collection-wrapper { padding-bottom: clamp(3rem, 7vw, 7rem); }
 .cart-page__summary > *, .cart__container, .cart-summary { border-color: var(--luminaura-line); }
 .cart-page__summary { background: #f0ebe3; }
