@@ -614,6 +614,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   padding-top: .35rem;
 }
 
+/* Product metadata must be allowed to grow below a fixed-ratio gallery. */
+.product-grid__card.product-grid__card {
+  height: auto;
+  overflow: visible;
+}
+
 .product-card__title,
 .product-title,
 .price {
@@ -622,12 +628,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 .product-card product-price {
   display: block;
+  flex: 0 0 auto;
   min-height: 1.25rem;
   margin-top: .1rem;
   color: var(--luminaura-ink);
   font-size: .9rem;
   font-weight: 500;
   line-height: 1.35;
+}
+
+.product-card product-price [ref='priceContainer'] {
+  display: block;
+  color: var(--luminaura-ink);
 }
 
 .product-card product-price .compare-at-price {
