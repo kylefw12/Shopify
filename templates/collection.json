@@ -147,6 +147,7 @@
       "settings": {
         "layout_type": "grid",
         "product_card_size": "medium",
+        "desktop_columns": 4,
         "mobile_product_card_size": "small",
         "enable_infinite_scroll": true,
         "products_per_page": 24,
