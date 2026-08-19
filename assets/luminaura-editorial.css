@@ -525,3 +525,80 @@ main[data-template="index"] .hero video {
     max-height: none;
   }
 }
+
+/* Arena-inspired horizontal product rail */
+main[data-template="index"] .luminaura-featured {
+  padding: clamp(48px, 7vw, 96px) 0;
+  background: #fbf9f5;
+}
+
+main[data-template="index"] .luminaura-featured .luminaura-section__inner {
+  width: 100%;
+  max-width: none;
+}
+
+main[data-template="index"] .luminaura-featured__header {
+  width: min(100%, 1560px);
+  margin: 0 auto 28px;
+  padding-inline: max(20px, var(--page-margin));
+}
+
+main[data-template="index"] .luminaura-featured__header h2 {
+  font-size: clamp(2rem, 4vw, 4.5rem);
+  letter-spacing: -0.025em;
+  line-height: 0.95;
+}
+
+main[data-template="index"] .luminaura-featured__grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(230px, 23vw);
+  grid-template-columns: none;
+
+  gap: 12px;
+
+  overflow-x: auto;
+
+  padding-inline: max(20px, var(--page-margin));
+
+  scroll-snap-type: inline proximity;
+  scrollbar-width: none;
+}
+
+main[data-template="index"] .luminaura-featured__grid::-webkit-scrollbar {
+  display: none;
+}
+
+main[data-template="index"] .luminaura-featured-card {
+  scroll-snap-align: start;
+}
+
+main[data-template="index"] .luminaura-featured-card__media {
+  aspect-ratio: 4 / 5;
+}
+
+main[data-template="index"] .luminaura-featured-card__meta {
+  padding-top: 11px;
+  font-size: 0.82rem;
+}
+
+@media screen and (max-width: 749px) {
+
+  main[data-template="index"] .luminaura-featured {
+    padding: 44px 0 58px;
+  }
+
+  main[data-template="index"] .luminaura-featured__header {
+    margin-bottom: 20px;
+    padding-inline: 18px;
+  }
+
+  main[data-template="index"] .luminaura-featured__grid {
+    grid-auto-columns: 72vw;
+
+    gap: 10px;
+
+    padding-inline: 18px;
+  }
+
+}

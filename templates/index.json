@@ -62,9 +62,9 @@
     "luminaura_featured": {
       "type": "luminaura-featured-products",
       "settings": {
-        "heading": "Pieces to wear on repeat.",
+        "heading": "NEW IN",
         "collection": "top-ventas",
-        "product_limit": 4
+        "product_limit": 8
       }
     },
     "luminaura_style_avatar": {
