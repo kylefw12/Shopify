@@ -4,8 +4,14 @@
   assign block_settings = block.settings
   for product_option in closest.product.options_with_values
     assign swatch_count = product_option.values | map: 'swatch' | compact | size
+    assign option_name = product_option.name | downcase
+    assign is_finish_option = false
 
-    if swatch_count > 0
+    if option_name contains 'color' or option_name contains 'colour' or option_name contains 'metal' or option_name contains 'material' or option_name contains 'finish' or option_name contains 'acabado'
+      assign is_finish_option = true
+    endif
+
+    if swatch_count > 0 or is_finish_option
       assign product_has_swatches = true
     endif
   endfor
