@@ -125,6 +125,11 @@ html[data-luminaura-theme='dark'] .luminaura-card-price {
   font-weight: 600;
 }
 
+html[data-luminaura-theme='dark'] main[data-template='collection'] .product-card__content > .text-block,
+html[data-luminaura-theme='dark'] main[data-template='collection'] .product-card__content > .text-block * {
+  color: #fffaf3 !important;
+}
+
 /* Luminaura-owned store chrome */
 #header-group {
   position: sticky;
