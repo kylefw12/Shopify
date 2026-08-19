@@ -13,10 +13,28 @@
       "type": "luminaura-product-hero",
       "settings": {
         "eyebrow": "NEW DROP",
-        "heading": "THE EVERYDAY EDIT",
+        "heading": "THE EVERYDAY FIT",
         "text": "<p>Waterproof jewellery made to live in.</p>",
         "primary_label": "SHOP NOW",
-        "primary_link": "shopify://collections/all"
+        "primary_link": "shopify://collections/novedades"
+      }
+    },
+    "luminaura_featured": {
+      "type": "luminaura-featured-products",
+      "settings": {
+        "heading": "NEW IN",
+        "collection": "top-ventas",
+        "product_limit": 8
+      }
+    },
+    "luminaura_campaign": {
+      "type": "luminaura-campaign",
+      "settings": {
+        "eyebrow": "THE EDIT",
+        "heading": "COLLARES",
+        "subheading": "Layered, easy, everyday.",
+        "link_label": "SHOP NOW",
+        "link": "shopify://collections/all"
       }
     },
     "luminaura_categories": {
@@ -59,14 +77,6 @@
       ],
       "settings": {}
     },
-    "luminaura_featured": {
-      "type": "luminaura-featured-products",
-      "settings": {
-        "heading": "NEW IN",
-        "collection": "top-ventas",
-        "product_limit": 8
-      }
-    },
     "luminaura_style_avatar": {
       "type": "luminaura-style-avatar",
       "blocks": {
@@ -107,6 +117,7 @@
         "holiday"
       ],
       "settings": {
+        "video_url": "",
         "image_alt": "Model wearing Luminaura jewellery with a neutral everyday outfit",
         "featured_product": "",
         "eyebrow": "Style it with",
@@ -224,16 +235,6 @@
         "eyebrow": "A note from us",
         "heading": "A little more luminous.",
         "text": "<p>New drops, quiet favourites, and special offers — sent occasionally.</p>"
-      }
-    },
-    "luminaura_campaign": {
-      "type": "luminaura-campaign",
-      "settings": {
-        "eyebrow": "THE EDIT",
-        "heading": "COLLARES",
-        "subheading": "Layered, easy, everyday.",
-        "link_label": "SHOP NOW",
-        "link": "shopify://collections/all"
       }
     }
   },
