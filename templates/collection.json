@@ -32,7 +32,7 @@
             "show_swatch_label": false,
             "show_filter_label": false,
             "enable_sorting": true,
-            "enable_grid_density": false,
+            "enable_grid_density": true,
             "inherit_color_scheme": true,
             "color_scheme": "",
             "padding-block-start": 12,
@@ -147,7 +147,6 @@
       "settings": {
         "layout_type": "grid",
         "product_card_size": "medium",
-        "desktop_columns": 4,
         "mobile_product_card_size": "small",
         "enable_infinite_scroll": true,
         "products_per_page": 24,
