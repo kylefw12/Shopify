@@ -620,6 +620,22 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-family: var(--luminaura-sans);
 }
 
+.product-card product-price {
+  display: block;
+  min-height: 1.25rem;
+  margin-top: .1rem;
+  color: var(--luminaura-ink);
+  font-size: .9rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.product-card product-price .compare-at-price {
+  margin-inline-start: .35rem;
+  color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+  font-size: .82em;
+}
+
 .cart-page,
 .cart__container,
 .cart-page__items,
