@@ -91,6 +91,18 @@
     if request.page_type == 'collection' or request.page_type == 'search'
       assign is_listing_page = true
     endif
+
+    assign has_search_swatches = false
+    if request.page_type == 'search'
+      for product_option in product.options_with_values
+        assign option_name = product_option.name | downcase
+        assign swatch_count = product_option.values | map: 'swatch' | compact | size
+        if swatch_count > 0 or option_name contains 'color' or option_name contains 'colour' or option_name contains 'metal' or option_name contains 'material' or option_name contains 'finish' or option_name contains 'acabado'
+          assign has_search_swatches = true
+          break
+        endif
+      endfor
+    endif
   %}
 
   <div
@@ -129,6 +141,15 @@
           <s>{{ variant_to_link.compare_at_price | money }}</s>
         {%- endif -%}
       </p>
+    {%- endif -%}
+    {%- if has_search_swatches -%}
+      <product-swatches
+        data-product-id="{{ product.id }}"
+        data-product-url="{{ product.url }}"
+        style="--overflow-list-alignment: flex-start; --overflow-list-alignment-mobile: flex-start; --product-swatches-alignment: start; --product-swatches-alignment-mobile: start; --product-swatches-padding-block-start: 4px; --product-swatches-padding-block-end: 0px; --product-swatches-padding-inline-start: 0px; --product-swatches-padding-inline-end: 0px;"
+      >
+        {% render 'variant-swatches', product_resource: product %}
+      </product-swatches>
     {%- endif -%}
   </div>
 </product-card>
