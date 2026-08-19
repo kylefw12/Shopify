@@ -1,13 +1,40 @@
-<div class="luminaura-announcement">
+<div class="la-announcement">
   <a href="{{ section.settings.announcement_link | default: routes.all_products_collection_url }}">
     {{ section.settings.announcement_text }}
   </a>
 </div>
 
-<header class="luminaura-site-header" data-luminaura-header>
-  <div class="luminaura-site-header__inner">
-    <nav class="luminaura-site-header__nav luminaura-site-header__nav--left" aria-label="Primary navigation">
-      {% for link in section.settings.menu.links limit: 4 %}
+<header class="la-header" data-luminaura-header>
+  <div class="la-header__inner">
+
+    <details class="la-header__mobile-menu">
+      <summary aria-label="Open menu">
+        <span></span>
+        <span></span>
+      </summary>
+
+      <div class="la-header__mobile-panel">
+        <nav aria-label="Mobile navigation">
+          {% for link in section.settings.menu.links %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% else %}
+            <a href="{{ routes.all_products_collection_url }}">Shop</a>
+            <a href="{{ routes.collections_url }}">Collections</a>
+          {% endfor %}
+        </nav>
+
+        <div class="la-header__mobile-meta">
+          <a href="{{ routes.search_url }}">Search</a>
+
+          {% if shop.customer_accounts_enabled %}
+            <a href="{{ routes.account_url }}">Account</a>
+          {% endif %}
+        </div>
+      </div>
+    </details>
+
+    <nav class="la-header__nav" aria-label="Primary navigation">
+      {% for link in section.settings.menu.links limit: 5 %}
         <a href="{{ link.url }}">{{ link.title }}</a>
       {% else %}
         <a href="{{ routes.all_products_collection_url }}">Shop</a>
@@ -15,52 +42,348 @@
       {% endfor %}
     </nav>
 
-    <a class="luminaura-site-header__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+    <a
+      class="la-header__brand"
+      href="{{ routes.root_url }}"
+      aria-label="{{ shop.name }}"
+    >
       {% if section.settings.logo != blank %}
-        {{ section.settings.logo | image_url: width: 320 | image_tag: widths: '120,180,240,320', sizes: '160px', loading: 'eager', alt: shop.name }}
+        {{ section.settings.logo
+          | image_url: width: 360
+          | image_tag:
+            widths: '140,200,280,360',
+            sizes: '180px',
+            loading: 'eager',
+            alt: shop.name
+        }}
       {% else %}
         {{ section.settings.brand_name | default: shop.name }}
       {% endif %}
     </a>
 
-    <div class="luminaura-site-header__actions">
+    <div class="la-header__actions">
+
       {% if section.settings.show_localization %}
-        {% form 'localization', class: 'luminaura-localization' %}
-          <select name="country_code" aria-label="Country or region" onchange="this.form.submit()">
+        {% form 'localization', class: 'la-header__localization' %}
+          <select
+            name="country_code"
+            aria-label="Country or region"
+            onchange="this.form.submit()"
+          >
             {% for country in localization.available_countries %}
-              <option value="{{ country.iso_code }}" {% if country.iso_code == localization.country.iso_code %}selected{% endif %}>
+              <option
+                value="{{ country.iso_code }}"
+                {% if country.iso_code == localization.country.iso_code %}
+                  selected
+                {% endif %}
+              >
                 {{ country.currency.iso_code }}
               </option>
             {% endfor %}
           </select>
-          {% if localization.available_languages.size > 1 %}
-            <select name="locale_code" aria-label="Language" onchange="this.form.submit()">
-              {% for language in localization.available_languages %}
-                <option value="{{ language.iso_code }}" {% if language.iso_code == localization.language.iso_code %}selected{% endif %}>
-                  {{ language.iso_code | upcase }}
-                </option>
-              {% endfor %}
-            </select>
-          {% endif %}
         {% endform %}
       {% endif %}
 
-      <a href="{{ routes.search_url }}" aria-label="Search">Search</a>
-      <a href="{{ routes.cart_url }}" aria-label="Cart">Bag{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</a>
+      <a class="la-header__search" href="{{ routes.search_url }}">
+        Search
+      </a>
+
+      {% if shop.customer_accounts_enabled %}
+        <a class="la-header__account" href="{{ routes.account_url }}">
+          Account
+        </a>
+      {% endif %}
+
+      <a class="la-header__bag" href="{{ routes.cart_url }}">
+        Bag{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}
+      </a>
     </div>
+
   </div>
 </header>
+
+{% stylesheet %}
+
+#header-group {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  border: 0;
+  background: #fbf9f5;
+
+  backdrop-filter: none;
+}
+
+.la-announcement {
+  display: grid;
+
+  min-height: 30px;
+  padding: 5px 18px;
+
+  place-items: center;
+
+  background: #24201d;
+  color: #fffdf9;
+
+  text-align: center;
+
+  font-size: 0.63rem;
+  font-weight: 600;
+  letter-spacing: 0.045em;
+
+  text-transform: uppercase;
+}
+
+.la-announcement a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.la-header {
+  border-bottom: 1px solid #ded8cf;
+  background: rgba(251, 249, 245, 0.98);
+}
+
+.la-header__inner {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  min-height: 62px;
+
+  width: min(100%, 1560px);
+  margin: 0 auto;
+
+  padding:
+    0
+    max(20px, var(--page-margin));
+}
+
+.la-header a {
+  color: #24201d;
+  text-decoration: none;
+}
+
+.la-header__nav,
+.la-header__actions {
+  display: flex;
+  align-items: center;
+
+  gap: clamp(14px, 1.7vw, 25px);
+}
+
+.la-header__nav a,
+.la-header__actions a,
+.la-header__localization select {
+  border: 0;
+
+  background: transparent;
+  color: #24201d;
+
+  font: inherit;
+
+  font-size: 0.68rem;
+  font-weight: 500;
+
+  letter-spacing: 0.03em;
+
+  text-transform: uppercase;
+}
+
+.la-header__brand {
+  justify-self: center;
+
+  font-family: var(--font-heading--family);
+
+  font-size: clamp(1.15rem, 1.8vw, 1.6rem);
+  font-weight: 500;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.la-header__brand img {
+  display: block;
+
+  width: auto;
+
+  max-width: 190px;
+  max-height: 36px;
+}
+
+.la-header__actions {
+  justify-content: flex-end;
+}
+
+.la-header__localization select {
+  max-width: 74px;
+  padding: 2px 0;
+}
+
+.la-header__mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 749px) {
+
+  .la-header__inner {
+    grid-template-columns: 32px 1fr auto;
+
+    min-height: 56px;
+
+    padding-inline: 16px;
+  }
+
+  .la-header__nav,
+  .la-header__search,
+  .la-header__account,
+  .la-header__localization {
+    display: none;
+  }
+
+  .la-header__brand {
+    justify-self: center;
+
+    font-size: 1.15rem;
+  }
+
+  .la-header__bag {
+    font-size: 0.65rem !important;
+  }
+
+  .la-header__mobile-menu {
+    position: static;
+
+    display: block;
+  }
+
+  .la-header__mobile-menu > summary {
+    display: grid;
+
+    width: 28px;
+    height: 28px;
+
+    cursor: pointer;
+
+    list-style: none;
+
+    place-content: center;
+
+    gap: 5px;
+  }
+
+  .la-header__mobile-menu > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .la-header__mobile-menu > summary span {
+    display: block;
+
+    width: 20px;
+    height: 1px;
+
+    background: #24201d;
+  }
+
+  .la-header__mobile-panel {
+    position: absolute;
+
+    z-index: 60;
+
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+    min-height: calc(100svh - 86px);
+
+    padding: 34px 20px 28px;
+
+    border-top: 1px solid #ded8cf;
+
+    background: #fbf9f5;
+  }
+
+  .la-header__mobile-panel nav {
+    display: grid;
+
+    gap: 4px;
+  }
+
+  .la-header__mobile-panel nav a {
+    padding: 8px 0;
+
+    font-family: var(--font-heading--family);
+
+    font-size: clamp(2rem, 10vw, 3.8rem);
+
+    line-height: 1;
+  }
+
+  .la-header__mobile-meta {
+    display: flex;
+
+    gap: 22px;
+
+    margin-top: 36px;
+    padding-top: 18px;
+
+    border-top: 1px solid #ded8cf;
+  }
+
+  .la-header__mobile-meta a {
+    font-size: 0.68rem;
+
+    text-transform: uppercase;
+  }
+}
+
+{% endstylesheet %}
 
 {% schema %}
 {
   "name": "Luminaura header",
   "settings": [
-    {"type":"text","id":"announcement_text","label":"Announcement text","default":"Free shipping from 60 EUR - 3 for 2 on eligible pieces"},
-    {"type":"url","id":"announcement_link","label":"Announcement link"},
-    {"type":"text","id":"brand_name","label":"Brand name","default":"Luminaura"},
-    {"type":"image_picker","id":"logo","label":"Logo"},
-    {"type":"link_list","id":"menu","label":"Menu","default":"main-menu"},
-    {"type":"checkbox","id":"show_localization","label":"Show country and language selectors","default":true}
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement text",
+      "default": "3X2 EN JOYAS · ENVÍO GRATIS +60€"
+    },
+    {
+      "type": "url",
+      "id": "announcement_link",
+      "label": "Announcement link"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand name",
+      "default": "Luminaura"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_localization",
+      "label": "Show country selector",
+      "default": true
+    }
   ]
 }
 {% endschema %}
