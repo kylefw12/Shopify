@@ -1147,12 +1147,13 @@ main[data-template="index"] .luminaura-featured-card__meta {
 
   font-family: var(--font-heading--family);
 
-  font-size: clamp(3.4rem, 8.5vw, 9rem);
+  font-size: clamp(3.1rem, 6.4vw, 7rem);
   font-weight: 500;
 
   letter-spacing: -.045em;
 
   line-height: .86;
+  white-space: nowrap;
 }
 
 .la-home-campaign__copy p {
@@ -1203,6 +1204,7 @@ main[data-template="index"] .luminaura-featured-card__meta {
 
   .la-home-campaign__copy h2 {
     font-size: clamp(3rem, 15vw, 6rem);
+    white-space: normal;
   }
 
 }

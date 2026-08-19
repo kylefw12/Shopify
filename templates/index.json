@@ -106,54 +106,6 @@
       ],
       "settings": {}
     },
-    "luminaura_style_avatar": {
-      "type": "luminaura-style-avatar",
-      "blocks": {
-        "everyday": {
-          "type": "outfit",
-          "settings": {
-            "label": "Everyday",
-            "title": "White tank, soft blazer, relaxed denim",
-            "text": "A clean base that lets gold jewellery feel polished without looking overdone.",
-            "link": "shopify://collections/all",
-            "link_label": "Shop this style"
-          }
-        },
-        "evening": {
-          "type": "outfit",
-          "settings": {
-            "label": "Evening",
-            "title": "Black slip dress, low bun, small hoops",
-            "text": "Simple shapes make waterproof jewellery feel refined enough for dinner plans.",
-            "link": "shopify://collections/all",
-            "link_label": "Shop this style"
-          }
-        },
-        "holiday": {
-          "type": "outfit",
-          "settings": {
-            "label": "Holiday",
-            "title": "Linen shirt, cream trousers, layered necklace",
-            "text": "Warm neutrals and easy textures pair naturally with gold-tone pieces.",
-            "link": "shopify://collections/all",
-            "link_label": "Shop this style"
-          }
-        }
-      },
-      "block_order": [
-        "everyday",
-        "evening",
-        "holiday"
-      ],
-      "settings": {
-        "video_url": "",
-        "image_alt": "Model wearing Luminaura jewellery with a neutral everyday outfit",
-        "featured_product": "",
-        "eyebrow": "Style it with",
-        "heading": "Outfits that match the jewellery.",
-        "text": "Use this section to show how a necklace, hoop, ring or bracelet fits into a complete everyday look."
-      }
-    },
     "luminaura_media": {
       "type": "luminaura-media",
       "settings": {
@@ -259,7 +211,6 @@
     "luminaura_featured",
     "luminaura_campaign",
     "luminaura_categories",
-    "luminaura_style_avatar",
     "luminaura_media",
     "luminaura_values",
     "luminaura_story",
