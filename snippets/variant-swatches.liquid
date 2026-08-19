@@ -36,9 +36,15 @@
     {%- for product_option in product_resource.options_with_values -%}
       {%- liquid
         assign swatch_count = product_option.values | map: 'swatch' | compact | size
+        assign option_name = product_option.name | downcase
+        assign is_finish_option = false
+
+        if option_name contains 'color' or option_name contains 'colour' or option_name contains 'metal' or option_name contains 'material' or option_name contains 'finish' or option_name contains 'acabado'
+          assign is_finish_option = true
+        endif
       -%}
 
-      {% if swatch_count == 0 %}
+      {% if swatch_count == 0 and is_finish_option == false %}
         {% continue %}
       {% endif %}
 
@@ -102,9 +108,10 @@
                   data-variant-id="{{ first_available_variant.id | default: product_option_value.variant.id }}"
                   data-first-available-or-first-variant-id="{{ first_available_variant.id | default: product_option_value.variant.id }}"
                 >
-                {% render 'swatch',
+                {% render 'luminaura-finish-swatch',
                   swatch: product_option_value.swatch,
                   variant_image: featured_media,
+                  option_value: product_option_value.name,
                 %}
                 {% render 'strikethrough-variant', product_option: product_option_value %}
               </label>

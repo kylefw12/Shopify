@@ -37,6 +37,52 @@
                 <span>{% if product.compare_at_price > product.price %}<s>{{ product.compare_at_price | money }}</s> {% endif %}{{ product.price | money }}</span>
               </div>
             </a>
+            {% for product_option in product.options_with_values %}
+              {% liquid
+                assign option_name = product_option.name | downcase
+                assign is_finish_option = false
+
+                if option_name contains 'color' or option_name contains 'colour' or option_name contains 'metal' or option_name contains 'material' or option_name contains 'finish' or option_name contains 'acabado'
+                  assign is_finish_option = true
+                endif
+              %}
+              {% if is_finish_option == false %}
+                {% continue %}
+              {% endif %}
+
+              <div class="luminaura-featured-card__swatches" aria-label="{{ product_option.name | escape }} options">
+                {% assign option_key = 'option' | append: product_option.position %}
+                {% for product_option_value in product_option.values %}
+                  {% assign matching_variant = blank %}
+                  {% for variant in product.variants %}
+                    {% if variant[option_key] == product_option_value.name %}
+                      {% assign matching_variant = variant %}
+                      {% if variant.available %}{% break %}{% endif %}
+                    {% endif %}
+                  {% endfor %}
+
+                  {% if matching_variant != blank and matching_variant.available %}
+                    <a
+                      class="luminaura-featured-card__swatch-link"
+                      href="{{ product.url }}?variant={{ matching_variant.id }}"
+                      aria-label="View {{ product.title | escape }} in {{ product_option_value.name | escape }}"
+                      title="{{ product_option_value.name | escape }}"
+                    >
+                      {% render 'luminaura-finish-swatch', swatch: product_option_value.swatch, option_value: product_option_value.name, mode: 'unscaled' %}
+                    </a>
+                  {% else %}
+                    <span
+                      class="luminaura-featured-card__swatch-link luminaura-featured-card__swatch-link--unavailable"
+                      aria-label="{{ product_option_value.name | escape }} unavailable"
+                      title="{{ product_option_value.name | escape }} — unavailable"
+                    >
+                      {% render 'luminaura-finish-swatch', swatch: product_option_value.swatch, option_value: product_option_value.name, mode: 'unscaled' %}
+                    </span>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              {% break %}
+            {% endfor %}
           </article>
         {% endfor %}
       {% if shown_products == 0 and request.design_mode %}
