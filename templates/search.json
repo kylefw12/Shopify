@@ -139,7 +139,6 @@
             },
             "swatches": {
               "type": "swatches",
-              "name": "Swatches",
               "settings": {
                 "product_swatches_alignment": "flex-start",
                 "product_swatches_alignment_mobile": "flex-start",
