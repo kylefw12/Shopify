@@ -16,8 +16,18 @@
   </div>
 
   <div class="luminaura-site-footer__bottom">
-    <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}</span>
-    <span>Waterproof jewellery for everyday wear.</span>
+    <div class="luminaura-site-footer__legal">
+      <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}</span>
+      <span>Waterproof jewellery for everyday wear.</span>
+    </div>
+
+    {% if section.settings.menu.links != blank %}
+      <nav class="luminaura-site-footer__policies" aria-label="Policies">
+        {% for link in section.settings.menu.links %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+      </nav>
+    {% endif %}
   </div>
 </footer>
 

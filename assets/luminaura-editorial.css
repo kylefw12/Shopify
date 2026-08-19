@@ -267,11 +267,28 @@ html[data-luminaura-theme='dark'] main[data-template='collection'] .product-grid
 .luminaura-site-footer__bottom {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 1rem;
   padding-block: 1rem;
   border-top: 1px solid rgba(255, 253, 249, .16);
   color: rgba(255, 253, 249, .64);
   font-size: .75rem;
+}
+
+.luminaura-site-footer__legal,
+.luminaura-site-footer__policies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem 1rem;
+}
+
+.luminaura-site-footer__policies a {
+  color: rgba(255, 253, 249, .78);
+  font-size: .7rem;
+}
+
+.luminaura-site-footer__policies a:hover {
+  color: #fffdf9;
 }
 
 /* Shared commerce styling */
