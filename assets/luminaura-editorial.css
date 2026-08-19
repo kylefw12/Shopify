@@ -234,7 +234,7 @@ html[data-luminaura-theme='dark'] main[data-template='collection'] .product-grid
 
 .luminaura-site-footer__main {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(170px, .45fr) minmax(150px, .35fr);
+  grid-template-columns: minmax(0, 1fr) minmax(150px, auto);
   gap: clamp(2rem, 6vw, 6rem);
   padding-block: clamp(3rem, 7vw, 6rem);
 }
@@ -253,7 +253,6 @@ html[data-luminaura-theme='dark'] main[data-template='collection'] .product-grid
   color: rgba(255, 253, 249, .72);
 }
 
-.luminaura-site-footer__nav,
 .luminaura-site-footer__social {
   display: grid;
   align-content: start;

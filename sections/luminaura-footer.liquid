@@ -5,15 +5,6 @@
       <p>{{ section.settings.text }}</p>
     </div>
 
-    <nav class="luminaura-site-footer__nav" aria-label="Footer navigation">
-      {% for link in section.settings.menu.links %}
-        <a href="{{ link.url }}">{{ link.title }}</a>
-      {% else %}
-        <a href="{{ routes.all_products_collection_url }}">Shop jewellery</a>
-        <a href="{{ routes.cart_url }}">Bag</a>
-      {% endfor %}
-    </nav>
-
     <div class="luminaura-site-footer__social">
       {% if section.settings.instagram_url != blank %}
         <a href="{{ section.settings.instagram_url }}">Instagram</a>
