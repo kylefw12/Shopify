@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "header",
   "name": "Header",
@@ -5,7 +14,7 @@
     "luminaura_header": {
       "type": "luminaura-header",
       "settings": {
-        "announcement_text": "Free shipping from 60 EUR - 3 for 2 on eligible pieces",
+        "announcement_text": "Free shipping from 60 EUR - 3 for 2 on all pieces",
         "announcement_link": "shopify://collections/all",
         "brand_name": "Luminaura",
         "menu": "main-menu",
