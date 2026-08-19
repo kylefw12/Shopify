@@ -138,7 +138,7 @@
                   selected
                 {% endif %}
               >
-                {{ country.currency.iso_code }}
+                {{ country.name }} · {{ country.currency.iso_code }}
               </option>
             {% endfor %}
           </select>
@@ -393,8 +393,10 @@
 }
 
 .la-header__localization select {
-  max-width: 74px;
-  padding: 2px 0;
+  width: min(172px, 14vw);
+  min-width: 126px;
+  padding: 4px 22px 4px 0;
+  cursor: pointer;
 }
 
 .la-header__mobile-menu {
