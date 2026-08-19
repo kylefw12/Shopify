@@ -157,6 +157,7 @@
     },
     "luminaura_story": {
       "type": "luminaura-editorial-story",
+      "disabled": true,
       "settings": {
         "eyebrow": "Made for real life",
         "heading": "Jewellery that keeps up.",
@@ -195,6 +196,7 @@
         "review_two",
         "review_three"
       ],
+      "disabled": true,
       "settings": {}
     },
     "luminaura_newsletter": {
