@@ -39,7 +39,7 @@
             "heading": "BUILD YOUR EVERYDAY STACK",
             "text": "<p>Choose any three eligible pieces and pay for two.</p>",
             "primary_label": "BUILD YOUR BUNDLE",
-            "primary_link": "shopify://pages/bundle"
+            "primary_link": "/pages/build-your-bundle-1?view=bundle"
           }
         }
       },
