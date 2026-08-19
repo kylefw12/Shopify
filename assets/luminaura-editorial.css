@@ -126,7 +126,9 @@ html[data-luminaura-theme='dark'] .luminaura-card-price {
 }
 
 html[data-luminaura-theme='dark'] main[data-template='collection'] .product-card__content > .text-block,
-html[data-luminaura-theme='dark'] main[data-template='collection'] .product-card__content > .text-block * {
+html[data-luminaura-theme='dark'] main[data-template='collection'] .product-card__content > .text-block *,
+html[data-luminaura-theme='dark'] main[data-template='collection'] .product-grid-view-zoom-out--details,
+html[data-luminaura-theme='dark'] main[data-template='collection'] .product-grid-view-zoom-out--details * {
   color: #fffaf3 !important;
 }
 
