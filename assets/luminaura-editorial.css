@@ -759,7 +759,7 @@ html[data-luminaura-theme='dark'] main[data-template='collection'] .product-grid
 }
 
 /* Keep collection-card titles and prices aligned regardless of swatch count. */
-main[data-template='collection'] .product-card__content {
+main:is([data-template='collection'], [data-template='search']) .product-card__content {
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) auto;
   column-gap: .75rem;
@@ -768,18 +768,18 @@ main[data-template='collection'] .product-card__content {
   align-content: start;
 }
 
-main[data-template='collection'] .product-card__content > .card-gallery {
+main:is([data-template='collection'], [data-template='search']) .product-card__content > .card-gallery {
   grid-column: 1 / -1;
   grid-row: 1;
 }
 
-main[data-template='collection'] .product-card__content > .text-block {
+main:is([data-template='collection'], [data-template='search']) .product-card__content > .text-block {
   grid-column: 1;
   grid-row: 2;
   min-width: 0;
 }
 
-main[data-template='collection'] .luminaura-card-price {
+main:is([data-template='collection'], [data-template='search']) .luminaura-card-price {
   grid-column: 2;
   grid-row: 2;
   justify-self: end;
@@ -788,7 +788,7 @@ main[data-template='collection'] .luminaura-card-price {
   white-space: nowrap;
 }
 
-main[data-template='collection'] .product-card__content > product-swatches {
+main:is([data-template='collection'], [data-template='search']) .product-card__content > product-swatches {
   grid-column: 1 / -1;
   grid-row: 3;
 }

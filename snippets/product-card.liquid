@@ -86,6 +86,13 @@
       {{ product.title }}
     </span>
   </a>
+  {% liquid
+    assign is_listing_page = false
+    if request.page_type == 'collection' or request.page_type == 'search'
+      assign is_listing_page = true
+    endif
+  %}
+
   <div
     class="
       product-card__content
@@ -115,7 +122,7 @@
       <span class="luminaura-card-badge">3 for 2</span>
     {%- endunless -%}
     {{ children }}
-    {%- if request.page_type == 'collection' and onboarding == false -%}
+    {%- if is_listing_page and onboarding == false -%}
       <p class="luminaura-card-price">
         <span>{{ variant_to_link.price | money }}</span>
         {%- if variant_to_link.compare_at_price > variant_to_link.price -%}
