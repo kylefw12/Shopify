@@ -67,10 +67,10 @@
     "luminaura_cart_callout": {
       "type": "luminaura-cart-callout",
       "settings": {
-        "eyebrow": "Still choosing?",
-        "heading": "Complete your everyday set.",
-        "text": "Add eligible pieces to unlock the 3 for 2 bundle before checkout.",
-        "button_label": "Continue shopping",
+        "eyebrow": "Sigues buscando?",
+        "heading": "Completa tu set ahora",
+        "text": "",
+        "button_label": "Continua comprando",
         "button_link": "shopify://collections/all"
       }
     },
