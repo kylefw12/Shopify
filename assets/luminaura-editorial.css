@@ -514,14 +514,14 @@ html[data-luminaura-theme='dark'] main[data-template='collection'] .product-grid
 }
 
 /* Keep Shopify product media visible above the gallery fallback surface. */
-.template-product .product-information .product-media {
+.product-information .product-media {
   position: relative;
   display: block;
   overflow: hidden;
   content-visibility: visible;
 }
 
-.template-product .product-information .product-media__image {
+.product-information .product-media__image {
   position: relative;
   z-index: 1;
   display: block;
@@ -530,6 +530,15 @@ html[data-luminaura-theme='dark'] main[data-template='collection'] .product-grid
   opacity: 1;
   visibility: visible;
   object-fit: cover;
+}
+
+/* Shopify uses this full-image button as a transparent zoom target. */
+.product-information .product-media-container__zoom-button {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: transparent !important;
+  opacity: 0 !important;
 }
 
 .product-information .product-details {
