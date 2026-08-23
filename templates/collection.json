@@ -15,7 +15,7 @@
         "eyebrow": "Comprar Luminaura",
         "fallback_heading": "Everyday jewellery",
         "fallback_text": "Piezas resistentes al agua diseñadas para cada día, para regalar y combinar con facilidad.",
-        "bundle_text": "Choose any 3 eligible pieces. Pay for 2."
+        "bundle_text": "Pide 3 piezas y solo pagas 2"
       }
     },
     "main": {
@@ -106,6 +106,7 @@
               "settings": {
                 "product_swatches_alignment": "flex-start",
                 "product_swatches_alignment_mobile": "flex-start",
+                "hide_padding": false,
                 "product_swatches_padding_top": 4,
                 "product_swatches_padding_bottom": 0,
                 "product_swatches_padding_left": 0,
