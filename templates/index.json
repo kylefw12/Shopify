@@ -18,10 +18,10 @@
             "desktop_image": "shopify://shop_images/Codex_Image_20_Aug_2026_00_04_32.png",
             "collection": "",
             "eyebrow": "NEW IN",
-            "heading": "MADE TO LIVE IN",
+            "heading": "",
             "text": "<p>Jewellery designed for every day.</p>",
-            "primary_label": "SHOP NEW IN",
-            "primary_link": "shopify://collections/novedades"
+            "primary_label": "",
+            "primary_link": ""
           }
         },
         "gold_edit": {
@@ -29,11 +29,11 @@
           "settings": {
             "desktop_image": "shopify://shop_images/Codex_Image_20_Aug_2026_00_02_40.png",
             "collection": "",
-            "eyebrow": "THE GOLD EDIT",
-            "heading": "EASY PIECES, EVERY DAY.",
+            "eyebrow": "",
+            "heading": "",
             "text": "<p>Necklaces, earrings and layers made to wear on repeat.</p>",
-            "primary_label": "SHOP JEWELLERY",
-            "primary_link": "shopify://collections/all"
+            "primary_label": "",
+            "primary_link": ""
           }
         }
       },
