@@ -513,6 +513,25 @@ html[data-luminaura-theme='dark'] main[data-template='collection'] .product-grid
   background: #eee9e1;
 }
 
+/* Keep Shopify product media visible above the gallery fallback surface. */
+.template-product .product-information .product-media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  content-visibility: visible;
+}
+
+.template-product .product-information .product-media__image {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  visibility: visible;
+  object-fit: cover;
+}
+
 .product-information .product-details {
   border-color: var(--luminaura-line) !important;
   background: rgba(251, 249, 245, .92);
