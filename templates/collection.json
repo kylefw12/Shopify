@@ -12,9 +12,9 @@
     "luminaura_collection_header": {
       "type": "luminaura-collection-header",
       "settings": {
-        "eyebrow": "Shop Luminaura",
+        "eyebrow": "Comprar Luminaura",
         "fallback_heading": "Everyday jewellery",
-        "fallback_text": "Waterproof pieces designed for daily wear, thoughtful gifting, and effortless layering.",
+        "fallback_text": "Piezas resistentes al agua diseñadas para cada día, para regalar y combinar con facilidad.",
         "bundle_text": "Choose any 3 eligible pieces. Pay for 2."
       }
     },
@@ -144,8 +144,8 @@
         "waterproof": {
           "type": "value",
           "settings": {
-            "title": "Waterproof",
-            "text": "Designed to keep up with real life."
+            "title": "Resistente al agua",
+            "text": "Diseñada para acompañarte cada día."
           }
         },
         "tarnish": {

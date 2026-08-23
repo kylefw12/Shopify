@@ -8,13 +8,13 @@
   <div class="la-header__inner">
 
     <details class="la-header__mobile-menu">
-      <summary aria-label="Open menu">
+      <summary aria-label="Abrir menú">
         <span></span>
         <span></span>
       </summary>
 
       <div class="la-header__mobile-panel">
-        <nav aria-label="Mobile navigation">
+        <nav aria-label="Navegación móvil">
           {% for link in section.settings.menu.links %}
             {% liquid
               assign link_url = link.url
@@ -27,7 +27,7 @@
               <details class="la-header__mobile-menu-group">
                 <summary>{{ link.title }}</summary>
                 <div class="la-header__mobile-submenu">
-                  <a class="la-header__mobile-view-all" href="{{ link_url }}">View all {{ link.title }}</a>
+                  <a class="la-header__mobile-view-all" href="{{ link_url }}">Ver todo {{ link.title }}</a>
                   {% for child_link in link.links %}
                     <a href="{{ child_link.url }}">{{ child_link.title }}</a>
                     {% for grandchild_link in child_link.links %}
@@ -41,28 +41,28 @@
             {% endif %}
             {% endunless %}
           {% else %}
-            <a href="{{ routes.all_products_collection_url }}">Shop</a>
-            <a href="{{ routes.collections_url }}">Collections</a>
+            <a href="{{ routes.all_products_collection_url }}">Comprar</a>
+            <a href="{{ routes.collections_url }}">Colecciones</a>
           {% endfor %}
         </nav>
 
         <div class="la-header__mobile-meta">
-          <a href="{{ routes.search_url }}">Search</a>
+          <a href="{{ routes.search_url }}">Buscar</a>
 
-          <button class="la-theme-toggle" type="button" data-luminaura-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
+          <button class="la-theme-toggle" type="button" data-luminaura-theme-toggle aria-pressed="false" aria-label="Cambiar a modo oscuro">
             <span class="la-theme-toggle__sun" aria-hidden="true">☀</span>
             <span class="la-theme-toggle__moon" aria-hidden="true">☾</span>
-            <span data-theme-toggle-label>Dark mode</span>
+            <span data-theme-toggle-label>Modo oscuro</span>
           </button>
 
           {% if shop.customer_accounts_enabled %}
-            <a href="{{ routes.account_url }}">Account</a>
+            <a href="{{ routes.account_url }}">Cuenta</a>
           {% endif %}
         </div>
       </div>
     </details>
 
-    <nav class="la-header__nav" aria-label="Primary navigation">
+    <nav class="la-header__nav" aria-label="Navegación principal">
       {% for link in section.settings.menu.links limit: 5 %}
         {% liquid
           assign link_url = link.url
@@ -79,7 +79,7 @@
             </summary>
             <div class="la-header__mega-menu">
               <div class="la-header__mega-menu-inner">
-                <a class="la-header__mega-menu-title" href="{{ link_url }}">Shop all {{ link.title }}</a>
+                <a class="la-header__mega-menu-title" href="{{ link_url }}">Ver todo {{ link.title }}</a>
                 <div class="la-header__mega-menu-grid">
                   {% for child_link in link.links %}
                     <div class="la-header__mega-menu-column">
@@ -104,8 +104,8 @@
         {% endif %}
         {% endunless %}
       {% else %}
-        <a href="{{ routes.all_products_collection_url }}">Shop</a>
-        <a href="{{ routes.collections_url }}">Collections</a>
+        <a href="{{ routes.all_products_collection_url }}">Comprar</a>
+        <a href="{{ routes.collections_url }}">Colecciones</a>
       {% endfor %}
     </nav>
 
@@ -134,7 +134,7 @@
         {% form 'localization', class: 'la-header__localization' %}
           <select
             name="country_code"
-            aria-label="Country or region"
+            aria-label="País o región"
             onchange="this.form.submit()"
           >
             {% for country in localization.available_countries %}
@@ -151,24 +151,24 @@
         {% endform %}
       {% endif %}
 
-      <button class="la-theme-toggle" type="button" data-luminaura-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
+      <button class="la-theme-toggle" type="button" data-luminaura-theme-toggle aria-pressed="false" aria-label="Cambiar a modo oscuro">
         <span class="la-theme-toggle__sun" aria-hidden="true">☀</span>
         <span class="la-theme-toggle__moon" aria-hidden="true">☾</span>
-        <span data-theme-toggle-label>Dark mode</span>
+        <span data-theme-toggle-label>Modo oscuro</span>
       </button>
 
       <a class="la-header__search" href="{{ routes.search_url }}">
-        Search
+        Buscar
       </a>
 
       {% if shop.customer_accounts_enabled %}
         <a class="la-header__account" href="{{ routes.account_url }}">
-          Account
+          Cuenta
         </a>
       {% endif %}
 
       <a class="la-header__bag" href="{{ routes.cart_url }}">
-        Bag{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}
+        Bolsa{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}
       </a>
     </div>
 

@@ -10,7 +10,7 @@ function setTheme(theme) {
     button.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
 
     const label = button.querySelector('[data-theme-toggle-label]');
-    if (label) label.textContent = isDark ? 'Light mode' : 'Dark mode';
+    if (label) label.textContent = isDark ? 'Modo claro' : 'Modo oscuro';
   });
 }
 

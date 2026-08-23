@@ -17,10 +17,10 @@
           "settings": {
             "desktop_image": "shopify://shop_images/Codex_Image_20_Aug_2026_00_04_32.png",
             "collection": "",
-            "eyebrow": "",
-            "heading": "NEW IN",
-            "text": "<p>Jewellery designed for every day.</p>",
-            "primary_label": "SHOP NEW IN",
+            "eyebrow": "NOVEDADES",
+            "heading": "",
+            "text": "<p>Joyería diseñada para cada día.</p>",
+            "primary_label": "VER NOVEDADES",
             "primary_link": "shopify://collections/novedades"
           }
         },
@@ -31,8 +31,8 @@
             "collection": "",
             "eyebrow": "",
             "heading": "",
-            "text": "<p>Necklaces, earrings and layers made to wear on repeat.</p>",
-            "primary_label": "SHOP JEWELLERY",
+            "text": "<p>Collares, pendientes y piezas para llevar una y otra vez.</p>",
+            "primary_label": "VER JOYAS",
             "primary_link": "shopify://collections/all"
           }
         }
@@ -49,7 +49,7 @@
     "luminaura_featured": {
       "type": "luminaura-featured-products",
       "settings": {
-        "heading": "NEW IN",
+        "heading": "NOVEDADES",
         "collection": "top-ventas",
         "product_limit": 8
       }
@@ -62,7 +62,7 @@
         "eyebrow": "",
         "heading": "NECKLACES",
         "subheading": "Layered, easy, everyday.",
-        "link_label": "SHOP NOW",
+        "link_label": "COMPRAR AHORA",
         "link": "shopify://collections/collares"
       }
     },
@@ -121,29 +121,29 @@
         "waterproof": {
           "type": "value",
           "settings": {
-            "title": "Waterproof",
-            "text": "Designed to keep up with real life."
+            "title": "Resistente al agua",
+            "text": "Diseñada para acompañarte cada día."
           }
         },
         "tarnish": {
           "type": "value",
           "settings": {
-            "title": "Tarnish-resistant",
-            "text": "A polished finish made for repeat wear."
+            "title": "Resistente al desgaste",
+            "text": "Un acabado cuidado para llevar una y otra vez."
           }
         },
         "giftable": {
           "type": "value",
           "settings": {
-            "title": "Gift-ready",
-            "text": "Thoughtful pieces for every someone."
+            "title": "Lista para regalar",
+            "text": "Piezas especiales para cada persona."
           }
         },
         "everyday": {
           "type": "value",
           "settings": {
-            "title": "Easy everyday wear",
-            "text": "Layer, live in, and reach for them often."
+            "title": "Para todos los días",
+            "text": "Combínalas, llévalas y disfrútalas a diario."
           }
         }
       },
@@ -202,9 +202,9 @@
     "luminaura_newsletter": {
       "type": "luminaura-newsletter",
       "settings": {
-        "eyebrow": "A note from us",
-        "heading": "A little more luminous.",
-        "text": "<p>New drops, quiet favourites, and special offers — sent occasionally.</p>"
+        "eyebrow": "Una nota nuestra",
+        "heading": "Un poco más de luz.",
+        "text": "<p>Nuevos lanzamientos, favoritos y ofertas especiales, de vez en cuando.</p>"
       }
     }
   },
