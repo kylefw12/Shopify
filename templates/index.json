@@ -17,8 +17,8 @@
           "settings": {
             "desktop_image": "shopify://shop_images/Codex_Image_20_Aug_2026_00_04_32.png",
             "collection": "",
-            "eyebrow": "NEW IN",
-            "heading": "",
+            "eyebrow": "",
+            "heading": "NEW IN",
             "text": "<p>Jewellery designed for every day.</p>",
             "primary_label": "SHOP NEW IN",
             "primary_link": "shopify://collections/novedades"
