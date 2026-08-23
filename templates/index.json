@@ -72,29 +72,29 @@
         "necklaces": {
           "type": "collection",
           "settings": {
-            "collection": "shopify://collections/collares",
-            "title": "Necklaces"
+            "collection": "collares",
+            "title": "Collares"
           }
         },
         "earrings": {
           "type": "collection",
           "settings": {
-            "collection": "shopify://collections/pendientes",
-            "title": "Earrings"
+            "collection": "pendientes",
+            "title": "Pendientes"
           }
         },
         "bracelets": {
           "type": "collection",
           "settings": {
-            "collection": "shopify://collections/pulseras",
-            "title": "Bracelets"
+            "collection": "pulseras",
+            "title": "Pulseras"
           }
         },
         "rings": {
           "type": "collection",
           "settings": {
-            "collection": "shopify://collections/anillos",
-            "title": "Rings"
+            "collection": "anillos",
+            "title": "Anillos"
           }
         }
       },
