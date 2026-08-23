@@ -20,8 +20,8 @@
             "eyebrow": "NEW IN",
             "heading": "",
             "text": "<p>Jewellery designed for every day.</p>",
-            "primary_label": "",
-            "primary_link": ""
+            "primary_label": "SHOP NEW IN",
+            "primary_link": "shopify://collections/novedades"
           }
         },
         "gold_edit": {
@@ -32,8 +32,8 @@
             "eyebrow": "",
             "heading": "",
             "text": "<p>Necklaces, earrings and layers made to wear on repeat.</p>",
-            "primary_label": "",
-            "primary_link": ""
+            "primary_label": "SHOP JEWELLERY",
+            "primary_link": "shopify://collections/all"
           }
         }
       },
