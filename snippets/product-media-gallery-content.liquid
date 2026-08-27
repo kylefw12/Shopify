@@ -68,7 +68,7 @@
   else
     assign slideshow_class = ''
 
-    if media_presentation == 'carousel'
+    if media_presentation == 'carousel' and block_settings.icons_style != 'none'
       assign render_slideshow_arrows = true
     endif
   endif
@@ -99,7 +99,17 @@
   if selected_variant_media
     assign sorted_media = sorted_media | concat: selected_product.media | where: 'id', selected_variant_media.id
 
-    unless block_settings.hide_variants
+    if block_settings.hide_variants
+      # Keep the chosen finish first, then show product images that are shared across finishes.
+      # This avoids showing another colour while still allowing a useful thumbnail gallery.
+      assign shared_media = selected_product.media | where: 'attached_to_variant?', false
+      for media in shared_media
+        if media.id != selected_variant_media.id
+          assign media_to_add = selected_product.media | where: 'id', media.id
+          assign sorted_media = sorted_media | concat: media_to_add
+        endif
+      endfor
+    else
       for media in selected_product.media
         if media.id != selected_variant_media.id
           assign found_media = selected_product.media | where: 'id', media.id
