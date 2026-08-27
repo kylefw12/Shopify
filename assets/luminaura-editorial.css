@@ -618,6 +618,23 @@ html[data-luminaura-theme='dark'] main[data-template='collection'] .product-grid
   transform: scale(1.04);
 }
 
+/* Keep desktop product pages compact: avoid a wide empty media frame on large monitors. */
+@media screen and (min-width: 1200px) {
+  .product-information__grid:not(.product-information__grid--half, .product-information--media-none).product-information--media-left {
+    width: min(100%, 1240px);
+    margin-inline: auto;
+    grid-template-columns: minmax(0, 720px) minmax(360px, 460px);
+  }
+
+  .product-information__grid:not(.product-information__grid--half, .product-information--media-none).product-information--media-left .product-information__media {
+    padding-right: 16px;
+  }
+
+  .product-information__grid:not(.product-information__grid--half, .product-information--media-none).product-information--media-left .product-details {
+    padding-left: 16px;
+  }
+}
+
 /* Product choices: concise colour swatches with a clear selected state. */
 .product-information .variant-option,
 .product-information .variant-picker__option {
