@@ -548,7 +548,7 @@ html[data-luminaura-theme='dark'] main[data-template='collection'] .product-grid
 }
 
 /* Shopify can inject express payment markup for static blocks; product pages use Add to cart only. */
-.template-product .accelerated-checkout-block {
+.product-information .accelerated-checkout-block {
   display: none !important;
 }
 
