@@ -719,6 +719,50 @@ html[data-luminaura-theme='dark'] main[data-template='collection'] .product-grid
   transform: none;
 }
 
+/* Keep quantity controls consistent in the product view, quick-add dialog, and cart. */
+:is(.quick-add-modal, .cart-items__quantity) .quantity-selector-wrapper {
+  margin: 0;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+
+:is(.quick-add-modal, .cart-items__quantity) .quantity-selector {
+  display: inline-flex;
+  flex: 0 0 126px;
+  align-self: center;
+  height: 48px !important;
+  overflow: hidden;
+  border: 1px solid var(--luminaura-line) !important;
+  border-radius: 999px !important;
+  background: #fffdf9 !important;
+}
+
+:is(.quick-add-modal, .cart-items__quantity) .quantity-selector input {
+  width: 38px;
+  min-width: 0;
+  border: 0 !important;
+  background: transparent !important;
+  text-align: center;
+}
+
+:is(.quick-add-modal, .cart-items__quantity) .quantity-selector button {
+  width: 42px;
+  min-width: 42px;
+  min-height: 0;
+  height: 46px;
+  padding: 0;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--luminaura-ink) !important;
+}
+
+:is(.quick-add-modal, .cart-items__quantity) .quantity-selector button:hover {
+  background: #f1ece4 !important;
+  transform: none;
+}
+
 .product-information .add-to-cart-button {
   min-height: 48px;
   border-radius: 999px !important;
