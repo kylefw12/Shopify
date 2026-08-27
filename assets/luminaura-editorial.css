@@ -573,47 +573,49 @@ html[data-luminaura-theme='dark'] main[data-template='collection'] .product-grid
   background: #f3f0ea;
 }
 
-/* Editorial gallery: a single main image with an understated thumbnail rail. */
+/* Editorial gallery: selected finish first, with all product images one click away. */
 .product-information .media-gallery--carousel {
   width: min(100%, 700px);
   margin-inline: auto;
   background: transparent;
-  --thumbnail-width: 60px;
-  --slideshow-thumbnails-padding-inline: .35rem;
 }
 
 .product-information .media-gallery--carousel slideshow-component {
   background: #f3f0ea;
 }
 
-.product-information .media-gallery--carousel .slideshow-controls__thumbnails {
-  gap: .55rem;
+.product-information .media-gallery--carousel slideshow-arrows {
+  align-items: center;
+  padding-inline: 14px;
+  mix-blend-mode: normal;
 }
 
-.product-information .media-gallery--carousel .slideshow-controls__thumbnail {
-  overflow: hidden;
-  background: #f3f0ea !important;
-  border: 1px solid transparent !important;
-  border-radius: 8px !important;
-  opacity: .62;
-  transition: opacity .18s ease, border-color .18s ease;
-}
-
-.product-information .media-gallery--carousel .slideshow-controls__thumbnail[aria-selected='true'] {
-  border-color: var(--luminaura-ink) !important;
-  outline: 0 !important;
+.product-information .media-gallery--carousel slideshow-arrows .slideshow-control {
+  display: grid;
+  width: 42px;
+  min-width: 42px;
+  height: 42px;
+  min-height: 42px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(36, 32, 29, .14);
+  border-radius: 50%;
+  background: rgba(255, 253, 249, .94);
+  box-shadow: 0 4px 14px rgba(36, 32, 29, .1);
+  color: var(--luminaura-ink);
   opacity: 1;
+  transition: background-color .18s ease, border-color .18s ease, color .18s ease, transform .18s ease;
 }
 
-.product-information .media-gallery--carousel .slideshow-controls__thumbnail:hover {
-  opacity: 1;
+.product-information .media-gallery--carousel slideshow-arrows .slideshow-control--next {
+  margin-left: auto;
 }
 
-@media screen and (max-width: 749px) {
-  .product-information .media-gallery--carousel {
-    width: 100%;
-    --thumbnail-width: 48px;
-  }
+.product-information .media-gallery--carousel slideshow-arrows .slideshow-control:is(:hover, :focus-visible) {
+  border-color: var(--luminaura-ink);
+  background: var(--luminaura-ink);
+  color: #fffdf9;
+  transform: scale(1.04);
 }
 
 /* Product choices: concise colour swatches with a clear selected state. */
