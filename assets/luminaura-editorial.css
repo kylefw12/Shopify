@@ -623,15 +623,16 @@ html[data-luminaura-theme='dark'] main[data-template='collection'] .product-grid
   .product-information__grid:not(.product-information__grid--half, .product-information--media-none).product-information--media-left {
     width: min(100%, 1240px) !important;
     margin-inline: auto;
-    grid-template-columns: minmax(0, 720px) minmax(360px, 460px) !important;
+    grid-template-columns: minmax(0, 700px) minmax(360px, 460px) !important;
+    column-gap: 24px !important;
   }
 
   .product-information__grid:not(.product-information__grid--half, .product-information--media-none).product-information--media-left .product-information__media {
-    padding-right: 16px;
+    padding-right: 0;
   }
 
   .product-information__grid:not(.product-information__grid--half, .product-information--media-none).product-information--media-left .product-details {
-    padding-left: 16px;
+    padding-left: 0;
   }
 }
 
