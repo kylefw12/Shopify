@@ -547,6 +547,11 @@ html[data-luminaura-theme='dark'] main[data-template='collection'] .product-grid
   box-shadow: 0 18px 60px rgba(36, 32, 29, .08);
 }
 
+/* Shopify can inject express payment markup for static blocks; product pages use Add to cart only. */
+.template-product .accelerated-checkout-block {
+  display: none !important;
+}
+
 .product-information .product-details h1 {
   font-family: var(--luminaura-serif);
   font-size: clamp(2rem, 3.2vw, 3.4rem);
