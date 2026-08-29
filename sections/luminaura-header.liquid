@@ -167,8 +167,11 @@
         </a>
       {% endif %}
 
-      <a class="la-header__bag" href="{{ routes.cart_url }}">
-        Bolsa{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}
+      <a class="la-header__bag" href="{{ routes.cart_url }}" aria-label="Carrito{% if cart.item_count > 0 %}, {{ cart.item_count }} artículos{% endif %}">
+        <span class="la-header__bag-icon svg-wrapper" aria-hidden="true">
+          {{- 'icon-cart.svg' | inline_asset_content -}}
+        </span>
+        <span>Carrito{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</span>
       </a>
     </div>
 
@@ -403,6 +406,23 @@
 
 .la-header__actions {
   justify-content: flex-end;
+}
+
+.la-header__bag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.la-header__bag-icon {
+  display: inline-flex;
+  width: 13px;
+  height: 13px;
+}
+
+.la-header__bag-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .la-header__localization select {
