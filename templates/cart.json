@@ -16,7 +16,7 @@
           "type": "_cart-title",
           "static": true,
           "settings": {
-            "title": "Tu carrito está vacio",
+            "title": "Tu carrito",
             "show_count": true,
             "type_preset": "h3",
             "alignment": "left",
