@@ -375,6 +375,10 @@ html[data-luminaura-theme='dark'] main[data-template='collection'] .product-grid
   aspect-ratio: 4 / 5;
 }
 
+.luminaura-featured-card .quick-add__button {
+  opacity: 1 !important;
+}
+
 :is(.product-card, .luminaura-featured-card) .quick-add__button {
   display: grid;
   width: 42px;
