@@ -213,6 +213,7 @@
             "button_EDcTCT": {
               "type": "button",
               "name": "t:names.button",
+              "disabled": true,
               "settings": {
                 "label": "Comprar ahora",
                 "link": "shopify://collections/all",
