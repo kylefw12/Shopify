@@ -16,7 +16,7 @@
           "type": "_cart-title",
           "static": true,
           "settings": {
-            "title": "Your jewellery set",
+            "title": "Tu carrito está vacio",
             "show_count": true,
             "type_preset": "h3",
             "alignment": "left",
