@@ -210,6 +210,21 @@
               },
               "block_order": []
             },
+            "button_EDcTCT": {
+              "type": "button",
+              "name": "t:names.button",
+              "settings": {
+                "label": "Comprar ahora",
+                "link": "shopify://collections/all",
+                "open_in_new_tab": false,
+                "style_class": "button",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            },
             "text_description": {
               "type": "text",
               "name": "Product description",
@@ -241,6 +256,7 @@
             "group_header",
             "variant_picker",
             "buy_buttons",
+            "button_EDcTCT",
             "text_description"
           ]
         }
