@@ -224,6 +224,13 @@
           %}
 
         </div>
+
+        {% content_for 'block',
+          type: 'accelerated-checkout',
+          id: 'accelerated-checkout',
+          can_add_to_cart: can_add_to_cart,
+          form_obj: form
+        %}
       {%- endform -%}
     </product-form-component>
   {%- else -%}
