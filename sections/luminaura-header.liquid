@@ -167,11 +167,19 @@
         </a>
       {% endif %}
 
-      <a class="la-header__bag" href="{{ routes.cart_url }}" aria-label="Carrito{% if cart.item_count > 0 %}, {{ cart.item_count }} artículos{% endif %}">
+      <a
+        class="la-header__bag"
+        href="{{ routes.cart_url }}"
+        aria-label="Carrito{% if cart.item_count > 0 %}, {{ cart.item_count }} artículos{% endif %}"
+        data-luminaura-cart-link
+      >
         <span class="la-header__bag-icon svg-wrapper" aria-hidden="true">
           {{- 'icon-cart.svg' | inline_asset_content -}}
         </span>
-        <span>Carrito{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</span>
+        <span>
+          Carrito
+          <span data-luminaura-cart-count{% if cart.item_count == 0 %} hidden{% endif %}> ({{ cart.item_count }})</span>
+        </span>
       </a>
     </div>
 

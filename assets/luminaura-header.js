@@ -22,3 +22,36 @@ document.addEventListener('keydown', (event) => {
     menu.open = false;
   });
 });
+
+const cartCountSelector = '[data-luminaura-cart-count]';
+const cartLinkSelector = '[data-luminaura-cart-link]';
+
+function updateCartCount(itemCount) {
+  const count = Number(itemCount) || 0;
+
+  document.querySelectorAll(cartCountSelector).forEach((countElement) => {
+    countElement.textContent = ` (${count})`;
+    countElement.hidden = count === 0;
+  });
+
+  document.querySelectorAll(cartLinkSelector).forEach((cartLink) => {
+    cartLink.setAttribute('aria-label', count > 0 ? `Carrito, ${count} artículos` : 'Carrito');
+  });
+}
+
+async function refreshCartCount() {
+  try {
+    const root = window.Shopify?.routes?.root || '/';
+    const response = await fetch(`${root}cart.js`, { credentials: 'same-origin' });
+    if (!response.ok) return;
+
+    const cart = await response.json();
+    updateCartCount(cart.item_count);
+  } catch (error) {
+    // Keep the existing count visible if the cart request is unavailable.
+  }
+}
+
+// The theme dispatches this event for product forms, quick add, cart changes, and the bundle builder.
+document.addEventListener('cart:update', refreshCartCount);
+window.addEventListener('pageshow', refreshCartCount);
