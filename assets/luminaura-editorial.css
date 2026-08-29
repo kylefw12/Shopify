@@ -1234,7 +1234,8 @@ main[data-template="index"] .luminaura-featured__grid {
 
   overflow-x: auto;
 
-  padding-inline: max(20px, var(--page-margin));
+  padding-inline: max(24px, var(--page-margin));
+  scroll-padding-inline: max(24px, var(--page-margin));
 
   scroll-snap-type: inline proximity;
   scrollbar-width: none;
@@ -1273,9 +1274,23 @@ main[data-template="index"] .luminaura-featured-card__meta {
 
     gap: 10px;
 
-    padding-inline: 18px;
+    padding-inline: 20px;
+    scroll-padding-inline: 20px;
   }
 
+}
+
+/* Keep the product rail inset even inside Shopify's Theme Editor preview. */
+.luminaura-featured__grid {
+  padding-inline: max(24px, var(--page-margin));
+  scroll-padding-inline: max(24px, var(--page-margin));
+}
+
+@media screen and (max-width: 749px) {
+  .luminaura-featured__grid {
+    padding-inline: 20px;
+    scroll-padding-inline: 20px;
+  }
 }
 
 /* Full-width collection campaign */
