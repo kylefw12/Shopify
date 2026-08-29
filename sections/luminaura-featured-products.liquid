@@ -37,6 +37,9 @@
                 <span>{% if product.compare_at_price > product.price %}<s>{{ product.compare_at_price | money }}</s> {% endif %}{{ product.price | money }}</span>
               </div>
             </a>
+            {% if product.available %}
+              {% render 'quick-add', product: product, section_id: section.id %}
+            {% endif %}
             {% for product_option in product.options_with_values %}
               {% liquid
                 assign option_name = product_option.name | downcase
